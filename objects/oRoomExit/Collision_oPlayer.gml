@@ -1,0 +1,1 @@
+oGamemaster.startRoomTransition = true;

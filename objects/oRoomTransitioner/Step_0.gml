@@ -1,0 +1,1 @@
+room_advance_transition();

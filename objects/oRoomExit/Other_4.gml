@@ -1,0 +1,1 @@
+hasStartedTransition = false;

@@ -1,0 +1,1 @@
+x = floor(initialX + (initialX - oCameraTest.x) * (movementMultiplier));

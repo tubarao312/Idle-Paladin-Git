@@ -1,0 +1,1 @@
+triggerFinishAnimation = true;
