@@ -263,6 +263,20 @@ function sort_buttons_generate_new_list() {
 	fadingLowCardScale =  1;
 	fadingHighCardScale = 0;
 	
+	scrollBarPercentage = 0;
+	
+	enum SCROLL_BAR_STATE {
+		inactive, // Not usable
+		
+		standard, // Controlled by targetItemRow
+		dragged, // Controls targetItemRow	
+	}
+	
+	scrollBarState = SCROLL_BAR_STATE.standard;
+	scrollBarSprite = sUIInventoryScrollBarStandard;
+	scrollBarY = 0;
+	scrollBarX = 368;
+	
 	shownItemList = shownList;
 }
 sort_buttons_generate_new_list();
@@ -1179,8 +1193,6 @@ function draw_browsing_page() {
 					}
 				}
 			}
-			
-		print(i);
 			
 		surface_reset_target(); }
 		

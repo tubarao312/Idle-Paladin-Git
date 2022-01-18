@@ -16,8 +16,6 @@ if x >= -390 {
 	// Drawing the background page
 	draw_sprite(sUIInventoryBackground, 0, 35 + x, 0 + y);
 	
-	
-	
 	switch (inventoryUIState) { // State Machine
 		case INVENTORY_UI_STATE.browsing: {
 			draw_browsing_page();
@@ -39,6 +37,21 @@ if x >= -390 {
 	// Drawing the scroll bar
 	draw_sprite(sUIInventoryScrollBarBackground, 0, 356 + x, 30 + y);
 	
+	// If the scroll bar is being hovered, then it glows
+	var spriteWidth = sprite_get_width(scrollBarSprite);
+	var spriteHeight = sprite_get_height(scrollBarSprite);
+	
+	cursorInBar = cursor_in_box(scrollBarX + spriteWidth/2 + 1 + x ,
+								60 + scrollBarY + spriteHeight/2 + 1 + y,
+								scrollBarX - spriteWidth/2 - 1 + x,
+								60 + scrollBarY - spriteHeight/2 - 1 + y);
+	
+	var scrollBarSpriteGlowing = (cursorInBar or scrollBarState == SCROLL_BAR_STATE.dragged);
+	if scrollBarSpriteGlowing then cursor_skin(1);
+	draw_sprite(scrollBarSprite, scrollBarSpriteGlowing, scrollBarX + x, 60 + scrollBarY + y);
+	
+	print(scrollBarY);
+	
 	// Drawing New Catch Particles
 	with (oNewCatchParticle) {
 		draw_self();
@@ -51,9 +64,58 @@ surface_reset_target(); }
 // Making Inventory Show
 if keyboard_check_pressed(ord("I")) then showing = true;
 
-// Item Scrolling
+#region Item Scrolling --------------------------------
+
+
+// Scroll Bar Controls
+if scrollBarState != SCROLL_BAR_STATE.inactive {
+	
+	
+	// Entering Dragged State
+	if cursorInBar and oPlayer.inputs.mbLeft[PRESSED] {
+		scrollBarCursorYPrevious = global.cursorY;
+		scrollBarState = SCROLL_BAR_STATE.dragged;
+	}
+	
+	// Leaving Dragged State
+	if scrollBarState == SCROLL_BAR_STATE.dragged and oPlayer.inputs.mbLeft[RELEASED] then scrollBarState = SCROLL_BAR_STATE.standard;
+	
+	if scrollBarState == SCROLL_BAR_STATE.standard { // Bar is following after targetItemRow
+		scrollBarSprite = sUIInventoryScrollBarStandard;
+		
+		scrollBarPercentage = lerp(scrollBarPercentage, targetItemRow / max(1, (totalItemRows - 3)), 0.2);
+		scrollBarPercentage = clamp(scrollBarPercentage, 0, 1);
+		scrollBarY = scrollBarPercentage*106;
+	} else { // Bar is being dragged by mouse
+		scrollBarSprite = sUIInventoryScrollBarDragged;
+		
+		var scrollBarCursorY = global.cursorY;
+		
+		// Detects cursor movement and moves scroll bar accordingly
+		scrollBarY += (scrollBarCursorY - scrollBarCursorYPrevious);
+		scrollBarY = clamp(scrollBarY, 0, 106);
+		scrollBarPercentage = scrollBarY / 106; // Percentage is updated
+		targetItemRow = round(scrollBarPercentage * totalItemRows); // Target Item Row follows percentage
+		
+		
+		
+		scrollBarCursorYPrevious = scrollBarCursorY;
+	}
+	
+} else {
+	scrollBarSprite = sUIInventoryScrollBarStandard;
+}
+
+// If the scroll bar is being hovered, then it glows
+var scrollBarSpriteGlowing = (scrollBarState != SCROLL_BAR_STATE.standard or cursorInBar);
+draw_sprite(scrollBarSprite, scrollBarSpriteGlowing, scrollBarX + x, 50 + scrollBarY + y);
+
+
+// Wheel Controls
 if mouse_wheel_down() then targetItemRow++;
 if mouse_wheel_up() then targetItemRow--;
+
+// Logic
 targetItemRow = clamp(targetItemRow, 0, max(0, totalItemRows-3));
 
 scrollTargetY = (targetItemRow) * 50;
@@ -64,7 +126,6 @@ currentItemRow = round(scrollY / 50);
 if (previousItemRow > currentItemRow) {
 	fadingLowCardScale = 1;
 	fadingHighCardScale = 0;
-	print("Up");
 	goingUp = true;
 	alarm[3] = 7;
 	alarm[4] = 15;
@@ -72,11 +133,9 @@ if (previousItemRow > currentItemRow) {
 	fadingLowCardScale = 1;
 	fadingHighCardScale = 1;
 	goingUp = false;
-	print("Down");
 	alarm[3] = 3;
 	alarm[4] = 15;
 }
-
 
 
 if alarm[3] > 0 {
@@ -87,7 +146,7 @@ if alarm[3] > 0 {
 
 previousItemRow = currentItemRow;
 
-
+#endregion ----------------------------------------------
 
 
 // Making Mana and HP Bars Disappear
