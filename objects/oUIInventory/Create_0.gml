@@ -108,6 +108,7 @@ itemGrid.step = function() { // Logic + Drawing
 		itemGrid.goingUp = (itemGrid.previousItemRow > itemGrid.currentItemRow);
 		itemGrid.zoomCardScale = !itemGrid.goingUp;
 		alarm[3] = 15;
+		alarm[4] = 15;
 		
 		itemGrid.previousItemRow = itemGrid.currentItemRow;
 	}
@@ -166,8 +167,6 @@ itemGrid.reset = function() { // Resets Item Grid to Baseline
 #region Scroll Bar Setup --------------------------------------------------------------
 
 enum SCROLL_BAR_STATE {
-		zero,
-		
 		// Being controlled by the item grid
 		standard,
 		standardStart,
@@ -208,7 +207,7 @@ scrollBar = {
 };
 
 scrollBar.draw = function() { // Draws Itself
-	draw_sprite(scrollBar.sprite_index, scrollBar.image_index, scrollBar.baseX, scrollBar.baseY + scrollBar.scrollY);
+	draw_sprite(scrollBar.sprite_index, scrollBar.image_index, scrollBar.baseX + x, scrollBar.baseY + scrollBar.scrollY + y);
 }
 
 scrollBar.step = function() { // Step Function
@@ -228,7 +227,7 @@ scrollBar.step = function() { // Step Function
 	var released = oPlayer.inputs.mbLeft[RELEASED];
 	
 	// State Machine
-	var generalState = ceil(scrollBar.state/3);
+	var generalState = floor(scrollBar.state/3) * 3;
 	var specificState = scrollBar.state;
 	
 	switch generalState {
@@ -246,16 +245,16 @@ scrollBar.step = function() { // Step Function
 			scrollBar.scrollY = percent * scrollBar.scrollMaxY;
 			
 			scrollBar.scrollPercentage = percent;
-			
+		
 			// Entering Dragged State
 			if hovered and pressed then scrollBar.state = SCROLL_BAR_STATE.draggedStart;
-		
 		break; }
 		case SCROLL_BAR_STATE.dragged: { // Controlling the item grid, controlled by cursor
 			if specificState == SCROLL_BAR_STATE.draggedStart { // Entering state
 				scrollBar.sprite_index = sUIInventoryScrollBarDragged;
 				scrollBar.state = SCROLL_BAR_STATE.dragged;
 				scrollBar.cursorYPrevious = global.cursorY;
+				
 			}
 			
 			// Making the bar follow the cursor
@@ -271,7 +270,6 @@ scrollBar.step = function() { // Step Function
 		
 			// Leaving the Dragged State
 			if released then scrollBar.state = SCROLL_BAR_STATE.standardStart;
-			
 		break; }
 		case SCROLL_BAR_STATE.inactive: { // Not being used, can't be interacted with
 			if specificState == SCROLL_BAR_STATE.inactiveStart {
@@ -285,6 +283,7 @@ scrollBar.step = function() { // Step Function
 	
 	// Image Index
 	scrollBar.image_index = (hovered or generalState == SCROLL_BAR_STATE.dragged);
+	if hovered or generalState == SCROLL_BAR_STATE.dragged then cursor_skin(1);
 	
 }
 
