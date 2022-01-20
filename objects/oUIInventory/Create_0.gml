@@ -1,4 +1,3 @@
-x = -30;
 y = 0;
 
 #region VFX
@@ -69,9 +68,232 @@ enum BROWSE_UI_STATE { // Browsing
 	standard,
 }
 
-browseUIState = BROWSE_UI_STATE.standard;
+#endregion ----------------------------------------------------------------------------
+
+#region Item Grid Setup----------------------------------------------------------------
+
+itemGrid = {
+	// Item Rows
+	totalItemRows: 0,
+	currentItemRow: 0,
+	previousItemRow: 0,
+	targetItemRow: 0,
+	
+	// Coordinates for items being drawn
+	scrollY: 0,
+	scrollYTarget: 0,
+	
+	// Zooming in Effect
+	zoomCardScale: 0,
+	
+	// Whether cards are going up or down
+	goingUp: true,
+	
+	// Shown Item List
+	shownItemList: noone,
+};
+
+itemGrid.step = function() { // Logic + Drawing
+	// Controls
+	if mouse_wheel_up() then itemGrid.scrollUp();
+	else if mouse_wheel_down() then itemGrid.scrollDown();
+	
+	// Following the Target Item Row
+	itemGrid.targetItemRow = clamp(itemGrid.targetItemRow, 0, max(0, itemGrid.totalItemRows - 3));
+	itemGrid.scrollYTarget = itemGrid.targetItemRow * 50;
+	itemGrid.scrollY = lerp(itemGrid.scrollY, itemGrid.scrollYTarget, 0.2);
+	itemGrid.currentItemRow = round(itemGrid.scrollY / 50);
+	
+	if itemGrid.previousItemRow != itemGrid.currentItemRow {
+		itemGrid.goingUp = (itemGrid.previousItemRow > itemGrid.currentItemRow);
+		itemGrid.zoomCardScale = !itemGrid.goingUp;
+		alarm[3] = 15;
+		
+		itemGrid.previousItemRow = itemGrid.currentItemRow;
+	}
+	
+	if alarm[3] <= 0 then itemGrid.zoomCardScale = lerp(itemGrid.zoomCardScale, 0, 0.2);
+	else itemGrid.zoomCardScale = lerp(itemGrid.zoomCardScale, itemGrid.goingUp, 0.25 - !itemGrid.goingUp*0.15);
+	
+	// Go through all item cards and draw / process them
+	var i;
+	for (i = max(0, itemGrid.currentItemRow*6 - 6); i < min(itemGrid.currentItemRow*6 + 24, ds_list_size(itemGrid.shownItemList)); i++) {
+		var item = itemGrid.shownItemList[|i];
+		var horizontalPos = i % 6;
+		var verticalPos = floor(i / 6);
+		
+		if (verticalPos - itemGrid.currentItemRow >= -1 and verticalPos - itemGrid.currentItemRow <= 5) {
+			var X = 105 + horizontalPos*43 + x;
+			var Y = 70 + (verticalPos - itemGrid.currentItemRow + !itemGrid.goingUp)*50 - itemGrid.scrollY % 50 + y;
+			
+			if (Y > 65 + y) and (Y < 175 + y) step_item_card(item, X, Y);
+			else {
+				var cardScale; 
+				if (Y < 65 + y) then cardScale = itemGrid.zoomCardScale;
+				else cardScale = 1;
+				
+				draw_item_card(item, false, X, Y, cardScale);
+			}
+			
+			draw_set_font(global.fontHopeCommon);
+		}
+	}
+}
+
+itemGrid.scrollUp = function() { // Scroll Up
+	itemGrid.targetItemRow --;
+}
+
+itemGrid.scrollDown = function() { // Scroll Down
+	itemGrid.targetItemRow ++;
+}
+
+itemGrid.reset = function() { // Resets Item Grid to Baseline
+	itemGrid.totalItemRows = ceil(ds_list_size(itemGrid.shownItemList) / 6);
+	itemGrid.currentItemRow = 0;
+	itemGrid.previousItemRow = 0;
+	itemGrid.targetItemRow = 0;
+
+	itemGrid.scrollYTarget = 0;
+
+	itemGrid.zoomCardScale = 0;
+
+	itemGrid.goingUp = true;
+}
 
 #endregion ----------------------------------------------------------------------------
+
+#region Scroll Bar Setup --------------------------------------------------------------
+
+enum SCROLL_BAR_STATE {
+		zero,
+		
+		// Being controlled by the item grid
+		standard,
+		standardStart,
+		standardFinish,
+		
+		// Controlling the item grid
+		dragged,
+		draggedStart,
+		draggedFinish,
+		
+		// Not active
+		inactive,
+		inactiveStart,
+		inactiveFinish,
+}
+
+scrollBar = {
+	// Where the bar is initiallity drawn at
+	baseY: 60, 
+	baseX: 368,
+	
+	// Where the bar can go to
+	scrollY: 0,
+	scrollMaxY: 106,
+	
+	// State Machine
+	state: SCROLL_BAR_STATE.standardStart,
+	
+	// Percentage (From 0 to 1)
+	scrollPercentage: 0,
+	
+	// Sprite Index
+	sprite_index: sUIInventoryScrollBarStandard,
+	image_index: 0,
+	
+	// Tracking cursor movements
+	cursorYPrevious: 0,
+};
+
+scrollBar.draw = function() { // Draws Itself
+	draw_sprite(scrollBar.sprite_index, scrollBar.image_index, scrollBar.baseX, scrollBar.baseY + scrollBar.scrollY);
+}
+
+scrollBar.step = function() { // Step Function
+	// Calculating the hitbox for the scrollbar
+	var spriteW = sprite_get_width(scrollBar.sprite_index);
+	var spriteH = sprite_get_height(scrollBar.sprite_index);
+	
+	var X1 = scrollBar.baseX + spriteW/2 + 1 + x;
+	var X2 = scrollBar.baseX - spriteW/2 - 1 + x;
+	
+	var Y1 = scrollBar.baseY + scrollBar.scrollY + spriteH/2 + 1 + y;
+	var Y2 = scrollBar.baseY + scrollBar.scrollY - spriteH/2 - 1 + y;
+	
+	// Possible Inputs
+	var hovered = cursor_in_box(X1, Y1, X2, Y2);
+	var pressed = hovered and oPlayer.inputs.mbLeft[PRESSED];
+	var released = oPlayer.inputs.mbLeft[RELEASED];
+	
+	// State Machine
+	var generalState = ceil(scrollBar.state/3);
+	var specificState = scrollBar.state;
+	
+	switch generalState {
+		case SCROLL_BAR_STATE.standard: { // Being controlled by the item grid
+			if specificState == SCROLL_BAR_STATE.standardStart { // Entering state
+				scrollBar.sprite_index = sUIInventoryScrollBarStandard;
+				scrollBar.state = SCROLL_BAR_STATE.standard;
+			}
+			
+			// Making the bar follow the target item row
+			var percent = scrollBar.scrollPercentage;
+			
+			percent = lerp(percent, itemGrid.targetItemRow / max(1, (itemGrid.totalItemRows - 3)), 0.2);
+			percent = clamp(percent, 0, 1);
+			scrollBar.scrollY = percent * scrollBar.scrollMaxY;
+			
+			scrollBar.scrollPercentage = percent;
+			
+			// Entering Dragged State
+			if hovered and pressed then scrollBar.state = SCROLL_BAR_STATE.draggedStart;
+		
+		break; }
+		case SCROLL_BAR_STATE.dragged: { // Controlling the item grid, controlled by cursor
+			if specificState == SCROLL_BAR_STATE.draggedStart { // Entering state
+				scrollBar.sprite_index = sUIInventoryScrollBarDragged;
+				scrollBar.state = SCROLL_BAR_STATE.dragged;
+				scrollBar.cursorYPrevious = global.cursorY;
+			}
+			
+			// Making the bar follow the cursor
+			scrollBar.scrollY += (global.cursorY - scrollBar.cursorYPrevious);
+			scrollBar.scrollY = clamp(scrollBar.scrollY, 0, 106);
+			scrollBar.scrollPercentage = scrollBar.scrollY / scrollBar.scrollMaxY; // Percentage is updated
+			
+			// Tracking previous cursor position
+			scrollBar.cursorYPrevious = global.cursorY;
+			
+			// Making the item grid follow the bar
+			itemGrid.targetItemRow = round(scrollBar.scrollPercentage * itemGrid.totalItemRows); // Target Item Row follows percentage
+		
+			// Leaving the Dragged State
+			if released then scrollBar.state = SCROLL_BAR_STATE.standardStart;
+			
+		break; }
+		case SCROLL_BAR_STATE.inactive: { // Not being used, can't be interacted with
+			if specificState == SCROLL_BAR_STATE.inactiveStart {
+				scrollBar.sprite_index = sUIInventoryScrollBarStandard;
+				scrollBar.state = SCROLL_BAR_STATE.inactive;
+			}
+		
+		break; }
+		
+	}
+	
+	// Image Index
+	scrollBar.image_index = (hovered or generalState == SCROLL_BAR_STATE.dragged);
+	
+}
+
+scrollBar.reset = function () { // Resets Variables and state
+	scrollBar.state = SCROLL_BAR_STATE.standardStart;
+	scrollBar.scrollY = 0;
+}
+
+#endregion ---------------------------------------------------------------
 
 #region Button Shenanigans
 
@@ -252,33 +474,12 @@ function sort_buttons_generate_new_list() {
 		}
 	}
 	
-	totalItemRows = ceil(ds_list_size(shownList) / 6);
-	currentItemRow =	0;
-	previousItemRow =	0;
-	targetItemRow =		0;
-	scrollY =			0;
-	scrollTargetY =		0;
+	itemGrid.shownItemList = shownList;
 	
-	goingUp =			true;
-	fadingLowCardScale =  1;
-	fadingHighCardScale = 0;
-	
-	scrollBarPercentage = 0;
-	
-	enum SCROLL_BAR_STATE {
-		inactive, // Not usable
-		
-		standard, // Controlled by targetItemRow
-		dragged, // Controls targetItemRow	
-	}
-	
-	scrollBarState = SCROLL_BAR_STATE.standard;
-	scrollBarSprite = sUIInventoryScrollBarStandard;
-	scrollBarY = 0;
-	scrollBarX = 368;
-	
-	shownItemList = shownList;
+	itemGrid.reset();
+	scrollBar.reset();
 }
+
 sort_buttons_generate_new_list();
 
 #endregion
@@ -1173,26 +1374,7 @@ function draw_browsing_page() {
 		surface_set_target(surItemGridShadowCasters) { // Things that cast shadows
 			draw_clear_alpha(c_white, 0);
 			
-			var i;
-			for (i = max(0, currentItemRow*6 - 6); i < min(currentItemRow*6 + 24, ds_list_size(shownItemList)); i++) {
-				var item = shownItemList[|i];
-				var horizontalPos = i % 6;
-				var verticalPos = floor(i/6);
-				
-				if (verticalPos - currentItemRow >= -1 and verticalPos - currentItemRow <= 5) {
-					var X = 105 + horizontalPos*43 + x;
-					var Y = 70 + (verticalPos - currentItemRow + !goingUp)*50 - scrollY % 50 + y;
-					
-					if (Y > 65 + y) and (Y < 175 + y) step_item_card(item, X, Y);
-					else {
-						var cardScale; 
-						if (Y < 65 + y) then cardScale = fadingHighCardScale;
-						else cardScale = fadingLowCardScale;
-						
-						draw_item_card(item, false, X, Y, cardScale);
-					}
-				}
-			}
+			itemGrid.step();
 			
 		surface_reset_target(); }
 		
@@ -1234,7 +1416,7 @@ function draw_browsing_page() {
 	draw_surface(surFinalBrowse, 0, 0);
 }
 
-fadingCardScale = 0;
+
 
 #endregion ---------------------------------------------------------------------------
 
