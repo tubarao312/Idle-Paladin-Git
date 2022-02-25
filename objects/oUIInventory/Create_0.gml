@@ -70,7 +70,28 @@ enum BROWSE_UI_STATE { // Browsing
 
 #endregion ----------------------------------------------------------------------------
 
-#region Item Grid Setup----------------------------------------------------------------
+#region Item Grid Setup ---------------------------------------------------------------
+
+cardSelectedArrowSprites = [
+	sItemCardSelectedCommon,
+	sItemCardSelectedUncommon,
+	sItemCardSelectedRare,
+	sItemCardSelectedEpic,
+	sItemCardSelectedLegendary,
+	sItemCardSelectedMythical];
+	
+enum SELECTED_CARD_STATE {
+	unselectedUnlocked,
+	unselectedLocked,
+	selectedUnlocked,
+	selectedLocked,	
+}
+
+enum ITEM_GRID_STATE {
+	browse,
+	select,
+	
+}
 
 itemGrid = {
 	// Item Rows
@@ -91,9 +112,19 @@ itemGrid = {
 	
 	// Shown Item List
 	shownItemList: noone,
+	
+	// Mass Selection
+	selectedItemArray: [],
+	
+	// State Machine
+	state: ITEM_GRID_STATE.browse,
+	statePrevious: ITEM_GRID_STATE.select,
+	
 };
 
 itemGrid.step = function() { // Logic + Drawing
+	var i;
+	
 	// Controls
 	if mouse_wheel_up() then itemGrid.scrollUp();
 	else if mouse_wheel_down() then itemGrid.scrollDown();
@@ -116,27 +147,50 @@ itemGrid.step = function() { // Logic + Drawing
 	if alarm[3] <= 0 then itemGrid.zoomCardScale = lerp(itemGrid.zoomCardScale, 0, 0.2);
 	else itemGrid.zoomCardScale = lerp(itemGrid.zoomCardScale, itemGrid.goingUp, 0.25 - !itemGrid.goingUp*0.15);
 	
+	// If a selected item is found, then 'select' mode is instead selected
+	itemGrid.state = ITEM_GRID_STATE.browse; 
+	for (i = 0; i < ds_list_size(itemGrid.shownItemList); i++) {
+		if itemGrid.selectedItemArray[i] == SELECTED_CARD_STATE.selectedUnlocked then itemGrid.state = ITEM_GRID_STATE.select;
+	}
+	
+	
 	// Go through all item cards and draw / process them
-	var i;
 	for (i = max(0, itemGrid.currentItemRow*6 - 6); i < min(itemGrid.currentItemRow*6 + 24, ds_list_size(itemGrid.shownItemList)); i++) {
 		var item = itemGrid.shownItemList[|i];
 		var horizontalPos = i % 6;
 		var verticalPos = floor(i / 6);
 		
+		// Drawing 5 rows of items
 		if (verticalPos - itemGrid.currentItemRow >= -1 and verticalPos - itemGrid.currentItemRow <= 5) {
 			var X = 105 + horizontalPos*43 + x;
 			var Y = 70 + (verticalPos - itemGrid.currentItemRow + !itemGrid.goingUp)*50 - itemGrid.scrollY % 50 + y;
 			
-			if (Y > 65 + y) and (Y < 175 + y) step_item_card(item, X, Y);
-			else {
+			if (Y > 65 + y) and (Y < 175 + y) { // Items are interactable
+				var hovered = step_item_card(item, X, Y);
+				if floor(itemGrid.selectedItemArray[i]/2) then draw_sprite_ext(cardSelectedArrowSprites[item.bp.rarity], round(sin(current_time/150) + 1), X, Y, 1, 1, 0, c_white, 1);
+				
+				if hovered and oPlayer.inputs.mbRight[HELD] and !item.locked { // Selecting the item
+					if itemGrid.selectedItemArray[i] == SELECTED_CARD_STATE.selectedUnlocked then itemGrid.selectedItemArray[i] = SELECTED_CARD_STATE.unselectedLocked;
+					if itemGrid.selectedItemArray[i] == SELECTED_CARD_STATE.unselectedUnlocked then itemGrid.selectedItemArray[i] = SELECTED_CARD_STATE.selectedLocked;
+				}
+				
+				if !oPlayer.inputs.mbRight[HELD] { // Only after mbRight is released can the selection be changed again
+					if itemGrid.selectedItemArray[i] == SELECTED_CARD_STATE.selectedLocked then itemGrid.selectedItemArray[i] = SELECTED_CARD_STATE.selectedUnlocked;
+					if itemGrid.selectedItemArray[i] == SELECTED_CARD_STATE.unselectedLocked then itemGrid.selectedItemArray[i] = SELECTED_CARD_STATE.unselectedUnlocked;
+				}
+				
+				if item.locked then itemGrid.selectedItemArray[i] = SELECTED_CARD_STATE.unselectedUnlocked;
+				
+			} else { // Just drawing the items
 				var cardScale; 
 				if (Y < 65 + y) then cardScale = itemGrid.zoomCardScale;
 				else cardScale = 1;
 				
+				if floor(itemGrid.selectedItemArray[i]/2) then draw_sprite_ext(cardSelectedArrowSprites[item.bp.rarity], round(sin(current_time/150) + 1), X, Y, cardScale, cardScale, 0, c_white, 1);
 				draw_item_card(item, false, X, Y, cardScale);
 			}
 			
-			draw_set_font(global.fontHopeCommon);
+			
 		}
 	}
 }
@@ -160,6 +214,11 @@ itemGrid.reset = function() { // Resets Item Grid to Baseline
 	itemGrid.zoomCardScale = 0;
 
 	itemGrid.goingUp = true;
+	
+	itemGrid.selectedItemArray = array_create(ds_list_size(itemGrid.shownItemList), SELECTED_CARD_STATE.unselectedUnlocked);
+	
+	itemGrid.state = ITEM_GRID_STATE.browse;
+	itemGrid.statePrevious = itemGrid.state + 1;
 }
 
 #endregion ----------------------------------------------------------------------------
@@ -294,7 +353,9 @@ scrollBar.reset = function () { // Resets Variables and state
 
 #endregion ---------------------------------------------------------------
 
-#region Button Shenanigans
+#region Button Shenanigans ------------------------------------------------------------
+
+// General Button Functions
 
 function button_create(normalSprite, glowingSprite, normalFont, glowingFont, text, textOffsetX, textOffsetY) {
 	var button = {};
@@ -374,6 +435,12 @@ function step_button(button) {
 	}
 }
 
+// Buttons for each page
+
+#region Inspect Page Buttons
+
+#region Setup
+
 // Exit Button
 butExit = button_create(sUIInventoryExitButton, sUIInventoryExitButtonGlowing, noone, noone, noone, 0, 0);
 
@@ -387,7 +454,7 @@ butUpgrade = button_create(sUIInventoryUpgradeButton, sUIInventoryUpgradeButtonG
 				global.fontHopeUpgradeBut, global.fontHopeUpgradeButGlow, 
 				"Upgrade", -1, -4);
 				
-// Salvage Button
+// Salvage Button (Inspect)
 butSalvage = button_create(sUIInventorySalvageButton, sUIInventorySalvageButtonGlowing,
 				global.fontHopeSalvageBut, global.fontHopeSalvageButGlow, 
 				"Salvage", -1, -4);
@@ -396,6 +463,8 @@ butLock = button_create(sUIInventoryLockButtonUnlocked, sUIInventoryLockButtonUn
 butBack = button_create(sUIInventoryBackButton, sUIInventoryBackButtonGlowing, noone, noone, noone, 0, 0);
 
 inspectLowerButtons = [butEquip, butUpgrade, butSalvage, butLock, butBack];
+
+#endregion
 
 function inspect_buttons_reset() {
 	var i;
@@ -413,7 +482,13 @@ function inspect_buttons_reset() {
 }
 inspect_buttons_reset();
 
-// Sorting ------------
+#endregion
+
+#region Browse Page Buttons
+
+#region Sort Buttons
+
+#region Setup
 var normalFont = global.fontSinsSortButton;
 var glowingFont = global.fontSinsSortButtonGlow;
 
@@ -438,13 +513,24 @@ butSort3.pressedCooldown = 10;
 butSort3.optionSelected = 0; // Selected Filter Within Array Below
 butSort3.textOptions = ["By Date", "A-Z", "By Level", "By Rarity"];
 
-function sort_buttons_reset() {
-	butSort1.optionSelected = 0;
-	butSort2.optionSelected = 0;
-	butSort3.optionSelected = 0;
-}
+sortButtonArray = [butSort1, butSort2, butSort3];
 
-function sort_buttons_generate_new_list() {
+#endregion
+
+function sort_buttons_reset() { // Resets options
+	var i;
+	
+	for (i = 0; i < array_length(sortButtonArray); i++) {
+		var button = sortButtonArray[i];
+		
+		button.optionSelected = 0;
+		button.shouldDisappear = true;
+		button.ySpd = 0;
+	}
+}
+sort_buttons_reset();
+
+function sort_buttons_generate_new_list() { // Regens lists based on selected options
 	var shownList;
 	var i;
 			
@@ -483,7 +569,40 @@ sort_buttons_generate_new_list();
 
 #endregion
 
-#region Perk Icons
+#region Mass Select Buttons
+
+#region Setup
+
+butSalvageBrowse = button_create(sUIInventorySalvageButton, sUIInventorySalvageButtonGlowing,
+				global.fontHopeSalvageBut, global.fontHopeSalvageButGlow, 
+				"Salvage", -1, -4);
+
+butBackBrowse = button_create(sUIInventoryBackButton, sUIInventoryBackButtonGlowing, noone, noone, noone, 0, 0);
+
+massSelectButtonArray = [butSalvageBrowse, butBackBrowse];
+
+#endregion
+
+function mass_select_button_reset() {
+	var i;
+	
+	for (i = 0; i < array_length(massSelectButtonArray); i++) {
+		var button = massSelectButtonArray[i];
+		
+		button.ySpd = 0;
+		button.shouldDisappear = true;
+	}
+	
+}
+mass_select_button_reset();
+
+#endregion
+
+#endregion
+
+#endregion ----------------------------------------------------------------------------
+
+#region Perk Icons --------------------------------------------------------------------
 
 function perk_icon_create(sprite) {
 	var icon = {};
@@ -1117,6 +1236,7 @@ function draw_inspect_page(item) {
 			var button = inspectLowerButtons[i];
 			step_button(button);
 			
+			
 			button.ySpd = lerp(button.ySpd, ((182 + y + button.shouldDisappear * 50) - button.y) / 2, 0.2); 
 			button.y += button.ySpd;
 		}
@@ -1267,7 +1387,7 @@ function draw_item_card(item, glowing, X, Y, scale) {
 	}
 }
 
-function step_item_card(item, X, Y) {
+function step_item_card(item, X, Y) { // Returns true if hovered
 	var hovered = cursor_in_box(X - 19, Y - 24, X + 19, Y + 24);
 	if hovered then cursor_skin(1);
 	
@@ -1291,9 +1411,12 @@ function step_item_card(item, X, Y) {
 	}
 
 	draw_item_card(item, hovered, X, Y, 1);
+	
+	return hovered;
 }
 
 function draw_browsing_page() {
+	var i;
 	var surfaceToReturnTo = surface_get_target();
 	surface_reset_target();
 	
@@ -1301,18 +1424,70 @@ function draw_browsing_page() {
 		if !surface_exists(surUpperFrameShadowCasters) then surUpperFrameShadowCasters = surface_create(global.windowW, global.windowH);
 		surface_set_target(surUpperFrameShadowCasters) { // Things that cast shadows
 			draw_clear_alpha(c_white, 0);
-		
-			// Buttons
-			var buttons = [butSort1, butSort2, butSort3];
-			butSort1.x = 208 + x;
-			butSort2.x = 262 + x;
-			butSort3.x = 318 + x;
+			
+			// Butons Popping Up
+			if itemGrid.statePrevious != itemGrid.state {
+				alarm[5] = 30;
+			}
+			
+			itemGrid.statePrevious = itemGrid.state;
+			
+			if alarm[5] >= 0 then switch itemGrid.state { 
+				case ITEM_GRID_STATE.browse: { // Animations for starting browse animation
+					switch alarm[5] {
+						case 25: butBackBrowse.shouldDisappear = true; break;
+						case 20: butSalvageBrowse.shouldDisappear = true; break;
+						case 15: butSort1.shouldDisappear = false; break;
+						case 10: butSort2.shouldDisappear = false; break;
+						case 5:  butSort3.shouldDisappear = false; break;
+					} break; }
+				case ITEM_GRID_STATE.select: { // Animations for starting select animation
+					switch alarm[5] {
+						case 25: butSort1.shouldDisappear = true; break;
+						case 20: butSort2.shouldDisappear = true; break;
+						case 15: butSort3.shouldDisappear = true; break;
+						case 10: butBackBrowse.shouldDisappear = false; break;
+						case 5: butSalvageBrowse.shouldDisappear = false; break;
+				 } break; }
+			}
+			
+			// Mass Select Buttons
+			var buttons = massSelectButtonArray;
+			buttons[0].x = 314 + x;
+			buttons[1].x = 269 + x;
 			
 			for (i = 0; i < array_length(buttons); i++) {
 				var button = buttons[i];
 				
 				step_button(button);
-				button.y = 23 + y;
+				button.ySpd = lerp(button.ySpd, ((23 + y - button.shouldDisappear * 50) - button.y) / 2, 0.2); 
+				button.y += button.ySpd;
+				
+			}
+			
+			if butBackBrowse.pressed { // Leave inspect state
+				itemGrid.state = ITEM_GRID_STATE.browse;
+				
+				for (i = 0; i < array_length(itemGrid.selectedItemArray); i++) {
+					itemGrid.selectedItemArray[i] = SELECTED_CARD_STATE.unselectedUnlocked;
+				}
+			}
+			
+			if butSalvageBrowse.pressed { // Mass Salvage
+			}
+			
+			// Sort Buttons
+			var buttons = sortButtonArray;
+			buttons[0].x = 208 + x;
+			buttons[1].x = 262 + x;
+			buttons[2].x = 318 + x;
+			
+			for (i = 0; i < array_length(buttons); i++) {
+				var button = buttons[i];
+				
+				step_button(button);
+				button.ySpd = lerp(button.ySpd, ((23 + y - button.shouldDisappear * 50) - button.y) / 2, 0.2); 
+				button.y += button.ySpd;
 				
 				if button.pressed { // Selecting New Filter Option
 					button.pressed = false;
@@ -1324,7 +1499,6 @@ function draw_browsing_page() {
 					sort_buttons_generate_new_list();
 				}
 			}
-			
 			
 			if inspectedItem != noone { // Drawing Inspected Item Name
 				var rarity = global.rarityArray[inspectedItem.bp.rarity];
@@ -1414,8 +1588,6 @@ function draw_browsing_page() {
 	surface_set_target(surfaceToReturnTo);
 	draw_surface(surFinalBrowse, 0, 0);
 }
-
-
 
 #endregion ---------------------------------------------------------------------------
 

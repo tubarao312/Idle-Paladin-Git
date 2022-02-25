@@ -59,6 +59,12 @@ if keyboard_check_pressed(ord("I")) then showing = true;
 global.showHUD = !showing;
 
 if showing then xTarget = -42;
-else xTarget = -400;
+else {
+	alarm[5] = 30;
+	itemGrid.state = ITEM_GRID_STATE.browse;
+	itemGrid.reset();
+	
+	xTarget = -400;
+}
 
 x = lerp(x, xTarget, 0.1);

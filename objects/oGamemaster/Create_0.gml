@@ -297,6 +297,17 @@ for (i = 0; i < 60; i++) {
 
 #endregion
 
+#region Resource System --------------------------------------------------------#
+
+global.resourceBPLIst = ds_list_create();
+global.resourceBPMap = ds_map_create();
+
+
+
+
+
+#endregion
+
 #region Rarity System ----------------------------------------------------------#
 
 global.rarityArray = [];

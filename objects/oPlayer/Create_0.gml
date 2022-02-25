@@ -534,6 +534,7 @@ function inputs_component(inputs) { // Processing the inputs
 	inputs.dir = inputs.right[HELD] - inputs.left[HELD];
 
 	inputs.mbLeft = input(mb_left);
+	inputs.mbRight = input(mb_right);
 	
 	return inputs;
 }
