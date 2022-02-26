@@ -15,7 +15,7 @@ global.checkpointY = y;
 
 
 // Tracking Camera to player
-with oCameraTest {
+with oCamera {
 	view_enabled = true;
 	view_visible[0] = true;
 

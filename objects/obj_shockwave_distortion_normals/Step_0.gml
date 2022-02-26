@@ -1,7 +1,7 @@
 
-if instance_exists(oCameraTest) {
-	x = oCameraTest.x;
-	y = oCameraTest.y;
+if instance_exists(oCamera) {
+	x = oCamera.x;
+	y = oCamera.y;
 }
 
 view_w			= global.windowW;

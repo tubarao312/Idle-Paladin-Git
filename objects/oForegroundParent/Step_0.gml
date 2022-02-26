@@ -1,1 +1,1 @@
-x = floor(initialX + (initialX - oCameraTest.x) * (movementMultiplier));
+x = floor(initialX + (initialX - oCamera.x) * (movementMultiplier));

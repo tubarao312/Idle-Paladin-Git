@@ -78,7 +78,7 @@ function room_draw_transition() {
 						draw_clear_alpha(rt.color, 1);
 						gpu_set_blendmode(bm_subtract);
 
-						draw_circle(oPlayer.x - oCameraTest.x + 10, oPlayer.y - oCameraTest.y + 10, round((1 - animationPercentage) * global.windowW / 5)*5, false);
+						draw_circle(oPlayer.x - oCamera.x + 10, oPlayer.y - oCamera.y + 10, round((1 - animationPercentage) * global.windowW / 5)*5, false);
 						
 						gpu_set_blendmode(bm_normal);
 					break; }

@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Ability Bar",
-    "path": "folders/Sprites/HUD & UI/Ability Bar.yy",
+    "name": "Old",
+    "path": "folders/Sprites/HUD & UI/Ability Bar/Old.yy",
   },
   "resourceVersion": "1.0",
   "name": "sHUDAbilitiesOutline",

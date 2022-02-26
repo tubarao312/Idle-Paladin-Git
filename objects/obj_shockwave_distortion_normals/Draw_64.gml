@@ -36,8 +36,8 @@ if (wave_list_size <= 0) {
 			this_wave = list_of_waves[|w];
 			
 			draw_sprite_ext(sprite, this_wave[|waveparam.sprite],
-							(this_wave[|waveparam.xx] - oCameraTest.x+0*global.windowW/2) * srf_waves_scale,
-							(this_wave[|waveparam.yy] - oCameraTest.y+0*global.windowH/2) * srf_waves_scale,
+							(this_wave[|waveparam.xx] - oCamera.x+0*global.windowW/2) * srf_waves_scale,
+							(this_wave[|waveparam.yy] - oCamera.y+0*global.windowH/2) * srf_waves_scale,
 							this_wave[|waveparam.scale] * srf_waves_scale * this_wave[|waveparam.multiply],
 							this_wave[|waveparam.scale] * srf_waves_scale * this_wave[|waveparam.multiply],
 							0, c_white, this_wave[|waveparam.alpha]*this_wave[|waveparam.strength]);
