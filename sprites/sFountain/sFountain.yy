@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFountain","path":"sprites/sFountain/sFountain.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFountain",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryScrollBarStandard","path":"sprites/sUIInventoryScrollBarStandard/sUIInventoryScrollBarStandard.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryScrollBarStandard",
     "tags": [],
     "resourceType": "GMSequence",

@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventorySetProgressCirclesLegendary","path":"sprites/sUIInventorySetProgressCirclesLegendary/sUIInventorySetProgressCirclesLegendary.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventorySetProgressCirclesLegendary",
     "tags": [],
     "resourceType": "GMSequence",

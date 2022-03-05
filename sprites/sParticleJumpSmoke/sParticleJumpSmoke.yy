@@ -91,7 +91,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sParticleJumpSmoke","path":"sprites/sParticleJumpSmoke/sParticleJumpSmoke.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sParticleJumpSmoke",
     "tags": [],
     "resourceType": "GMSequence",

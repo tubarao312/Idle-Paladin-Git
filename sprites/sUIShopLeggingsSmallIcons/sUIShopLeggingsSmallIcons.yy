@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopLeggingsSmallIcons","path":"sprites/sUIShopLeggingsSmallIcons/sUIShopLeggingsSmallIcons.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopLeggingsSmallIcons",
     "tags": [],
     "resourceType": "GMSequence",

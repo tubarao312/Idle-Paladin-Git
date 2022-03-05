@@ -151,7 +151,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIMenuButtons","path":"sprites/sUIMenuButtons/sUIMenuButtons.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIMenuButtons",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDesertBG5","path":"sprites/sDesertBG5/sDesertBG5.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDesertBG5",
     "tags": [],
     "resourceType": "GMSequence",

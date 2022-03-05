@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryEquipButton","path":"sprites/sUIInventoryEquipButton/sUIInventoryEquipButton.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryEquipButton",
     "tags": [],
     "resourceType": "GMSequence",

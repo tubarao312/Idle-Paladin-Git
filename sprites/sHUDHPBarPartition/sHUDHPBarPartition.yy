@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDHPBarPartition","path":"sprites/sHUDHPBarPartition/sHUDHPBarPartition.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDHPBarPartition",
     "tags": [],
     "resourceType": "GMSequence",

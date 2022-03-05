@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDesertBush1","path":"sprites/sDesertBush1/sDesertBush1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDesertBush1",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPromptDS4Triangle","path":"sprites/sPromptDS4Triangle/sPromptDS4Triangle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPromptDS4Triangle",
     "tags": [],
     "resourceType": "GMSequence",

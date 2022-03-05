@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sStatIconDefense","path":"sprites/sStatIconDefense/sStatIconDefense.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sStatIconDefense",
     "tags": [],
     "resourceType": "GMSequence",

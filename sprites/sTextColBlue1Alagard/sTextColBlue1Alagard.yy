@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sTextColBlue1Alagard","path":"sprites/sTextColBlue1Alagard/sTextColBlue1Alagard.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sTextColBlue1Alagard",
     "tags": [],
     "resourceType": "GMSequence",

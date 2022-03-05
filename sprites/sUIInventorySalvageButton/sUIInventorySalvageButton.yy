@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventorySalvageButton","path":"sprites/sUIInventorySalvageButton/sUIInventorySalvageButton.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventorySalvageButton",
     "tags": [],
     "resourceType": "GMSequence",

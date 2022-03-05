@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyWolfAttacking1","path":"sprites/sEnemyWolfAttacking1/sEnemyWolfAttacking1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyWolfAttacking1",
     "tags": [],
     "resourceType": "GMSequence",

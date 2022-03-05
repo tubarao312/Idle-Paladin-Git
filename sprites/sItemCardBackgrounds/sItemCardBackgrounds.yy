@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemCardBackgrounds","path":"sprites/sItemCardBackgrounds/sItemCardBackgrounds.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemCardBackgrounds",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDSTBar","path":"sprites/sHUDSTBar/sHUDSTBar.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDSTBar",
     "tags": [],
     "resourceType": "GMSequence",

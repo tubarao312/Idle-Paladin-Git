@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPromptDS4X","path":"sprites/sPromptDS4X/sPromptDS4X.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPromptDS4X",
     "tags": [],
     "resourceType": "GMSequence",

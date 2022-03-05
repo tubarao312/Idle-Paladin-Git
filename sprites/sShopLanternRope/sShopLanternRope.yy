@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sShopLanternRope","path":"sprites/sShopLanternRope/sShopLanternRope.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sShopLanternRope",
     "tags": [],
     "resourceType": "GMSequence",

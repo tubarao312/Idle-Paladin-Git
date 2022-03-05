@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sBushTileset","path":"sprites/sBushTileset/sBushTileset.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sBushTileset",
     "tags": [],
     "resourceType": "GMSequence",

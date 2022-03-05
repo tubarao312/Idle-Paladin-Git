@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationSeat","path":"sprites/sDecorationSeat/sDecorationSeat.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationSeat",
     "tags": [],
     "resourceType": "GMSequence",

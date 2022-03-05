@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemCardFavouriteIcon","path":"sprites/sItemCardFavouriteIcon/sItemCardFavouriteIcon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemCardFavouriteIcon",
     "tags": [],
     "resourceType": "GMSequence",

@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyGhostIdle","path":"sprites/sEnemyGhostIdle/sEnemyGhostIdle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyGhostIdle",
     "tags": [],
     "resourceType": "GMSequence",

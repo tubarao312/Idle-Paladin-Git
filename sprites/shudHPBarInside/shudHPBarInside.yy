@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"shudHPBarInside","path":"sprites/shudHPBarInside/shudHPBarInside.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "shudHPBarInside",
     "tags": [],
     "resourceType": "GMSequence",

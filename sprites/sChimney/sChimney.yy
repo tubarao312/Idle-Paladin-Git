@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sChimney","path":"sprites/sChimney/sChimney.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sChimney",
     "tags": [],
     "resourceType": "GMSequence",

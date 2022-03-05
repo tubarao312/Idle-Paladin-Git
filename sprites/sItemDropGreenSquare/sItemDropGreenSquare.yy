@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemDropGreenSquare","path":"sprites/sItemDropGreenSquare/sItemDropGreenSquare.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemDropGreenSquare",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sTownTree4","path":"sprites/sTownTree4/sTownTree4.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sTownTree4",
     "tags": [],
     "resourceType": "GMSequence",

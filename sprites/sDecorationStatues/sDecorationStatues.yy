@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationStatues","path":"sprites/sDecorationStatues/sDecorationStatues.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationStatues",
     "tags": [],
     "resourceType": "GMSequence",

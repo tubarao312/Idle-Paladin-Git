@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sCastleTileset","path":"sprites/sCastleTileset/sCastleTileset.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sCastleTileset",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sSpaceConfirmBuy","path":"sprites/sSpaceConfirmBuy/sSpaceConfirmBuy.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sSpaceConfirmBuy",
     "tags": [],
     "resourceType": "GMSequence",

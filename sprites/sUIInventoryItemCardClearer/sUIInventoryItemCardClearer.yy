@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryItemCardClearer","path":"sprites/sUIInventoryItemCardClearer/sUIInventoryItemCardClearer.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryItemCardClearer",
     "tags": [],
     "resourceType": "GMSequence",

@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryCarvedSetPath","path":"sprites/sUIInventoryCarvedSetPath/sUIInventoryCarvedSetPath.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryCarvedSetPath",
     "tags": [],
     "resourceType": "GMSequence",

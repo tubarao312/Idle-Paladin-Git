@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDesertBrickTileset","path":"sprites/sDesertBrickTileset/sDesertBrickTileset.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDesertBrickTileset",
     "tags": [],
     "resourceType": "GMSequence",

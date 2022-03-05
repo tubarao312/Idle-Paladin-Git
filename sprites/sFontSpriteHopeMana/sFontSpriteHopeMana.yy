@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteHopeMana","path":"sprites/sFontSpriteHopeMana/sFontSpriteHopeMana.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteHopeMana",
     "tags": [],
     "resourceType": "GMSequence",

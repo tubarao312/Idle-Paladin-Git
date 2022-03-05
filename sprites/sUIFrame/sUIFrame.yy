@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIFrame","path":"sprites/sUIFrame/sUIFrame.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIFrame",
     "tags": [],
     "resourceType": "GMSequence",

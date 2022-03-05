@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDeadTree1","path":"sprites/sDeadTree1/sDeadTree1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDeadTree1",
     "tags": [],
     "resourceType": "GMSequence",

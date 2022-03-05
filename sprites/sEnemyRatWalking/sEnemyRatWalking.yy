@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyRatWalking","path":"sprites/sEnemyRatWalking/sEnemyRatWalking.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyRatWalking",
     "tags": [],
     "resourceType": "GMSequence",

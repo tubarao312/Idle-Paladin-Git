@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryExitButtonGlowing","path":"sprites/sUIInventoryExitButtonGlowing/sUIInventoryExitButtonGlowing.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryExitButtonGlowing",
     "tags": [],
     "resourceType": "GMSequence",

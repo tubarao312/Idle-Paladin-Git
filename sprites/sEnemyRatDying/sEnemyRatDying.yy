@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyRatDying","path":"sprites/sEnemyRatDying/sEnemyRatDying.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyRatDying",
     "tags": [],
     "resourceType": "GMSequence",

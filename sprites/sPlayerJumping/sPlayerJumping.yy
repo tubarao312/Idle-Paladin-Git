@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPlayerJumping","path":"sprites/sPlayerJumping/sPlayerJumping.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPlayerJumping",
     "tags": [],
     "resourceType": "GMSequence",

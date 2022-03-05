@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPromptDS4Circle","path":"sprites/sPromptDS4Circle/sPromptDS4Circle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPromptDS4Circle",
     "tags": [],
     "resourceType": "GMSequence",

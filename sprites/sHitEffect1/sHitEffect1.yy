@@ -65,7 +65,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHitEffect1","path":"sprites/sHitEffect1/sHitEffect1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHitEffect1",
     "tags": [],
     "resourceType": "GMSequence",

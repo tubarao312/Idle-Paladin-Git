@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationFlag1","path":"sprites/sDecorationFlag1/sDecorationFlag1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationFlag1",
     "tags": [],
     "resourceType": "GMSequence",

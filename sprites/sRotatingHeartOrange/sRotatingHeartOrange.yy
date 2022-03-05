@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sRotatingHeartOrange","path":"sprites/sRotatingHeartOrange/sRotatingHeartOrange.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sRotatingHeartOrange",
     "tags": [],
     "resourceType": "GMSequence",

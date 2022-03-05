@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopChestplateIcons","path":"sprites/sUIShopChestplateIcons/sUIShopChestplateIcons.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopChestplateIcons",
     "tags": [],
     "resourceType": "GMSequence",

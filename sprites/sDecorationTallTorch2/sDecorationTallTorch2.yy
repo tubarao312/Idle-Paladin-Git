@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationTallTorch2","path":"sprites/sDecorationTallTorch2/sDecorationTallTorch2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationTallTorch2",
     "tags": [],
     "resourceType": "GMSequence",

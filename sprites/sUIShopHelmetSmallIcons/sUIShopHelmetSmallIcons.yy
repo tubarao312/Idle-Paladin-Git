@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopHelmetSmallIcons","path":"sprites/sUIShopHelmetSmallIcons/sUIShopHelmetSmallIcons.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopHelmetSmallIcons",
     "tags": [],
     "resourceType": "GMSequence",

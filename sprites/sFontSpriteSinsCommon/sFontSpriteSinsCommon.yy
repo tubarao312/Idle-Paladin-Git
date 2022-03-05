@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteSinsCommon","path":"sprites/sFontSpriteSinsCommon/sFontSpriteSinsCommon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteSinsCommon",
     "tags": [],
     "resourceType": "GMSequence",

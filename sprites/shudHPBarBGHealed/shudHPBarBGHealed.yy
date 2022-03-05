@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"shudHPBarBGHealed","path":"sprites/shudHPBarBGHealed/shudHPBarBGHealed.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "shudHPBarBGHealed",
     "tags": [],
     "resourceType": "GMSequence",

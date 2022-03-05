@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteHopeUncommon","path":"sprites/sFontSpriteHopeUncommon/sFontSpriteHopeUncommon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteHopeUncommon",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryLockButtonLocked","path":"sprites/sUIInventoryLockButtonLocked/sUIInventoryLockButtonLocked.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryLockButtonLocked",
     "tags": [],
     "resourceType": "GMSequence",

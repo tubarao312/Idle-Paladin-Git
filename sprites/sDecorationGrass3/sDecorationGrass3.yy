@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationGrass3","path":"sprites/sDecorationGrass3/sDecorationGrass3.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationGrass3",
     "tags": [],
     "resourceType": "GMSequence",

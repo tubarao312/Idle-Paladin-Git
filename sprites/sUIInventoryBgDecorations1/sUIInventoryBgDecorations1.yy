@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryBgDecorations1","path":"sprites/sUIInventoryBgDecorations1/sUIInventoryBgDecorations1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryBgDecorations1",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryDitherWiper","path":"sprites/sUIInventoryDitherWiper/sUIInventoryDitherWiper.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryDitherWiper",
     "tags": [],
     "resourceType": "GMSequence",

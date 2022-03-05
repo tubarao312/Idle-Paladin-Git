@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sShopInterior","path":"sprites/sShopInterior/sShopInterior.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sShopInterior",
     "tags": [],
     "resourceType": "GMSequence",

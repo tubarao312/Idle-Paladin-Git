@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteHopeMythical","path":"sprites/sFontSpriteHopeMythical/sFontSpriteHopeMythical.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteHopeMythical",
     "tags": [],
     "resourceType": "GMSequence",

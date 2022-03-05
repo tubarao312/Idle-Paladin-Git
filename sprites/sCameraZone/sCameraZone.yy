@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sCameraZone","path":"sprites/sCameraZone/sCameraZone.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sCameraZone",
     "tags": [],
     "resourceType": "GMSequence",

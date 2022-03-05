@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPerkVampirism","path":"sprites/sPerkVampirism/sPerkVampirism.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPerkVampirism",
     "tags": [],
     "resourceType": "GMSequence",

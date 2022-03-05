@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSinsSpaceBlue","path":"sprites/sFontSinsSpaceBlue/sFontSinsSpaceBlue.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSinsSpaceBlue",
     "tags": [],
     "resourceType": "GMSequence",

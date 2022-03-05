@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopShieldIcons","path":"sprites/sUIShopShieldIcons/sUIShopShieldIcons.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopShieldIcons",
     "tags": [],
     "resourceType": "GMSequence",

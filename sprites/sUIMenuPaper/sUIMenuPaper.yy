@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIMenuPaper","path":"sprites/sUIMenuPaper/sUIMenuPaper.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIMenuPaper",
     "tags": [],
     "resourceType": "GMSequence",

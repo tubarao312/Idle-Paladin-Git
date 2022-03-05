@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopBackgroundOutline","path":"sprites/sUIShopBackgroundOutline/sUIShopBackgroundOutline.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopBackgroundOutline",
     "tags": [],
     "resourceType": "GMSequence",

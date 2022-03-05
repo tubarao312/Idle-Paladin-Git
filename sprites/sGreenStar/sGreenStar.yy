@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sGreenStar","path":"sprites/sGreenStar/sGreenStar.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sGreenStar",
     "tags": [],
     "resourceType": "GMSequence",

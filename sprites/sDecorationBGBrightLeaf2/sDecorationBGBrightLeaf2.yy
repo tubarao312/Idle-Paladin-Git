@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationBGBrightLeaf2","path":"sprites/sDecorationBGBrightLeaf2/sDecorationBGBrightLeaf2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationBGBrightLeaf2",
     "tags": [],
     "resourceType": "GMSequence",

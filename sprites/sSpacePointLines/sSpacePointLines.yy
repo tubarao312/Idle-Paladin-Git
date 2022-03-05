@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sSpacePointLines","path":"sprites/sSpacePointLines/sSpacePointLines.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sSpacePointLines",
     "tags": [],
     "resourceType": "GMSequence",

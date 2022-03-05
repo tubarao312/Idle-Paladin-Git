@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationLog","path":"sprites/sDecorationLog/sDecorationLog.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationLog",
     "tags": [],
     "resourceType": "GMSequence",

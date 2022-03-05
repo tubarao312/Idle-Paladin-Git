@@ -69,7 +69,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIAchBook","path":"sprites/sUIAchBook/sUIAchBook.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIAchBook",
     "tags": [],
     "resourceType": "GMSequence",

@@ -119,7 +119,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sExplosionPink","path":"sprites/sExplosionPink/sExplosionPink.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sExplosionPink",
     "tags": [],
     "resourceType": "GMSequence",

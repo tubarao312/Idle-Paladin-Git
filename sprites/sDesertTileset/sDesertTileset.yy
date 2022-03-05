@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDesertTileset","path":"sprites/sDesertTileset/sDesertTileset.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDesertTileset",
     "tags": [],
     "resourceType": "GMSequence",

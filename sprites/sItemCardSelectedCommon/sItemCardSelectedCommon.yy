@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemCardSelectedCommon","path":"sprites/sItemCardSelectedCommon/sItemCardSelectedCommon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemCardSelectedCommon",
     "tags": [],
     "resourceType": "GMSequence",

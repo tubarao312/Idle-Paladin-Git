@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sStatIconSpell","path":"sprites/sStatIconSpell/sStatIconSpell.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sStatIconSpell",
     "tags": [],
     "resourceType": "GMSequence",

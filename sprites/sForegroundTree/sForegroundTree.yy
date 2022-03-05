@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sForegroundTree","path":"sprites/sForegroundTree/sForegroundTree.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sForegroundTree",
     "tags": [],
     "resourceType": "GMSequence",

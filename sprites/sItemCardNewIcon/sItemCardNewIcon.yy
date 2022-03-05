@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemCardNewIcon","path":"sprites/sItemCardNewIcon/sItemCardNewIcon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemCardNewIcon",
     "tags": [],
     "resourceType": "GMSequence",

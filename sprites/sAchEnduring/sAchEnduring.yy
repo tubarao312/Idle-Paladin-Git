@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sAchEnduring","path":"sprites/sAchEnduring/sAchEnduring.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sAchEnduring",
     "tags": [],
     "resourceType": "GMSequence",

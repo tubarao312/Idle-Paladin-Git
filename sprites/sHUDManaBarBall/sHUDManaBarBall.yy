@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDManaBarBall","path":"sprites/sHUDManaBarBall/sHUDManaBarBall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDManaBarBall",
     "tags": [],
     "resourceType": "GMSequence",

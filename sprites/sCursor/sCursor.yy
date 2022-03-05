@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sCursor","path":"sprites/sCursor/sCursor.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sCursor",
     "tags": [],
     "resourceType": "GMSequence",

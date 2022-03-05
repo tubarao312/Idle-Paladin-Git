@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDashParticle","path":"sprites/sDashParticle/sDashParticle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDashParticle",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryScrollBarDragged","path":"sprites/sUIInventoryScrollBarDragged/sUIInventoryScrollBarDragged.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryScrollBarDragged",
     "tags": [],
     "resourceType": "GMSequence",

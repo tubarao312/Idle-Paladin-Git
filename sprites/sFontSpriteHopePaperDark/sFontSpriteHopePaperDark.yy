@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteHopePaperDark","path":"sprites/sFontSpriteHopePaperDark/sFontSpriteHopePaperDark.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteHopePaperDark",
     "tags": [],
     "resourceType": "GMSequence",

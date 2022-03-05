@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIUpgradeLines","path":"sprites/sUIUpgradeLines/sUIUpgradeLines.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIUpgradeLines",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sBones1","path":"sprites/sBones1/sBones1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sBones1",
     "tags": [],
     "resourceType": "GMSequence",

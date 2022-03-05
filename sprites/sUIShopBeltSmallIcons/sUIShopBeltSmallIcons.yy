@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopBeltSmallIcons","path":"sprites/sUIShopBeltSmallIcons/sUIShopBeltSmallIcons.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopBeltSmallIcons",
     "tags": [],
     "resourceType": "GMSequence",

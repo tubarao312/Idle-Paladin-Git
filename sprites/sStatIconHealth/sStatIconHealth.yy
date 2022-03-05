@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sStatIconHealth","path":"sprites/sStatIconHealth/sStatIconHealth.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sStatIconHealth",
     "tags": [],
     "resourceType": "GMSequence",

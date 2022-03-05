@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sJungleStonesTileset","path":"sprites/sJungleStonesTileset/sJungleStonesTileset.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sJungleStonesTileset",
     "tags": [],
     "resourceType": "GMSequence",

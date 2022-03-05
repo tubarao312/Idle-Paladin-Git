@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyMinotaurGreyWalking","path":"sprites/sEnemyMinotaurGreyWalking/sEnemyMinotaurGreyWalking.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyMinotaurGreyWalking",
     "tags": [],
     "resourceType": "GMSequence",

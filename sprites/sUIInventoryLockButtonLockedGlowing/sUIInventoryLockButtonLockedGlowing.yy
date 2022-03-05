@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryLockButtonLockedGlowing","path":"sprites/sUIInventoryLockButtonLockedGlowing/sUIInventoryLockButtonLockedGlowing.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryLockButtonLockedGlowing",
     "tags": [],
     "resourceType": "GMSequence",

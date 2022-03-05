@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventorySetProgressCirclesMythical","path":"sprites/sUIInventorySetProgressCirclesMythical/sUIInventorySetProgressCirclesMythical.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventorySetProgressCirclesMythical",
     "tags": [],
     "resourceType": "GMSequence",

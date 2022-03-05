@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryExitButton","path":"sprites/sUIInventoryExitButton/sUIInventoryExitButton.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryExitButton",
     "tags": [],
     "resourceType": "GMSequence",

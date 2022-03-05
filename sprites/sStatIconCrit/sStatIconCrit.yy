@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sStatIconCrit","path":"sprites/sStatIconCrit/sStatIconCrit.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sStatIconCrit",
     "tags": [],
     "resourceType": "GMSequence",

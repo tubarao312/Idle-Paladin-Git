@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sSpaceGreenTooltip","path":"sprites/sSpaceGreenTooltip/sSpaceGreenTooltip.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sSpaceGreenTooltip",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sSpaceRedTooltip","path":"sprites/sSpaceRedTooltip/sSpaceRedTooltip.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sSpaceRedTooltip",
     "tags": [],
     "resourceType": "GMSequence",

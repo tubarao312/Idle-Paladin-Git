@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFireball","path":"sprites/sFireball/sFireball.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFireball",
     "tags": [],
     "resourceType": "GMSequence",

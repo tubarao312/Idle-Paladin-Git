@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sAchSlaying","path":"sprites/sAchSlaying/sAchSlaying.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sAchSlaying",
     "tags": [],
     "resourceType": "GMSequence",

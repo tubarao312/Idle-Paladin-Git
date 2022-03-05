@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sShieldParticles","path":"sprites/sShieldParticles/sShieldParticles.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sShieldParticles",
     "tags": [],
     "resourceType": "GMSequence",

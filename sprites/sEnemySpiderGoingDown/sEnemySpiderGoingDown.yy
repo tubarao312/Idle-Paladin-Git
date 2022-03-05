@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemySpiderGoingDown","path":"sprites/sEnemySpiderGoingDown/sEnemySpiderGoingDown.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemySpiderGoingDown",
     "tags": [],
     "resourceType": "GMSequence",

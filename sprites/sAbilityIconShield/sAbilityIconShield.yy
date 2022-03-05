@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sAbilityIconShield","path":"sprites/sAbilityIconShield/sAbilityIconShield.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sAbilityIconShield",
     "tags": [],
     "resourceType": "GMSequence",

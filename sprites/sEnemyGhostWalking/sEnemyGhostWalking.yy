@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyGhostWalking","path":"sprites/sEnemyGhostWalking/sEnemyGhostWalking.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyGhostWalking",
     "tags": [],
     "resourceType": "GMSequence",

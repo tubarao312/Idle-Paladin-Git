@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sBgBush3","path":"sprites/sBgBush3/sBgBush3.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sBgBush3",
     "tags": [],
     "resourceType": "GMSequence",

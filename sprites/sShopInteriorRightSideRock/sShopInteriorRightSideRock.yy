@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sShopInteriorRightSideRock","path":"sprites/sShopInteriorRightSideRock/sShopInteriorRightSideRock.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sShopInteriorRightSideRock",
     "tags": [],
     "resourceType": "GMSequence",

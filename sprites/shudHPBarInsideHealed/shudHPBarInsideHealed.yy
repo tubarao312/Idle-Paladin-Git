@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"shudHPBarInsideHealed","path":"sprites/shudHPBarInsideHealed/shudHPBarInsideHealed.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "shudHPBarInsideHealed",
     "tags": [],
     "resourceType": "GMSequence",

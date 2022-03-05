@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteSinsUncommon","path":"sprites/sFontSpriteSinsUncommon/sFontSpriteSinsUncommon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteSinsUncommon",
     "tags": [],
     "resourceType": "GMSequence",

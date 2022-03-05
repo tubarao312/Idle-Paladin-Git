@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationGrassJungle2","path":"sprites/sDecorationGrassJungle2/sDecorationGrassJungle2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationGrassJungle2",
     "tags": [],
     "resourceType": "GMSequence",

@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteHopeSalvage","path":"sprites/sFontSpriteHopeSalvage/sFontSpriteHopeSalvage.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteHopeSalvage",
     "tags": [],
     "resourceType": "GMSequence",

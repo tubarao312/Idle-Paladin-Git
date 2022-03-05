@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryEquipButtonGlowing","path":"sprites/sUIInventoryEquipButtonGlowing/sUIInventoryEquipButtonGlowing.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryEquipButtonGlowing",
     "tags": [],
     "resourceType": "GMSequence",

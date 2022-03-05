@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteHopeHealthHeal","path":"sprites/sFontSpriteHopeHealthHeal/sFontSpriteHopeHealthHeal.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteHopeHealthHeal",
     "tags": [],
     "resourceType": "GMSequence",

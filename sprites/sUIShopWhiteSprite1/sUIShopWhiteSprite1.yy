@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopWhiteSprite1","path":"sprites/sUIShopWhiteSprite1/sUIShopWhiteSprite1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopWhiteSprite1",
     "tags": [],
     "resourceType": "GMSequence",

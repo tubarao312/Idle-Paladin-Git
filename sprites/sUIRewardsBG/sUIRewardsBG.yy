@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIRewardsBG","path":"sprites/sUIRewardsBG/sUIRewardsBG.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIRewardsBG",
     "tags": [],
     "resourceType": "GMSequence",

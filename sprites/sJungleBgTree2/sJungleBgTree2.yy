@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sJungleBgTree2","path":"sprites/sJungleBgTree2/sJungleBgTree2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sJungleBgTree2",
     "tags": [],
     "resourceType": "GMSequence",

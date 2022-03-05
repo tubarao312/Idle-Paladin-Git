@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteHopeManaGlowing","path":"sprites/sFontSpriteHopeManaGlowing/sFontSpriteHopeManaGlowing.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteHopeManaGlowing",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sTestTuna","path":"sprites/sTestTuna/sTestTuna.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sTestTuna",
     "tags": [],
     "resourceType": "GMSequence",

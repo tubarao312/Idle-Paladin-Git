@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sAchRanks","path":"sprites/sAchRanks/sAchRanks.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sAchRanks",
     "tags": [],
     "resourceType": "GMSequence",

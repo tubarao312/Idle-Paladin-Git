@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sWoodLamppost","path":"sprites/sWoodLamppost/sWoodLamppost.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sWoodLamppost",
     "tags": [],
     "resourceType": "GMSequence",

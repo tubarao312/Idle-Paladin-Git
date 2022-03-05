@@ -115,7 +115,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sThunder1","path":"sprites/sThunder1/sThunder1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sThunder1",
     "tags": [],
     "resourceType": "GMSequence",

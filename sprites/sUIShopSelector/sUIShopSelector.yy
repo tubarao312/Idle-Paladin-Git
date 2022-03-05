@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopSelector","path":"sprites/sUIShopSelector/sUIShopSelector.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopSelector",
     "tags": [],
     "resourceType": "GMSequence",

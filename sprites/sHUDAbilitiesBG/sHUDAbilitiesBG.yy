@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDAbilitiesBG","path":"sprites/sHUDAbilitiesBG/sHUDAbilitiesBG.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDAbilitiesBG",
     "tags": [],
     "resourceType": "GMSequence",

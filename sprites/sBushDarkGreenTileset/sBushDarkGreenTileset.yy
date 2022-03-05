@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sBushDarkGreenTileset","path":"sprites/sBushDarkGreenTileset/sBushDarkGreenTileset.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sBushDarkGreenTileset",
     "tags": [],
     "resourceType": "GMSequence",

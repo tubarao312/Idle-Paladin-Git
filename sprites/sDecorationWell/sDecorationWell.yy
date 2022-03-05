@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationWell","path":"sprites/sDecorationWell/sDecorationWell.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationWell",
     "tags": [],
     "resourceType": "GMSequence",

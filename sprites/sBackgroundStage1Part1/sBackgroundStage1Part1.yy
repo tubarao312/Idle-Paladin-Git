@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sBackgroundStage1Part1","path":"sprites/sBackgroundStage1Part1/sBackgroundStage1Part1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sBackgroundStage1Part1",
     "tags": [],
     "resourceType": "GMSequence",

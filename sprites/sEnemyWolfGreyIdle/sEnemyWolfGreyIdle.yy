@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyWolfGreyIdle","path":"sprites/sEnemyWolfGreyIdle/sEnemyWolfGreyIdle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyWolfGreyIdle",
     "tags": [],
     "resourceType": "GMSequence",

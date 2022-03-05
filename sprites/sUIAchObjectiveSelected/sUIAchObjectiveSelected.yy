@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIAchObjectiveSelected","path":"sprites/sUIAchObjectiveSelected/sUIAchObjectiveSelected.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIAchObjectiveSelected",
     "tags": [],
     "resourceType": "GMSequence",

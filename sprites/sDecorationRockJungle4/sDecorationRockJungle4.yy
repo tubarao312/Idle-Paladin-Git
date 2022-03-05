@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationRockJungle4","path":"sprites/sDecorationRockJungle4/sDecorationRockJungle4.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationRockJungle4",
     "tags": [],
     "resourceType": "GMSequence",

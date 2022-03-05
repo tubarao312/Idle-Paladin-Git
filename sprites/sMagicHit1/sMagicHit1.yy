@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sMagicHit1","path":"sprites/sMagicHit1/sMagicHit1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sMagicHit1",
     "tags": [],
     "resourceType": "GMSequence",

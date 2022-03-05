@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDesertRock6","path":"sprites/sDesertRock6/sDesertRock6.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDesertRock6",
     "tags": [],
     "resourceType": "GMSequence",

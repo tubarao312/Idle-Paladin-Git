@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sMagmaTileset","path":"sprites/sMagmaTileset/sMagmaTileset.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sMagmaTileset",
     "tags": [],
     "resourceType": "GMSequence",

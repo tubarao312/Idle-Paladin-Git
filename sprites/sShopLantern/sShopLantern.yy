@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sShopLantern","path":"sprites/sShopLantern/sShopLantern.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sShopLantern",
     "tags": [],
     "resourceType": "GMSequence",

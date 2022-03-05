@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontFullSins","path":"sprites/sFontFullSins/sFontFullSins.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontFullSins",
     "tags": [],
     "resourceType": "GMSequence",

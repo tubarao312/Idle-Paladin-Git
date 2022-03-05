@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPerkZenState","path":"sprites/sPerkZenState/sPerkZenState.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPerkZenState",
     "tags": [],
     "resourceType": "GMSequence",

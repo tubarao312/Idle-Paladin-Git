@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sTextColGold1Alagard","path":"sprites/sTextColGold1Alagard/sTextColGold1Alagard.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sTextColGold1Alagard",
     "tags": [],
     "resourceType": "GMSequence",

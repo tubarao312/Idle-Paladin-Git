@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sAchInvesting","path":"sprites/sAchInvesting/sAchInvesting.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sAchInvesting",
     "tags": [],
     "resourceType": "GMSequence",

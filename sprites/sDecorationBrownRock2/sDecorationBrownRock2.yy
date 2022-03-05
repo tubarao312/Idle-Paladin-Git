@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationBrownRock2","path":"sprites/sDecorationBrownRock2/sDecorationBrownRock2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationBrownRock2",
     "tags": [],
     "resourceType": "GMSequence",

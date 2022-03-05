@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopGlovesIcons","path":"sprites/sUIShopGlovesIcons/sUIShopGlovesIcons.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopGlovesIcons",
     "tags": [],
     "resourceType": "GMSequence",

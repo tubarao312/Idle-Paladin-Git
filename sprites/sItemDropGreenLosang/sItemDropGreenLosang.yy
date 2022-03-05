@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemDropGreenLosang","path":"sprites/sItemDropGreenLosang/sItemDropGreenLosang.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemDropGreenLosang",
     "tags": [],
     "resourceType": "GMSequence",

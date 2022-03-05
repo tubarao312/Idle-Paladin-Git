@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUICoinLine","path":"sprites/sUICoinLine/sUICoinLine.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUICoinLine",
     "tags": [],
     "resourceType": "GMSequence",

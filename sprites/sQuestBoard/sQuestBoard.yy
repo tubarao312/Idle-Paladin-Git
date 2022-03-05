@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sQuestBoard","path":"sprites/sQuestBoard/sQuestBoard.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sQuestBoard",
     "tags": [],
     "resourceType": "GMSequence",

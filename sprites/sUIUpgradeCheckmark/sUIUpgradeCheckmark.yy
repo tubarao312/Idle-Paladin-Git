@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIUpgradeCheckmark","path":"sprites/sUIUpgradeCheckmark/sUIUpgradeCheckmark.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIUpgradeCheckmark",
     "tags": [],
     "resourceType": "GMSequence",

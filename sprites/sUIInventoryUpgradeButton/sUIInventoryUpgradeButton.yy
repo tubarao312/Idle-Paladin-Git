@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryUpgradeButton","path":"sprites/sUIInventoryUpgradeButton/sUIInventoryUpgradeButton.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryUpgradeButton",
     "tags": [],
     "resourceType": "GMSequence",

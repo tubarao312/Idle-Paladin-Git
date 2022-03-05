@@ -415,7 +415,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontMarskmanSpaceRed","path":"sprites/sFontMarskmanSpaceRed/sFontMarskmanSpaceRed.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontMarskmanSpaceRed",
     "tags": [],
     "resourceType": "GMSequence",

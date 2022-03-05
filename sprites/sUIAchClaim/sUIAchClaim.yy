@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIAchClaim","path":"sprites/sUIAchClaim/sUIAchClaim.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIAchClaim",
     "tags": [],
     "resourceType": "GMSequence",

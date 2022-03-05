@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemCardSelectedMythical","path":"sprites/sItemCardSelectedMythical/sItemCardSelectedMythical.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemCardSelectedMythical",
     "tags": [],
     "resourceType": "GMSequence",

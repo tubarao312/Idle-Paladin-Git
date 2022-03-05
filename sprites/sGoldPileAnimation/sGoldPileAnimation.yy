@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sGoldPileAnimation","path":"sprites/sGoldPileAnimation/sGoldPileAnimation.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sGoldPileAnimation",
     "tags": [],
     "resourceType": "GMSequence",

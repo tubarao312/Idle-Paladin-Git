@@ -111,7 +111,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sCriticalHit1","path":"sprites/sCriticalHit1/sCriticalHit1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sCriticalHit1",
     "tags": [],
     "resourceType": "GMSequence",

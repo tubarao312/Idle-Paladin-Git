@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDAbilitiesOutline","path":"sprites/sHUDAbilitiesOutline/sHUDAbilitiesOutline.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDAbilitiesOutline",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEntranceTowerForeground","path":"sprites/sEntranceTowerForeground/sEntranceTowerForeground.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEntranceTowerForeground",
     "tags": [],
     "resourceType": "GMSequence",

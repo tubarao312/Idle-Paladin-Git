@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sStatIconDamage","path":"sprites/sStatIconDamage/sStatIconDamage.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sStatIconDamage",
     "tags": [],
     "resourceType": "GMSequence",

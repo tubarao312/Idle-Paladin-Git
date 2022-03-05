@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationTree3Background","path":"sprites/sDecorationTree3Background/sDecorationTree3Background.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationTree3Background",
     "tags": [],
     "resourceType": "GMSequence",

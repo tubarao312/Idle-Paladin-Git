@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryBackground","path":"sprites/sUIInventoryBackground/sUIInventoryBackground.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryBackground",
     "tags": [],
     "resourceType": "GMSequence",

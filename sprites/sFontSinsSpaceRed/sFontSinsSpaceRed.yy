@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSinsSpaceRed","path":"sprites/sFontSinsSpaceRed/sFontSinsSpaceRed.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSinsSpaceRed",
     "tags": [],
     "resourceType": "GMSequence",

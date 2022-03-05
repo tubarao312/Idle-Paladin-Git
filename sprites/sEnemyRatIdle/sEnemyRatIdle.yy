@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyRatIdle","path":"sprites/sEnemyRatIdle/sEnemyRatIdle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyRatIdle",
     "tags": [],
     "resourceType": "GMSequence",

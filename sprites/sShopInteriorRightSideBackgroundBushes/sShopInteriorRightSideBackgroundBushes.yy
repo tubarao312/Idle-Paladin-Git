@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sShopInteriorRightSideBackgroundBushes","path":"sprites/sShopInteriorRightSideBackgroundBushes/sShopInteriorRightSideBackgroundBushes.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sShopInteriorRightSideBackgroundBushes",
     "tags": [],
     "resourceType": "GMSequence",

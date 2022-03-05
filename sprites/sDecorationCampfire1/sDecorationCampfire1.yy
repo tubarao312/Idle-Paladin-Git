@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationCampfire1","path":"sprites/sDecorationCampfire1/sDecorationCampfire1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationCampfire1",
     "tags": [],
     "resourceType": "GMSequence",

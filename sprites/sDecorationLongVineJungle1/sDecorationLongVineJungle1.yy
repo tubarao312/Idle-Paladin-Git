@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationLongVineJungle1","path":"sprites/sDecorationLongVineJungle1/sDecorationLongVineJungle1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationLongVineJungle1",
     "tags": [],
     "resourceType": "GMSequence",

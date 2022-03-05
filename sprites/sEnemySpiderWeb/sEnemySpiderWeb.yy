@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemySpiderWeb","path":"sprites/sEnemySpiderWeb/sEnemySpiderWeb.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemySpiderWeb",
     "tags": [],
     "resourceType": "GMSequence",

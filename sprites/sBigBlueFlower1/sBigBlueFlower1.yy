@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sBigBlueFlower1","path":"sprites/sBigBlueFlower1/sBigBlueFlower1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sBigBlueFlower1",
     "tags": [],
     "resourceType": "GMSequence",

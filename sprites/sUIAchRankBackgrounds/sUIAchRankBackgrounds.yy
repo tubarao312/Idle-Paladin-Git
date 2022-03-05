@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIAchRankBackgrounds","path":"sprites/sUIAchRankBackgrounds/sUIAchRankBackgrounds.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIAchRankBackgrounds",
     "tags": [],
     "resourceType": "GMSequence",

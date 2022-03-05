@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationVine","path":"sprites/sDecorationVine/sDecorationVine.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationVine",
     "tags": [],
     "resourceType": "GMSequence",

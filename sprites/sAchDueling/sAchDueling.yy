@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sAchDueling","path":"sprites/sAchDueling/sAchDueling.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sAchDueling",
     "tags": [],
     "resourceType": "GMSequence",

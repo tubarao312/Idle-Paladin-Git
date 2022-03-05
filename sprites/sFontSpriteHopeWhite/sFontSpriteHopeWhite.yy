@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteHopeWhite","path":"sprites/sFontSpriteHopeWhite/sFontSpriteHopeWhite.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteHopeWhite",
     "tags": [],
     "resourceType": "GMSequence",

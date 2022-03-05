@@ -115,7 +115,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sExplosion","path":"sprites/sExplosion/sExplosion.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sExplosion",
     "tags": [],
     "resourceType": "GMSequence",

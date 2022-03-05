@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIUpgradeSymbols","path":"sprites/sUIUpgradeSymbols/sUIUpgradeSymbols.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIUpgradeSymbols",
     "tags": [],
     "resourceType": "GMSequence",

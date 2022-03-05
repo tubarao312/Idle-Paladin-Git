@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationWoodPassages","path":"sprites/sDecorationWoodPassages/sDecorationWoodPassages.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationWoodPassages",
     "tags": [],
     "resourceType": "GMSequence",

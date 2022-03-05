@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDManaBarPart","path":"sprites/sHUDManaBarPart/sHUDManaBarPart.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDManaBarPart",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopQuestionIcons","path":"sprites/sUIShopQuestionIcons/sUIShopQuestionIcons.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopQuestionIcons",
     "tags": [],
     "resourceType": "GMSequence",

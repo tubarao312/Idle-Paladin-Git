@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemCardSelectedEpic","path":"sprites/sItemCardSelectedEpic/sItemCardSelectedEpic.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemCardSelectedEpic",
     "tags": [],
     "resourceType": "GMSequence",

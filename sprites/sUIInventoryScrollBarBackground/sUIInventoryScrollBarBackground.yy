@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryScrollBarBackground","path":"sprites/sUIInventoryScrollBarBackground/sUIInventoryScrollBarBackground.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryScrollBarBackground",
     "tags": [],
     "resourceType": "GMSequence",

@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyWolfGreyDying","path":"sprites/sEnemyWolfGreyDying/sEnemyWolfGreyDying.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyWolfGreyDying",
     "tags": [],
     "resourceType": "GMSequence",

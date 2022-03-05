@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIBackButtonGeneral","path":"sprites/sUIBackButtonGeneral/sUIBackButtonGeneral.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIBackButtonGeneral",
     "tags": [],
     "resourceType": "GMSequence",

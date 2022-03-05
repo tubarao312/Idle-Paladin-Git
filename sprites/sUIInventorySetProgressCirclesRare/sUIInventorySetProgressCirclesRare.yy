@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventorySetProgressCirclesRare","path":"sprites/sUIInventorySetProgressCirclesRare/sUIInventorySetProgressCirclesRare.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventorySetProgressCirclesRare",
     "tags": [],
     "resourceType": "GMSequence",

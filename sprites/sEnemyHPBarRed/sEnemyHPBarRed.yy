@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyHPBarRed","path":"sprites/sEnemyHPBarRed/sEnemyHPBarRed.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyHPBarRed",
     "tags": [],
     "resourceType": "GMSequence",

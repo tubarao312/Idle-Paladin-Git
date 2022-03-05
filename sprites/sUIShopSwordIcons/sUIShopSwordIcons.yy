@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopSwordIcons","path":"sprites/sUIShopSwordIcons/sUIShopSwordIcons.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopSwordIcons",
     "tags": [],
     "resourceType": "GMSequence",

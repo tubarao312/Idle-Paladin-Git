@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUILeaveButtonGeneral","path":"sprites/sUILeaveButtonGeneral/sUILeaveButtonGeneral.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUILeaveButtonGeneral",
     "tags": [],
     "resourceType": "GMSequence",

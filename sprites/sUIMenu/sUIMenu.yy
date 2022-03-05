@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIMenu","path":"sprites/sUIMenu/sUIMenu.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIMenu",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHitLine","path":"sprites/sHitLine/sHitLine.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHitLine",
     "tags": [],
     "resourceType": "GMSequence",

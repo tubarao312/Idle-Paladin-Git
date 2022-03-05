@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFallingLeaf","path":"sprites/sFallingLeaf/sFallingLeaf.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFallingLeaf",
     "tags": [],
     "resourceType": "GMSequence",

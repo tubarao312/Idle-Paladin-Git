@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPerkRampage","path":"sprites/sPerkRampage/sPerkRampage.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPerkRampage",
     "tags": [],
     "resourceType": "GMSequence",

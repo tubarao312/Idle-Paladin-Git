@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemDropOrangeBall","path":"sprites/sItemDropOrangeBall/sItemDropOrangeBall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemDropOrangeBall",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIExclamationMark","path":"sprites/sUIExclamationMark/sUIExclamationMark.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIExclamationMark",
     "tags": [],
     "resourceType": "GMSequence",

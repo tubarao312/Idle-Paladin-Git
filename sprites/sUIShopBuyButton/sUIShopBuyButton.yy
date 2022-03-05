@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopBuyButton","path":"sprites/sUIShopBuyButton/sUIShopBuyButton.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopBuyButton",
     "tags": [],
     "resourceType": "GMSequence",

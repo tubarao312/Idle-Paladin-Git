@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteSinsLegendary","path":"sprites/sFontSpriteSinsLegendary/sFontSpriteSinsLegendary.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteSinsLegendary",
     "tags": [],
     "resourceType": "GMSequence",

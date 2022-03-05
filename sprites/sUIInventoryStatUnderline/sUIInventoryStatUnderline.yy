@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryStatUnderline","path":"sprites/sUIInventoryStatUnderline/sUIInventoryStatUnderline.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryStatUnderline",
     "tags": [],
     "resourceType": "GMSequence",

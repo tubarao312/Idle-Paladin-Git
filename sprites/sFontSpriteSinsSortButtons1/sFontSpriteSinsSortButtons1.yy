@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteSinsSortButtons1","path":"sprites/sFontSpriteSinsSortButtons1/sFontSpriteSinsSortButtons1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteSinsSortButtons1",
     "tags": [],
     "resourceType": "GMSequence",

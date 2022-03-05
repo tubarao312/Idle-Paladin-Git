@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemySlimeIdle","path":"sprites/sEnemySlimeIdle/sEnemySlimeIdle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemySlimeIdle",
     "tags": [],
     "resourceType": "GMSequence",

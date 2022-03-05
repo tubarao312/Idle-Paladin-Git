@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUISkillTreeAsteroid","path":"sprites/sUISkillTreeAsteroid/sUISkillTreeAsteroid.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUISkillTreeAsteroid",
     "tags": [],
     "resourceType": "GMSequence",

@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFadelineEffect","path":"sprites/sFadelineEffect/sFadelineEffect.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFadelineEffect",
     "tags": [],
     "resourceType": "GMSequence",

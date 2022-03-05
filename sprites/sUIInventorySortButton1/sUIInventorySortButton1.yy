@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventorySortButton1","path":"sprites/sUIInventorySortButton1/sUIInventorySortButton1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventorySortButton1",
     "tags": [],
     "resourceType": "GMSequence",

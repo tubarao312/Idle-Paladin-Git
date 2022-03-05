@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIAchNew","path":"sprites/sUIAchNew/sUIAchNew.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIAchNew",
     "tags": [],
     "resourceType": "GMSequence",

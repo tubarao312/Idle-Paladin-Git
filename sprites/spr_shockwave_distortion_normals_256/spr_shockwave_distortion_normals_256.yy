@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_shockwave_distortion_normals_256","path":"sprites/spr_shockwave_distortion_normals_256/spr_shockwave_distortion_normals_256.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_shockwave_distortion_normals_256",
     "tags": [],
     "resourceType": "GMSequence",

@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyMinotaurIdle","path":"sprites/sEnemyMinotaurIdle/sEnemyMinotaurIdle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyMinotaurIdle",
     "tags": [],
     "resourceType": "GMSequence",

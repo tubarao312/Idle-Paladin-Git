@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyRatAttacking","path":"sprites/sEnemyRatAttacking/sEnemyRatAttacking.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyRatAttacking",
     "tags": [],
     "resourceType": "GMSequence",

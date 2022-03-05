@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemDropGreenEmerald","path":"sprites/sItemDropGreenEmerald/sItemDropGreenEmerald.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemDropGreenEmerald",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationGreyRockSmall1","path":"sprites/sDecorationGreyRockSmall1/sDecorationGreyRockSmall1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationGreyRockSmall1",
     "tags": [],
     "resourceType": "GMSequence",

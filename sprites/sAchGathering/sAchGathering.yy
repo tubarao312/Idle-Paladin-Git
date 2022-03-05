@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sAchGathering","path":"sprites/sAchGathering/sAchGathering.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sAchGathering",
     "tags": [],
     "resourceType": "GMSequence",

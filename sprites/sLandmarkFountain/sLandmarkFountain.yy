@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sLandmarkFountain","path":"sprites/sLandmarkFountain/sLandmarkFountain.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sLandmarkFountain",
     "tags": [],
     "resourceType": "GMSequence",

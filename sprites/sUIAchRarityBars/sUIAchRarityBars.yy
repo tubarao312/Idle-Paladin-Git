@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIAchRarityBars","path":"sprites/sUIAchRarityBars/sUIAchRarityBars.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIAchRarityBars",
     "tags": [],
     "resourceType": "GMSequence",

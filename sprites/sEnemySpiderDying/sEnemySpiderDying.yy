@@ -91,7 +91,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemySpiderDying","path":"sprites/sEnemySpiderDying/sEnemySpiderDying.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemySpiderDying",
     "tags": [],
     "resourceType": "GMSequence",

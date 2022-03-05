@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteSinsOrangeStats","path":"sprites/sFontSpriteSinsOrangeStats/sFontSpriteSinsOrangeStats.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteSinsOrangeStats",
     "tags": [],
     "resourceType": "GMSequence",

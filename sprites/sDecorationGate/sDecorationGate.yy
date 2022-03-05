@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationGate","path":"sprites/sDecorationGate/sDecorationGate.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationGate",
     "tags": [],
     "resourceType": "GMSequence",

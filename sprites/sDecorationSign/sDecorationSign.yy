@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationSign","path":"sprites/sDecorationSign/sDecorationSign.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationSign",
     "tags": [],
     "resourceType": "GMSequence",

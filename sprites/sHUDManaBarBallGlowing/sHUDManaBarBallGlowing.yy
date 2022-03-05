@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDManaBarBallGlowing","path":"sprites/sHUDManaBarBallGlowing/sHUDManaBarBallGlowing.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDManaBarBallGlowing",
     "tags": [],
     "resourceType": "GMSequence",

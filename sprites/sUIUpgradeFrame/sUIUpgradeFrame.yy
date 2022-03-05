@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIUpgradeFrame","path":"sprites/sUIUpgradeFrame/sUIUpgradeFrame.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIUpgradeFrame",
     "tags": [],
     "resourceType": "GMSequence",

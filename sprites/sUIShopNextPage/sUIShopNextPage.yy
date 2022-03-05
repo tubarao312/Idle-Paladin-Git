@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopNextPage","path":"sprites/sUIShopNextPage/sUIShopNextPage.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopNextPage",
     "tags": [],
     "resourceType": "GMSequence",

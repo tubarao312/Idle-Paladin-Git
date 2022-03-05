@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sMoon","path":"sprites/sMoon/sMoon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sMoon",
     "tags": [],
     "resourceType": "GMSequence",

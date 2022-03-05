@@ -85,7 +85,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDAbilitiesCostBlue","path":"sprites/sHUDAbilitiesCostBlue/sHUDAbilitiesCostBlue.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDAbilitiesCostBlue",
     "tags": [],
     "resourceType": "GMSequence",

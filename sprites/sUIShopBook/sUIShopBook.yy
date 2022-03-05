@@ -61,7 +61,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopBook","path":"sprites/sUIShopBook/sUIShopBook.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopBook",
     "tags": [],
     "resourceType": "GMSequence",

@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIAchRarityCateg","path":"sprites/sUIAchRarityCateg/sUIAchRarityCateg.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIAchRarityCateg",
     "tags": [],
     "resourceType": "GMSequence",

@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemCardBackgroundsGlowing","path":"sprites/sItemCardBackgroundsGlowing/sItemCardBackgroundsGlowing.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemCardBackgroundsGlowing",
     "tags": [],
     "resourceType": "GMSequence",

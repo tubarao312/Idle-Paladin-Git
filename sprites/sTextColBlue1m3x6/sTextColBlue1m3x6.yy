@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sTextColBlue1m3x6","path":"sprites/sTextColBlue1m3x6/sTextColBlue1m3x6.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sTextColBlue1m3x6",
     "tags": [],
     "resourceType": "GMSequence",

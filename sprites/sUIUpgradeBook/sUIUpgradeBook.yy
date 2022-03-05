@@ -61,7 +61,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIUpgradeBook","path":"sprites/sUIUpgradeBook/sUIUpgradeBook.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIUpgradeBook",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationWallRockBrown","path":"sprites/sDecorationWallRockBrown/sDecorationWallRockBrown.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationWallRockBrown",
     "tags": [],
     "resourceType": "GMSequence",

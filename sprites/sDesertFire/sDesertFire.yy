@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDesertFire","path":"sprites/sDesertFire/sDesertFire.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDesertFire",
     "tags": [],
     "resourceType": "GMSequence",

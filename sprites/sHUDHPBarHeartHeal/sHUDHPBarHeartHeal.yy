@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDHPBarHeartHeal","path":"sprites/sHUDHPBarHeartHeal/sHUDHPBarHeartHeal.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDHPBarHeartHeal",
     "tags": [],
     "resourceType": "GMSequence",

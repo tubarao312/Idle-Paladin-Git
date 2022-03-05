@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sAchCasting","path":"sprites/sAchCasting/sAchCasting.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sAchCasting",
     "tags": [],
     "resourceType": "GMSequence",

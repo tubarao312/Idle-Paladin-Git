@@ -99,7 +99,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIAchObjectiveProgressBar","path":"sprites/sUIAchObjectiveProgressBar/sUIAchObjectiveProgressBar.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIAchObjectiveProgressBar",
     "tags": [],
     "resourceType": "GMSequence",

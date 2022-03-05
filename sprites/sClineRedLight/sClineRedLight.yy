@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sClineRedLight","path":"sprites/sClineRedLight/sClineRedLight.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sClineRedLight",
     "tags": [],
     "resourceType": "GMSequence",

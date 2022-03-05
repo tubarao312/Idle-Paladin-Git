@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationFlowerJungleBig1","path":"sprites/sDecorationFlowerJungleBig1/sDecorationFlowerJungleBig1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationFlowerJungleBig1",
     "tags": [],
     "resourceType": "GMSequence",

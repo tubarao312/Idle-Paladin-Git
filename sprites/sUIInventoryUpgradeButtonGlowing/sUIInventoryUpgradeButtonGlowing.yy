@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryUpgradeButtonGlowing","path":"sprites/sUIInventoryUpgradeButtonGlowing/sUIInventoryUpgradeButtonGlowing.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryUpgradeButtonGlowing",
     "tags": [],
     "resourceType": "GMSequence",

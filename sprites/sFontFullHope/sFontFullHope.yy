@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontFullHope","path":"sprites/sFontFullHope/sFontFullHope.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontFullHope",
     "tags": [],
     "resourceType": "GMSequence",

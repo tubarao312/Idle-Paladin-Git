@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontMarskmanSpaceGreenXP","path":"sprites/sFontMarskmanSpaceGreenXP/sFontMarskmanSpaceGreenXP.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontMarskmanSpaceGreenXP",
     "tags": [],
     "resourceType": "GMSequence",

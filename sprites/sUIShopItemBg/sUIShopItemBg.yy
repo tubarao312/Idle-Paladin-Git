@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopItemBg","path":"sprites/sUIShopItemBg/sUIShopItemBg.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopItemBg",
     "tags": [],
     "resourceType": "GMSequence",

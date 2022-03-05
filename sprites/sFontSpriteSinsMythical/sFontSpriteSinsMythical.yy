@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteSinsMythical","path":"sprites/sFontSpriteSinsMythical/sFontSpriteSinsMythical.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteSinsMythical",
     "tags": [],
     "resourceType": "GMSequence",

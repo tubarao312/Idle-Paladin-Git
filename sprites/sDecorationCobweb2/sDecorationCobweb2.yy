@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationCobweb2","path":"sprites/sDecorationCobweb2/sDecorationCobweb2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationCobweb2",
     "tags": [],
     "resourceType": "GMSequence",

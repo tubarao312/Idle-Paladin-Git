@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDManaBarTextGlowing","path":"sprites/sHUDManaBarTextGlowing/sHUDManaBarTextGlowing.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDManaBarTextGlowing",
     "tags": [],
     "resourceType": "GMSequence",

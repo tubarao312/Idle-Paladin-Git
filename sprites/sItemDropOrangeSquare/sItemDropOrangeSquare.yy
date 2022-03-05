@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemDropOrangeSquare","path":"sprites/sItemDropOrangeSquare/sItemDropOrangeSquare.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemDropOrangeSquare",
     "tags": [],
     "resourceType": "GMSequence",

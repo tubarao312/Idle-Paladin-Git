@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEntranceTower","path":"sprites/sEntranceTower/sEntranceTower.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEntranceTower",
     "tags": [],
     "resourceType": "GMSequence",

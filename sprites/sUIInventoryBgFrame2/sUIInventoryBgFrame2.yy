@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryBgFrame2","path":"sprites/sUIInventoryBgFrame2/sUIInventoryBgFrame2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryBgFrame2",
     "tags": [],
     "resourceType": "GMSequence",

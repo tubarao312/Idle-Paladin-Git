@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sBigPinkFlower1","path":"sprites/sBigPinkFlower1/sBigPinkFlower1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sBigPinkFlower1",
     "tags": [],
     "resourceType": "GMSequence",

@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemDropBlueBall","path":"sprites/sItemDropBlueBall/sItemDropBlueBall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemDropBlueBall",
     "tags": [],
     "resourceType": "GMSequence",

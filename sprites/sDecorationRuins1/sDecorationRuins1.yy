@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationRuins1","path":"sprites/sDecorationRuins1/sDecorationRuins1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationRuins1",
     "tags": [],
     "resourceType": "GMSequence",

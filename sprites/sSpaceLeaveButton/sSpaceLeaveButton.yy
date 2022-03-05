@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sSpaceLeaveButton","path":"sprites/sSpaceLeaveButton/sSpaceLeaveButton.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sSpaceLeaveButton",
     "tags": [],
     "resourceType": "GMSequence",

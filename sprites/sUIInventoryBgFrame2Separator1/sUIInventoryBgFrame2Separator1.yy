@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryBgFrame2Separator1","path":"sprites/sUIInventoryBgFrame2Separator1/sUIInventoryBgFrame2Separator1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryBgFrame2Separator1",
     "tags": [],
     "resourceType": "GMSequence",

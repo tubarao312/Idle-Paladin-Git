@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryPerkFrame3","path":"sprites/sUIInventoryPerkFrame3/sUIInventoryPerkFrame3.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryPerkFrame3",
     "tags": [],
     "resourceType": "GMSequence",

@@ -60,7 +60,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHouse3","path":"sprites/sHouse3/sHouse3.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHouse3",
     "tags": [],
     "resourceType": "GMSequence",

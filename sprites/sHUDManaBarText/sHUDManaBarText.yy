@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDManaBarText","path":"sprites/sHUDManaBarText/sHUDManaBarText.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDManaBarText",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sJungleRock2","path":"sprites/sJungleRock2/sJungleRock2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sJungleRock2",
     "tags": [],
     "resourceType": "GMSequence",

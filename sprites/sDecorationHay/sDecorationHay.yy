@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationHay","path":"sprites/sDecorationHay/sDecorationHay.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationHay",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sShopInteriorRightSideTree","path":"sprites/sShopInteriorRightSideTree/sShopInteriorRightSideTree.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sShopInteriorRightSideTree",
     "tags": [],
     "resourceType": "GMSequence",

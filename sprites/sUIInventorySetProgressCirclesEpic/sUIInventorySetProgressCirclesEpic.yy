@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventorySetProgressCirclesEpic","path":"sprites/sUIInventorySetProgressCirclesEpic/sUIInventorySetProgressCirclesEpic.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventorySetProgressCirclesEpic",
     "tags": [],
     "resourceType": "GMSequence",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryBackButtonGlowing","path":"sprites/sUIInventoryBackButtonGlowing/sUIInventoryBackButtonGlowing.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryBackButtonGlowing",
     "tags": [],
     "resourceType": "GMSequence",

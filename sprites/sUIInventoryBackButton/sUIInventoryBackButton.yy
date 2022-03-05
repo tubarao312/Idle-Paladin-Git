@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventoryBackButton","path":"sprites/sUIInventoryBackButton/sUIInventoryBackButton.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventoryBackButton",
     "tags": [],
     "resourceType": "GMSequence",

@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIRewardsNumbers","path":"sprites/sUIRewardsNumbers/sUIRewardsNumbers.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIRewardsNumbers",
     "tags": [],
     "resourceType": "GMSequence",

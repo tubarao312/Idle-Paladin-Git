@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sItemCardSelectedUncommon","path":"sprites/sItemCardSelectedUncommon/sItemCardSelectedUncommon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sItemCardSelectedUncommon",
     "tags": [],
     "resourceType": "GMSequence",

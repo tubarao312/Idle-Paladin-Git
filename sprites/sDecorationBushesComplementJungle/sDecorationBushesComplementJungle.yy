@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationBushesComplementJungle","path":"sprites/sDecorationBushesComplementJungle/sDecorationBushesComplementJungle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationBushesComplementJungle",
     "tags": [],
     "resourceType": "GMSequence",

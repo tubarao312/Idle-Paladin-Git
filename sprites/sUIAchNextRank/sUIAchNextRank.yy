@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIAchNextRank","path":"sprites/sUIAchNextRank/sUIAchNextRank.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIAchNextRank",
     "tags": [],
     "resourceType": "GMSequence",

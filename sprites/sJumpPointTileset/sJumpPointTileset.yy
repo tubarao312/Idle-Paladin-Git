@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sJumpPointTileset","path":"sprites/sJumpPointTileset/sJumpPointTileset.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sJumpPointTileset",
     "tags": [],
     "resourceType": "GMSequence",

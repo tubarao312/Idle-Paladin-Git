@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sStatIconThorns","path":"sprites/sStatIconThorns/sStatIconThorns.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sStatIconThorns",
     "tags": [],
     "resourceType": "GMSequence",

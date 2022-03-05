@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopRarityDisplays","path":"sprites/sUIShopRarityDisplays/sUIShopRarityDisplays.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopRarityDisplays",
     "tags": [],
     "resourceType": "GMSequence",

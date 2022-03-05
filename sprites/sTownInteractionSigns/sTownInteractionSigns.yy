@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sTownInteractionSigns","path":"sprites/sTownInteractionSigns/sTownInteractionSigns.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sTownInteractionSigns",
     "tags": [],
     "resourceType": "GMSequence",

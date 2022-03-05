@@ -111,7 +111,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemySlimeAttacking","path":"sprites/sEnemySlimeAttacking/sEnemySlimeAttacking.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemySlimeAttacking",
     "tags": [],
     "resourceType": "GMSequence",

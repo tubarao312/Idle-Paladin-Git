@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopCloakSmallIcons","path":"sprites/sUIShopCloakSmallIcons/sUIShopCloakSmallIcons.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopCloakSmallIcons",
     "tags": [],
     "resourceType": "GMSequence",

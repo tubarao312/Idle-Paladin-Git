@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIAchAchievementSelected","path":"sprites/sUIAchAchievementSelected/sUIAchAchievementSelected.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIAchAchievementSelected",
     "tags": [],
     "resourceType": "GMSequence",

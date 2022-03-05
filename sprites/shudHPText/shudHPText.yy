@@ -70,7 +70,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"shudHPText","path":"sprites/shudHPText/shudHPText.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "shudHPText",
     "tags": [],
     "resourceType": "GMSequence",

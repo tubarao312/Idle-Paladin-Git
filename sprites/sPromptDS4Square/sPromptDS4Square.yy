@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPromptDS4Square","path":"sprites/sPromptDS4Square/sPromptDS4Square.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPromptDS4Square",
     "tags": [],
     "resourceType": "GMSequence",

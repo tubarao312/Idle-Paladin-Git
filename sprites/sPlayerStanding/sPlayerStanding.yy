@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPlayerStanding","path":"sprites/sPlayerStanding/sPlayerStanding.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPlayerStanding",
     "tags": [],
     "resourceType": "GMSequence",

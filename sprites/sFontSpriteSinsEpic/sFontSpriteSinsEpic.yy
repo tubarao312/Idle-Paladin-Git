@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteSinsEpic","path":"sprites/sFontSpriteSinsEpic/sFontSpriteSinsEpic.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteSinsEpic",
     "tags": [],
     "resourceType": "GMSequence",

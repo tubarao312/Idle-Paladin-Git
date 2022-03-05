@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationFlower1","path":"sprites/sDecorationFlower1/sDecorationFlower1.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationFlower1",
     "tags": [],
     "resourceType": "GMSequence",

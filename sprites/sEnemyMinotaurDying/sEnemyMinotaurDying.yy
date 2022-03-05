@@ -99,7 +99,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sEnemyMinotaurDying","path":"sprites/sEnemyMinotaurDying/sEnemyMinotaurDying.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sEnemyMinotaurDying",
     "tags": [],
     "resourceType": "GMSequence",

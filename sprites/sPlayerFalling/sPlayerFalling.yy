@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPlayerFalling","path":"sprites/sPlayerFalling/sPlayerFalling.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPlayerFalling",
     "tags": [],
     "resourceType": "GMSequence",

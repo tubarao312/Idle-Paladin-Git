@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sClineBlueAll","path":"sprites/sClineBlueAll/sClineBlueAll.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sClineBlueAll",
     "tags": [],
     "resourceType": "GMSequence",

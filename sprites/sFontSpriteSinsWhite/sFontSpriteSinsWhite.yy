@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteSinsWhite","path":"sprites/sFontSpriteSinsWhite/sFontSpriteSinsWhite.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteSinsWhite",
     "tags": [],
     "resourceType": "GMSequence",

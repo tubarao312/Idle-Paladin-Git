@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPlayerHitbox","path":"sprites/sPlayerHitbox/sPlayerHitbox.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPlayerHitbox",
     "tags": [],
     "resourceType": "GMSequence",

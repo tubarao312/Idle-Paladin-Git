@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIAchObjectiveSeparator","path":"sprites/sUIAchObjectiveSeparator/sUIAchObjectiveSeparator.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIAchObjectiveSeparator",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sMinotaurShadow","path":"sprites/sMinotaurShadow/sMinotaurShadow.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sMinotaurShadow",
     "tags": [],
     "resourceType": "GMSequence",

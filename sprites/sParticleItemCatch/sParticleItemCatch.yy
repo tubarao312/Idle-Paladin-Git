@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sParticleItemCatch","path":"sprites/sParticleItemCatch/sParticleItemCatch.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sParticleItemCatch",
     "tags": [],
     "resourceType": "GMSequence",

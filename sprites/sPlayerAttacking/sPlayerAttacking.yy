@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPlayerAttacking","path":"sprites/sPlayerAttacking/sPlayerAttacking.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sPlayerAttacking",
     "tags": [],
     "resourceType": "GMSequence",

@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIShopChangeButtons","path":"sprites/sUIShopChangeButtons/sUIShopChangeButtons.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIShopChangeButtons",
     "tags": [],
     "resourceType": "GMSequence",

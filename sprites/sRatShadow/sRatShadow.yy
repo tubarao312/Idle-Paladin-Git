@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sRatShadow","path":"sprites/sRatShadow/sRatShadow.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sRatShadow",
     "tags": [],
     "resourceType": "GMSequence",

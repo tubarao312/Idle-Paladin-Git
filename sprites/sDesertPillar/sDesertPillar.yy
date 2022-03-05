@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDesertPillar","path":"sprites/sDesertPillar/sDesertPillar.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDesertPillar",
     "tags": [],
     "resourceType": "GMSequence",

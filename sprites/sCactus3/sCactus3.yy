@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sCactus3","path":"sprites/sCactus3/sCactus3.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sCactus3",
     "tags": [],
     "resourceType": "GMSequence",

@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteSinsRare","path":"sprites/sFontSpriteSinsRare/sFontSpriteSinsRare.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteSinsRare",
     "tags": [],
     "resourceType": "GMSequence",

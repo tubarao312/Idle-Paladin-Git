@@ -419,7 +419,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sFontSpriteHopeRare","path":"sprites/sFontSpriteHopeRare/sFontSpriteHopeRare.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sFontSpriteHopeRare",
     "tags": [],
     "resourceType": "GMSequence",

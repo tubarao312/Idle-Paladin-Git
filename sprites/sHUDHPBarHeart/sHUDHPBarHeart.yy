@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sHUDHPBarHeart","path":"sprites/sHUDHPBarHeart/sHUDHPBarHeart.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sHUDHPBarHeart",
     "tags": [],
     "resourceType": "GMSequence",

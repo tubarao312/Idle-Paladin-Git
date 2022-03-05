@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sThickNumbers","path":"sprites/sThickNumbers/sThickNumbers.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sThickNumbers",
     "tags": [],
     "resourceType": "GMSequence",

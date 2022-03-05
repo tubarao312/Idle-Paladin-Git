@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationWoodBunch","path":"sprites/sDecorationWoodBunch/sDecorationWoodBunch.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationWoodBunch",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sWolfShadow","path":"sprites/sWolfShadow/sWolfShadow.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sWolfShadow",
     "tags": [],
     "resourceType": "GMSequence",

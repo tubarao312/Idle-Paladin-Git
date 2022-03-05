@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sDecorationForegroundRocksBrown","path":"sprites/sDecorationForegroundRocksBrown/sDecorationForegroundRocksBrown.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sDecorationForegroundRocksBrown",
     "tags": [],
     "resourceType": "GMSequence",

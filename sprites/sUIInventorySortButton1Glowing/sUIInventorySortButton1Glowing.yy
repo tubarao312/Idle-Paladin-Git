@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sUIInventorySortButton1Glowing","path":"sprites/sUIInventorySortButton1Glowing/sUIInventorySortButton1Glowing.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sUIInventorySortButton1Glowing",
     "tags": [],
     "resourceType": "GMSequence",
