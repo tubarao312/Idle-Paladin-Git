@@ -39,7 +39,7 @@ x += round(random_range(-shake_remain, shake_remain));
 y += round(random_range(-shake_remain, shake_remain));
 shake_remain = round(max(0, shake_remain - ((1 / shake_length) * shake_magnitude)));
 
-#region Parallax ---------------------------------------------
+#region Parallax and Passive Particles ---------------------------------------------
 
 switch room {
 	case rGreenpath: {
@@ -76,6 +76,16 @@ switch room {
 		layer_x("Background1",floor(x*0.25));
 		layer_x("Background2",floor(x*0.5));
 		layer_x("Background3",floor(x*0.75));
+	break; }
+	
+	case rTundra: {
+		var chanc = min(0.75, (dsin(current_time/100) + 1) / 2);
+		print(chanc);
+		if chance(chanc) then instance_create_layer(x + random_range(-200, 1500), 270, "Camera", oFallingSnowParticle);
+		
+		layer_x("Background3",floor(x*0.25));
+		layer_x("Background2",floor(x*0.5));
+		layer_x("Background1",floor(x*0.75));
 	break; }
 
 }
