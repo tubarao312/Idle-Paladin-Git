@@ -456,6 +456,29 @@ stateFunc[STATES.step] = function() { // Step Dashing
 	part_emitter_burst(global.part_system_normal, emitter1, particlesMana2, 5*dashParticleCount);
 	part_emitter_burst(global.part_system_normal, emitter1, particlesMana3, 3*dashParticleCount);
 	
+	// Affecting Snow Particles (TUNDRA ONLY)
+	if (room == rTundra) {
+		var previousXScale = image_xscale;
+		var previousYScale = image_yscale;
+		image_xscale = 7;
+		image_yscale = 7;
+		
+		ds_list_clear(snowParticlesAffected);
+		instance_place_list(x, y, oFallingSnowParticle, snowParticlesAffected, false);
+		
+		var i;
+		for (i = ds_list_size(snowParticlesAffected) - 1; i >= 0; i--) {
+			var particle = snowParticlesAffected[|i];
+			var particleSpd = physics.hsp * max(0, (100 - point_distance(x, y, particle.x, particle.y)) / 100);
+			
+			particle.windXSpd = max(particle.windXSpd,  lerp(particleSpd, 0, 0.7));
+		}
+	
+		
+		image_xscale = previousXScale;
+		image_yscale = previousYScale;
+	}
+	
 	// Reducing the dash's timer
 	alarmDash--;
 	
@@ -772,6 +795,12 @@ spr = {
 #region Reading Hits
 
 hitsTaken = ds_list_create();
+
+#endregion
+
+#region Snow Particles
+
+snowParticlesAffected = ds_list_create();
 
 #endregion
 

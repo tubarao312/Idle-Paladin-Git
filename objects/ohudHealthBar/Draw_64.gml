@@ -47,6 +47,7 @@ if image_yscale <= 1.1 then image_yscale = 1;
 if keyboard_check_pressed(ord("Q")) add_hp(-random_range(20,100));
 if keyboard_check_pressed(ord("E")) add_hp(random_range(20,100));
 
+
 // Leaving Screen
 xSpd = lerp(xSpd, (originalX - (!global.showHUD) * 30 - xCreate) / 2, 0.25);
 ySpd = lerp(ySpd, (originalY - (!global.showHUD) * 30 - yCreate) / 2, 0.25);

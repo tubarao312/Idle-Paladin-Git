@@ -102,3 +102,5 @@ function add_mana(mana) { // Adds Mana
 	partitionsHeight += 4.5 * mana;
 	partitionsPosition += 20 * mana;
 }
+
+if keyboard_check_pressed(ord("R")) then add_player_mana(random_range(0.5, 2));

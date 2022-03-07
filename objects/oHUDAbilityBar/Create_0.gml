@@ -6,18 +6,21 @@ abilityDash = { // Dash Ability
 	sprite: sAbilityIconDash,
 	manaCost: 1,
 	manaCostFont: global.fontHopeCommon,
+	lightCol: $fff10c,
 };
 
 abilityShield = { // Shield Ability
 	sprite: sAbilityIconShield,
 	manaCost: 3,
 	manaCostFont: global.fontHopeCommon,
+	lightCol: $7efcd3,
 };
 
 abilityFireball = { // Fireball Ability
 	sprite: sAbilityIconFireball,
 	manaCost: 2,
 	manaCostFont: global.fontHopeCommon,
+	lightCol: $cfe6f9,
 };
 	
 
@@ -112,8 +115,18 @@ function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	var abilityX = X + abilitySlot.bonusX + abilitySlot.shakeX;
 	var abilityY = Y + abilitySlot.bonusY + abilitySlot.shakeY;
 	
+	// Check if cursor is hovering button
+	abilitySlot.hovered = cursor_in_box(X + 13, Y + 13, X - 13, Y - 13);
+	if abilitySlot.hovered then cursor_skin(1);
+	if abilitySlot.hovered and oPlayer.inputs.mbLeft[PRESSED] then press_ability_slot(abilitySlot);
+	
+	// Draw Glowing Light
+	if abilitySlot.promptPressedTimer > 0 {
+		draw_sprite_ext(sAbilityIconGlow, (1 - abilitySlot.promptPressedTimer / 23) * 11.99, abilityX, abilityY, 1, 1, abilitySlot.image_angle, ability.lightCol, ceil((abilitySlot.promptPressedTimer / 23) * 6) / 6);
+	}
+	
 	// Draw Icon
-	draw_sprite_ext(ability.sprite, (abilitySlot.promptPressedTimer > 0), abilityX, abilityY, max(0.55, abilitySlot.size), max(0.55, abilitySlot.size), abilitySlot.image_angle, c_white, 1);
+	draw_sprite_ext(ability.sprite, (abilitySlot.promptPressedTimer > 0) or abilitySlot.hovered, abilityX, abilityY, max(0.55, abilitySlot.size), max(0.55, abilitySlot.size), abilitySlot.image_angle, c_white, 1);
 
 	// For calculating positions of the corners of the main icon
 	var width = sprite_get_width(ability.sprite);
@@ -128,4 +141,14 @@ function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	// Draw Cost
 	//draw_set_font(ability.manaCostFont);
 	//draw_text(X + width/2 - 5 + abilitySlot.manaCostShakeX, Y + height/2 - 9 + abilitySlot.manaCostShakeY, ability.manaCost);
+}
+	
+function press_ability_slot(slot) {
+	slot.shakePosition = 4.5;
+	slot.promptShakePosition = 2;
+	slot.manaCostShakePosition = 1.5;
+	slot.shakeAngle = 15;
+	slot.shakeSize = 0.15;
+	slot.promptPressedTimer = 23;
+	slot.size = 0.65;
 }

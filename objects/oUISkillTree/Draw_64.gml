@@ -379,8 +379,6 @@ if selectedStarActive {
 		selectedStarPercentage = lerp(selectedStarPercentage,0,0.1)
 	}
 	
-	
-	
 	var FONT_TO_USE = [global.fontMarskmanSpaceRed,global.fontMarskmanSpaceGreen,global.fontMarskmanSpaceBlue];
 	var name = upgrade_get_name(openedStar)
 	
