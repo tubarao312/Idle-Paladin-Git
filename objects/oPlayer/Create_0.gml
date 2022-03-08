@@ -383,7 +383,7 @@ stateFunc[STATES.start] = function() { // Start Dashing
 	sprite_index = spr.walking;
 	
 	// Visual Effects
-	shockwave(x, bbox_bottom, 45, 2.5, spr_shockwave_distortion_normals_256, random_range(1.1,1.4));
+	shockwave(x, bbox_bottom, 45, 2, spr_shockwave_distortion_normals_256, random_range(1.1,1.4));
 	screenshake(2,3);
 	alarmDash = 10; // Starting Dashing Effects
 } 

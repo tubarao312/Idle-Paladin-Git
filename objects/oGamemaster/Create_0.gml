@@ -99,6 +99,9 @@ part_system_automatic_draw(global.part_system_normal, false);
 global.part_system_chimney_smoke = part_system_create();
 part_system_automatic_draw(global.part_system_chimney_smoke, false);
 
+global.part_system_lava = part_system_create();
+part_system_automatic_draw(global.part_system_lava, false);
+
 
 #endregion
 
