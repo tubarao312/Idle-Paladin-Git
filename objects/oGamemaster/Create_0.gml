@@ -96,6 +96,9 @@ global.surfParticlesHUD = surface_create(global.windowW, global.windowH);
 global.part_system_normal = part_system_create();
 part_system_automatic_draw(global.part_system_normal, false);
 
+global.part_system_normal_b = part_system_create(); // Gets drawn before the normal one
+part_system_automatic_draw(global.part_system_normal_b, false);
+
 global.part_system_chimney_smoke = part_system_create();
 part_system_automatic_draw(global.part_system_chimney_smoke, false);
 

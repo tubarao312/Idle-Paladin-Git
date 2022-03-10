@@ -20,7 +20,7 @@ abilityFireball = { // Fireball Ability
 	sprite: sAbilityIconFireball,
 	manaCost: 2,
 	manaCostFont: global.fontHopeCommon,
-	lightCol: $cfe6f9,
+	lightCol: $50abed,
 };
 	
 

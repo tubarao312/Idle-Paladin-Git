@@ -88,8 +88,9 @@ switch room {
 	break; }
 	
 	case rMagmaCave: {
-		layer_x("Background1",floor(x*0.33));
-		layer_x("Background2",floor(x*0.66));
+		layer_x("Background1",floor(x*0.25));
+		layer_x("Background2",floor(x*0.50));
+		layer_x("Background3",floor(x*0.75));
 	break; }
 
 }

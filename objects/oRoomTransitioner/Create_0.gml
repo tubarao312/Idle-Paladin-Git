@@ -1,3 +1,4 @@
+surSpace = surface_create(global.windowW, global.windowH);
 
 global.roomTransitioning = {
 	// The room you're moving to
@@ -43,6 +44,7 @@ function room_draw_transition() {
 				transitionState = ROOM_TRANSITION_STATE.start;
 			}
 		}
+			
 			// If the surface doesn't exist, create it again
 			if !surface_exists(rt.canvas) then rt.canvas = surface_create(global.windowW + 20, global.windowH + 20);
 		
@@ -70,7 +72,10 @@ function room_draw_transition() {
 			
 				switch transitionType { // Each transition is drawn differently
 					case ROOM_TRANSITION_TYPES.fade: {
-						draw_clear_alpha(rt.color, animationPercentage);
+						// Here, draw space surface
+						
+						
+						//draw_clear_alpha(rt.color, animationPercentage);
 					
 					break; }
 				
@@ -84,12 +89,68 @@ function room_draw_transition() {
 					break; }
 				
 					case ROOM_TRANSITION_TYPES.slideRight: {
-						draw_rectangle_color(0, 0, (20 + global.windowW) * animationPercentage, global.windowH + 20, rt.color, rt.color, rt.color, rt.color, false);
+						
+						if !surface_exists(surSpace) then surSpace = surface_create(global.windowW + 20, global.windowH + 20);
+						surface_set_target(surSpace); {
+							draw_clear_alpha(c_white, 0);
+							
+							// Draw Space
+							draw_space_background(2 - animationPercentage);
+							print("RIGHT: " + string(animationPercentage));
+							
+							// Draw Player Sprite
+							gpu_set_fog(true, $f6e14b, 0, 1);
+							draw_sprite_ext(oPlayer.sprite_index, oPlayer.image_index, oPlayer.x - oCamera.x, oPlayer.y - oCamera.y, oPlayer.image_xscale, oPlayer.image_yscale, oPlayer.image_angle, c_white, 1);
+							gpu_set_fog(false, c_white, 0, 1);
+							
+							// Draw Barriers
+							var baseX = (20 + global.windowW) * animationPercentage;
+							
+							for (var i = 0; i < global.windowH / 2 + 10; i++) {
+								var Y = i * 2;
+								var X = baseX + 6 * sqrt(sqrt(0.5 + animationPercentage)) * sin((0.5 + animationPercentage) * sin((0.5 + animationPercentage) + Y/20)) * Y/70;
+								
+								gpu_set_blendmode(bm_subtract);
+								draw_sprite_ext(sSpaceTransSideClearer, 0, X, Y, 1, 1, 0, c_white, 1);
+							
+								gpu_set_blendmode(bm_normal);
+								draw_sprite_ext(sSpaceTransBarrier, (X%2), X, Y, -1, 1, 0, c_white, 1);
+							}
+							
+						surface_reset_target(); }
+						
+						draw_surface(surSpace, 0, 0);
 		
 					break; }
 				
 					case ROOM_TRANSITION_TYPES.slideLeft: {
-						draw_rectangle_color(global.windowW + 20, 0, (global.windowW + 20) * (1 - animationPercentage), global.windowH + 20, rt.color, rt.color, rt.color, rt.color, false);
+						// Here, draw space surface
+					
+						if !surface_exists(surSpace) then surSpace = surface_create(global.windowW + 20, global.windowH + 20);
+						surface_set_target(surSpace); {
+							draw_clear_alpha(c_white, 0);
+							
+							// Draw Space
+							draw_space_background(animationPercentage);
+							print("LEFT: " + string(animationPercentage));
+							
+							// Draw Barriers
+							var baseX = (20 + global.windowW) * (1 - animationPercentage);
+							
+							for (var i = 0; i < global.windowH / 2 + 10; i++) {
+								var Y = i * 2;
+								var X = baseX + 6 * sqrt(sqrt(animationPercentage)) * sin(animationPercentage * sin(animationPercentage + Y/20)) * Y/70;
+								
+								gpu_set_blendmode(bm_subtract);
+								draw_sprite_ext(sSpaceTransSideClearer, 0, X, Y, -1, 1, 0, c_white, 1);
+							
+								gpu_set_blendmode(bm_normal);
+								draw_sprite_ext(sSpaceTransBarrier, (X%2), X, Y, 1, 1, 0, c_white, 1);
+							}
+							
+						surface_reset_target(); }
+						
+						draw_surface(surSpace, 0, 0);
 					break; }
 				}
 			
@@ -120,6 +181,13 @@ function room_advance_transition() {
 			with oPlayer change_player_superstate(global.roomTransitioning.roomTransitionNewSuperstate);
 		}
 	}
+}
+
+function draw_space_background(percentage) { // Percentage goes from 0 to 1
+	draw_sprite(sSpaceTransBG, 0, 		-percentage * 50 - 200, -100 - percentage * 10);
+	draw_sprite(sSpaceTransClouds, 0, 	-percentage * 75 - 200, -100 - percentage * 10);
+	draw_sprite(sSpaceTransStars, 0, 	-percentage * 100, -percentage * 10);
+	draw_sprite(sSpaceTransPlanets, 0, 	-percentage * 125, -percentage * 10);
 }
 
 enum ROOM_TRANSITION_TYPES {

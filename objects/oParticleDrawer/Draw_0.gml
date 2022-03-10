@@ -1,1 +1,2 @@
+part_system_drawit(global.part_system_normal_b);
 part_system_drawit(global.part_system_normal);

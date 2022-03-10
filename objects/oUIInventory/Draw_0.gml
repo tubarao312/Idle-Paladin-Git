@@ -1,11 +1,6 @@
 draw_set_alpha(1);
 gpu_set_blendmode(bm_normal);
 
-if keyboard_check_pressed(ord("R")) then item = global.testBelt;
-if keyboard_check_pressed(ord("T")) then item = global.testSword;
-if keyboard_check_pressed(vk_control) then inventoryUIState = INVENTORY_UI_STATE.browsing;
-
-
 #region Inventory UI Logic -----------------------------------------
 
 if !surface_exists(surFinal) then surFinal = surface_create(global.windowW, global.windowH);

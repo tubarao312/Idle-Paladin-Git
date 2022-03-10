@@ -155,7 +155,7 @@ superstate_machine_set_state(superstateMachine, playerSuperstate[PLAYER_SUPERSTA
 // Starting the player running
 state_machine_start_state(superstateMachine, "movement", "walking");
 
-#endregion ----------------------------------------------------------------------------------------#
+#endregion 
 
 #region In Combat SUPERSTATE ----------------------------------------------------------------------#
 
@@ -214,6 +214,7 @@ stateFunc[STATES.step] = function() { // Step Walking
 			}
 			
 		} 
+		
 		else if !physics.onGround { // While in the air
 			if physics.vsp > 0 {
 				sprite_index = spr.falling;
@@ -232,10 +233,16 @@ stateFunc[STATES.step] = function() { // Step Walking
 			}
 		}
 		
-		// Transitioning States
-		if inputs.dash[PRESSED] and playerStats.currentMana >= 1 { // Dashing
+		// State Transitions
+		
+		if inputs.spell[0][PRESSED] and playerStats.currentMana >= 1.5 { // Fireball
+			state_machine_start_state(superstateMachine, "movement", "fireball");
+		}
+		
+		else if inputs.spell[1][PRESSED] and playerStats.currentMana >= 1 { // Dashing
 			state_machine_start_state(superstateMachine, "movement", "dashing");
 		}
+
 		else { // Jumping
 			if inputs.jump[HELD] then alarm[3] = 3;
 			var jump = physics.onGround and (alarm[3] > 0 or tilemap_get_at_pixel(jumppoint, bbox_right, bbox_bottom - 5));
@@ -243,7 +250,7 @@ stateFunc[STATES.step] = function() { // Step Walking
 			if jump then state_machine_start_state(superstateMachine, "movement", "jumping");
 		}
 		
-			// Attacking
+		// Attacking
 		#region Finding an enemy
 		ds_list_clear(enemyList);
 		instance_place_list(x, y, oEnemyParent, enemyList, false);
@@ -262,8 +269,6 @@ stateFunc[STATES.step] = function() { // Step Walking
 			enemy.enemyStats.canBeMeleed = false;
 		}
 		
-
-		
 }
 
 stateFunc[STATES.finish] = function() {} // Finish Walking (EMPTY)
@@ -276,7 +281,6 @@ state_machine_add_state(movementStateMachine, state);
 #region Jumping
 
 stateFunc[STATES.start] = function() { // Start Jumping
-
 	physics.vsp = -10;
 		
 	// VFX for jumping
@@ -343,17 +347,23 @@ stateFunc[STATES.step] = function() { // Step Attacking
 	// Transitioning States
 	if triggerFinishAttacking { // Finish Attacking Normally
 		state_machine_end_state(superstateMachine, "movement");
-	}
-	else if inputs.dash[PRESSED] and playerStats.currentMana >= 1  { // Cancel to dash
+	
+	} else if inputs.spell[1][PRESSED] and playerStats.currentMana >= 1  { // Cancel to dash
 		state_machine_queue_state(superstateMachine, "movement", "dashing");
 		state_machine_end_state(superstateMachine, "movement");
-	}
-	else { // Interrupt for jump
+	
+	} else if inputs.spell[0][PRESSED] and playerStats.currentMana >= 1.5 { // Cancel to fireball	
+		state_machine_queue_state(superstateMachine, "movement", "fireball");
+		state_machine_end_state(superstateMachine, "movement");
+	
+	} else { // Interrupt for jump
 		if inputs.jump[HELD] then alarm[3] = 3;
 		var jump = physics.onGround and (alarm[3] > 0 or tilemap_get_at_pixel(jumppoint, bbox_right, bbox_bottom - 5));
 		
 		if jump then state_machine_start_state(superstateMachine, "movement", "jumping");
 	}
+	
+	
 } 
 
 stateFunc[STATES.finish] = function() { // Finish Attacking
@@ -530,7 +540,37 @@ state_machine_add_state(movementStateMachine, state);
 
 #endregion
 
-#endregion ----------------------------------------------------------------------------------------#
+#region Fireball
+
+stateFunc[STATES.start] = function() { // Start fireball
+	// Reset Melee
+	reset_melee_for_all_enemies();
+	
+	// Drain Mana Cost
+	add_player_mana(-1.5);
+	
+	// Physics Definitions
+	physics.hsp -= 20;
+	physics.vsp = min(physics.vsp, -3);
+	
+	// Create Fireball
+	instance_create_layer(x, y, "Particles", oFireball);
+	
+	// Finish State
+	state_machine_end_state(superstateMachine, "movement");
+
+} 
+
+stateFunc[STATES.step] = function() {} // Step Fireball (EMPTY)
+
+stateFunc[STATES.finish] = function() {} // Finish Fireball (EMPTY)
+
+state = state_create("fireball", stateFunc[STATES.start], stateFunc[STATES.step], stateFunc[STATES.finish]);
+state_machine_add_state(movementStateMachine, state);
+
+#endregion
+
+#endregion
 
 #endregion
 
@@ -551,7 +591,9 @@ function inputs_component(inputs) { // Processing the inputs
 	inputs.left = input(ord("A"));
 	inputs.right = input(ord("D"));
 	inputs.attack = input(ord("C"));
-	inputs.dash = input(vk_shift);
+	inputs.spell[0] = input(ord("Q"));
+	inputs.spell[1] = input(vk_shift);
+	inputs.spell[2] = input(ord("E"));
 	inputs.interact = input(ord("S"));
 	
 	inputs.dir = inputs.right[HELD] - inputs.left[HELD];
@@ -1023,7 +1065,7 @@ meleeHit.apply_effects = function(vars, entityHit) { // The function that runs w
 
 #endregion
 
-#region Particle System
+#region Old Particle System
 global._part_system = part_system_create();
 global._part_system_2 = part_system_create();
 
