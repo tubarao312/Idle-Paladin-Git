@@ -96,7 +96,6 @@ function room_draw_transition() {
 							
 							// Draw Space
 							draw_space_background(2 - animationPercentage);
-							print("RIGHT: " + string(animationPercentage));
 							
 							// Draw Player Sprite
 							gpu_set_fog(true, $f6e14b, 0, 1);
@@ -132,7 +131,6 @@ function room_draw_transition() {
 							
 							// Draw Space
 							draw_space_background(animationPercentage);
-							print("LEFT: " + string(animationPercentage));
 							
 							// Draw Barriers
 							var baseX = (20 + global.windowW) * (1 - animationPercentage);

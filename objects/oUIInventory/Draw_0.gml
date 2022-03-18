@@ -9,7 +9,7 @@ if x >= -390 {
 	draw_clear_alpha(c_white, 0);
 	
 	// Drawing the background page
-	draw_sprite(sUIInventoryBackground, 0, 35 + x, 0 + y);
+	draw_sprite(sUIInventoryBackground, inventoryUIState, 35 + x, 0 + y);
 	
 	switch (inventoryUIState) { // State Machine
 		case INVENTORY_UI_STATE.browsing: {

@@ -18,7 +18,7 @@ abilityShield = { // Shield Ability
 
 abilityFireball = { // Fireball Ability
 	sprite: sAbilityIconFireball,
-	manaCost: 2,
+	manaCost: 1.5,
 	manaCostFont: global.fontHopeCommon,
 	lightCol: $50abed,
 };
@@ -117,8 +117,8 @@ function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	
 	// Check if cursor is hovering button
 	abilitySlot.hovered = cursor_in_box(X + 13, Y + 13, X - 13, Y - 13);
-	if abilitySlot.hovered then cursor_skin(1);
-	if abilitySlot.hovered and oPlayer.inputs.mbLeft[PRESSED] then press_ability_slot(abilitySlot);
+	if ability.manaCost <= playerStats.currentMana and abilitySlot.hovered then cursor_skin(1);
+	if ability.manaCost <= playerStats.currentMana and abilitySlot.hovered and oPlayer.inputs.mbLeft[PRESSED] then press_ability_slot(abilitySlot);
 	
 	// Draw Glowing Light
 	if abilitySlot.promptPressedTimer > 0 {
@@ -126,7 +126,13 @@ function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	}
 	
 	// Draw Icon
-	draw_sprite_ext(ability.sprite, (abilitySlot.promptPressedTimer > 0) or abilitySlot.hovered, abilityX, abilityY, max(0.55, abilitySlot.size), max(0.55, abilitySlot.size), abilitySlot.image_angle, c_white, 1);
+	var iconSubimg;
+	if abilitySlot.promptPressedTimer > 0 then iconSubimg = 1;
+	else if ability.manaCost > playerStats.currentMana then iconSubimg = 2;
+	else if abilitySlot.hovered then iconSubimg = 1;
+	else iconSubimg = 0;
+	
+	draw_sprite_ext(ability.sprite, iconSubimg, abilityX, abilityY, max(0.55, abilitySlot.size), max(0.55, abilitySlot.size), abilitySlot.image_angle, c_white, 1);
 
 	// For calculating positions of the corners of the main icon
 	var width = sprite_get_width(ability.sprite);
@@ -136,7 +142,12 @@ function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	if abilitySlot.promptPressedTimer > 0 then abilitySlot.promptPressedTimer --;
 	
 	// Draw Controller Prompt
-	draw_sprite(promptSprite, (abilitySlot.promptPressedTimer > 0), X - width/2 + 5 + abilitySlot.promptShakeX, Y - height/2 + 4 + abilitySlot.promptShakeY);
+	var promptSubimg;
+	if abilitySlot.promptPressedTimer > 0 then promptSubimg = 1;
+	else if ability.manaCost > playerStats.currentMana then promptSubimg = 2;
+	else promptSubimg = 0;
+	
+	draw_sprite(promptSprite, promptSubimg, X - width/2 + 5 + abilitySlot.promptShakeX, Y - height/2 + 4 + abilitySlot.promptShakeY);
 	
 	// Draw Cost
 	//draw_set_font(ability.manaCostFont);

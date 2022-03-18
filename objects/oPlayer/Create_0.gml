@@ -162,8 +162,12 @@ state_machine_start_state(superstateMachine, "movement", "walking");
 playerSuperstate[PLAYER_SUPERSTATES.inCombat] = superstate_create();
 
 // State machine for running, jumping, etc...
-var movementStateMachine = state_machine_create("movement");
+movementStateMachine = state_machine_create("movement");
 superstate_add_state_machine(playerSuperstate[PLAYER_SUPERSTATES.inCombat], movementStateMachine);
+
+// State machine for shielding
+shieldStateMachine = state_machine_create("shield");
+superstate_add_state_machine(playerSuperstate[PLAYER_SUPERSTATES.inCombat], shieldStateMachine);
 
 #region Walking
 
@@ -242,7 +246,13 @@ stateFunc[STATES.step] = function() { // Step Walking
 		else if inputs.spell[1][PRESSED] and playerStats.currentMana >= 1 { // Dashing
 			state_machine_start_state(superstateMachine, "movement", "dashing");
 		}
-
+		
+		else if inputs.spell[2][PRESSED] and
+		playerStats.currentMana >= 3 and
+		state_machine_get_current_state(shieldStateMachine) == undefined { // Shield Spell
+			state_machine_start_state(superstateMachine, "shield", "shielding");
+		}
+		
 		else { // Jumping
 			if inputs.jump[HELD] then alarm[3] = 3;
 			var jump = physics.onGround and (alarm[3] > 0 or tilemap_get_at_pixel(jumppoint, bbox_right, bbox_bottom - 5));
@@ -356,6 +366,11 @@ stateFunc[STATES.step] = function() { // Step Attacking
 		state_machine_queue_state(superstateMachine, "movement", "fireball");
 		state_machine_end_state(superstateMachine, "movement");
 	
+	} else if inputs.spell[2][PRESSED] and
+	playerStats.currentMana >= 3 and 
+	state_machine_get_current_state(shieldStateMachine) == undefined { // Cancel to shield	
+		state_machine_start_state(superstateMachine, "shield", "shielding");
+
 	} else { // Interrupt for jump
 		if inputs.jump[HELD] then alarm[3] = 3;
 		var jump = physics.onGround and (alarm[3] > 0 or tilemap_get_at_pixel(jumppoint, bbox_right, bbox_bottom - 5));
@@ -567,6 +582,49 @@ stateFunc[STATES.finish] = function() {} // Finish Fireball (EMPTY)
 
 state = state_create("fireball", stateFunc[STATES.start], stateFunc[STATES.step], stateFunc[STATES.finish]);
 state_machine_add_state(movementStateMachine, state);
+
+#endregion
+
+#region Shielding
+
+stateFunc[STATES.start] = function() { // Start shielding
+	// Drain Mana Cost
+	add_player_mana(-3);
+	
+	// Create Object
+	if !instance_exists(oShieldBubble) then shieldBubble = instance_create_layer(x, y, "Particles", oShieldBubble);
+	shieldTimer = 900;
+	
+	// Create Particles
+	
+	
+	// VFX
+	
+} 
+
+stateFunc[STATES.step] = function() { // Step Shielding (EMPTY)
+	
+	// Count Down Shield Timer
+	shieldTimer --;
+	if shieldTimer <= 0 then state_machine_end_state(superstateMachine, "shield");
+} 
+
+stateFunc[STATES.finish] = function() { // Finish Shielding (EMPTY)
+	
+	// Destroy Shield
+	instance_destroy(oShieldBubble);
+	shieldTimer = 0;
+	
+	// Heal and explode based on how early the shield was cancelled
+	
+	
+	// VFX
+	
+	
+} 
+
+state = state_create("shielding", stateFunc[STATES.start], stateFunc[STATES.step], stateFunc[STATES.finish]);
+state_machine_add_state(shieldStateMachine, state);
 
 #endregion
 
@@ -832,6 +890,11 @@ spr = {
 	standing: sPlayerStanding,
 };
 
+#region Spells
+	shieldTimer = 0;
+
+#endregion
+
 #endregion
 
 #region Reading Hits
@@ -855,6 +918,7 @@ enemyList = ds_list_create();
 
 #region Functions for using in Hit Effects
 function get_damaged(damage) {
+	if instance_exists(oShieldBubble) then oShieldBubble.shake_bubble();
 	add_player_hp(-damage);
 }
 

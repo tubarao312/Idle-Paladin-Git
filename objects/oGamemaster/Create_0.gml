@@ -68,7 +68,7 @@ global.fontHopeOrangeStats =	font_add_sprite_ext(sFontSpriteHopeOrangeStats,		ma
 global.fontHopeYellowStats =	font_add_sprite_ext(sFontSpriteHopeYellowStats,		mapString, true, -1);
 
 
-#endregion ---------------------------------------------------------------------#
+#endregion
 
 #region Misc -------------------------------------------------------------------#
 
@@ -83,7 +83,7 @@ startRoomTransition = false;
 
 alarm[3] = 1;
 
-#endregion ---------------------------------------------------------------------#
+#endregion
 
 #region Particle System Setup --------------------------------------------------#
 
@@ -112,13 +112,13 @@ part_system_automatic_draw(global.part_system_lava, false);
 
 global.notificationList = ds_list_create();
 
-#endregion ---------------------------------------------------------------------#
+#endregion
 
 #region Delayed Functions ------------------------------------------------------#
 
 global.delayedFunctions = ds_list_create();
 
-#endregion ---------------------------------------------------------------------#
+#endregion
 
 #region Player Stats -----------------------------------------------------------#
 
@@ -157,7 +157,7 @@ stat_bp_create("Maximum Mana", STAT_COLORS.orange, sStatIconMana,		"+", "");  //
 stat_bp_create("Mana Gain", STAT_COLORS.orange, sStatIconMana,			"+", "%"); // More mana per hit
 stat_bp_create("Mana Regeneration", STAT_COLORS.orange, sStatIconMana,	"+", "");  // Passive mana regen
 
-#endregion ---------------------------------------------------------------------#
+#endregion
 
 #region Inventory System -------------------------------------------------------#
 
@@ -181,8 +181,7 @@ enum ITEM_TYPES {
 	cape,
 }
 
-global.itemTypeNames = ["Belt", "Cloak", "Chestplate", "Helmet", "Gaunlets", "Legwear", "Sword"];
-
+global.itemTypeNames = ["Sword", "Shield", "Helmet", "Chestplate", "Gaunlets", "Belt", "Legwear", "Cape"];
 
 
 function items_update_all_alphabetic_orders() { // Run after setting up all blueprints
@@ -349,4 +348,4 @@ rarity_create("Legendary",	RARITY.legendary,	$1476ed,	$2445c6,	global.fontSinsLe
 rarity_create("Mythical",	RARITY.mythical,	$3024c4,	$2b1e89,	global.fontSinsMythical,	global.fontHopeMythical);
 
 	
-#endregion ---------------------------------------------------------------------#
+#endregion

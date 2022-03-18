@@ -130,7 +130,7 @@ fireballHit.apply_effects = function(vars, entityHit) { // The function that run
 		// Impact Effects
 		screenshake(4 * hitImpact, 3);
 		screenfreeze(40 * hitImpact);
-		shockwave(x, y, 45, 2, spr_shockwave_distortion_normals_256, random_range(1.1,1.4));
+		shockwave(x, y, 45, 1, spr_shockwave_distortion_normals_256, random_range(1.1,1.4));
 	
 		// White Alpha Effect
 		col_sprite_set_blendmode(visuals.colConfig, bm_add);
