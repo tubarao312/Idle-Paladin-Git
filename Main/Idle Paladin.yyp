@@ -803,7 +803,7 @@
     {"id":{"name":"sDecorationBGDarkLeaf1","path":"sprites/sDecorationBGDarkLeaf1/sDecorationBGDarkLeaf1.yy",},"order":14,},
     {"id":{"name":"room_set_next_superstate","path":"scripts/room_set_next_superstate/room_set_next_superstate.yy",},"order":5,},
     {"id":{"name":"sDecorationFlag3","path":"sprites/sDecorationFlag3/sDecorationFlag3.yy",},"order":7,},
-    {"id":{"name":"input_dualshock","path":"scripts/input_dualshock/input_dualshock.yy",},"order":14,},
+    {"id":{"name":"input_gamepad","path":"scripts/input_gamepad/input_gamepad.yy",},"order":14,},
     {"id":{"name":"oShopInteriorRightSideDecoration2","path":"objects/oShopInteriorRightSideDecoration2/oShopInteriorRightSideDecoration2.yy",},"order":1,},
     {"id":{"name":"sEnemyMinotaurGreyAttacking","path":"sprites/sEnemyMinotaurGreyAttacking/sEnemyMinotaurGreyAttacking.yy",},"order":0,},
     {"id":{"name":"sEnemySlimeDying","path":"sprites/sEnemySlimeDying/sEnemySlimeDying.yy",},"order":3,},
