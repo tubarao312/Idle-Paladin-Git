@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -33,11 +34,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Essentials",
-    "path": "folders/Objects/Essentials.yy",
+    "name": "UI Elements",
+    "path": "folders/Objects/UI Elements.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ohudHealthBar",
+  "name": "oHUDHealthBar",
   "tags": [],
   "resourceType": "GMObject",
 }

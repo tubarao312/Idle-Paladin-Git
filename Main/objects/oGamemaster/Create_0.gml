@@ -99,8 +99,13 @@ part_system_automatic_draw(global.part_system_normal, false);
 global.part_system_normal_b = part_system_create(); // Gets drawn before the normal one
 part_system_automatic_draw(global.part_system_normal_b, false);
 
+// Environmental Particles
+
 global.part_system_chimney_smoke = part_system_create();
 part_system_automatic_draw(global.part_system_chimney_smoke, false);
+
+global.part_system_fire_smoke = part_system_create();
+part_system_automatic_draw(global.part_system_fire_smoke, false);
 
 global.part_system_lava = part_system_create();
 part_system_automatic_draw(global.part_system_lava, false);

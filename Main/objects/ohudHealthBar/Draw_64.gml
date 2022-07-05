@@ -22,7 +22,7 @@ draw_sprite_ext(sprite_index, image_index, x + heartShakeX, y + heartShakeY, ima
 
 // Text
 draw_set_font(font);
-draw_text(x + 1 + textShakeX, y + textShakeY + 1, string(floor(playerStats.currentHP)) + " HP");
+draw_text(x + 1 + textShakeX, y + textShakeY - 4, string(floor(playerStats.currentHP)) + " HP");
 
 // Shaking Position
 xRel = lerp(-xRel, 0, 0.3);

@@ -60,6 +60,16 @@ switch room {
 		xSkyOffset3 += 0.125;
 		
 	break; }
+	
+	case rShopInterior: {
+		layer_x("Background1",floor(x*0.25));
+		layer_x("Background2",floor(x*0.5 + xSkyOffset2));
+		layer_x("Background3",floor(x*0.75 + xSkyOffset3));
+
+		xSkyOffset2 += 0.25;
+		xSkyOffset3 += 0.125;
+		
+	break; }
 
 	case rDesert: {
 		layer_x("Background1",floor(x*0.75  + xSkyOffset3));

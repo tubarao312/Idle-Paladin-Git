@@ -1,7 +1,11 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sSmokeSpawnCenter",
+    "path": "sprites/sSmokeSpawnCenter/sSmokeSpawnCenter.yy",
+  },
   "solid": false,
-  "visible": true,
+  "visible": false,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,

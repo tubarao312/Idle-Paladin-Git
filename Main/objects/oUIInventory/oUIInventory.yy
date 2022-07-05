@@ -2,6 +2,7 @@
   "spriteId": null,
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": true,
   "parentObjectId": null,
@@ -31,8 +32,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Essentials",
-    "path": "folders/Objects/Essentials.yy",
+    "name": "UI Elements",
+    "path": "folders/Objects/UI Elements.yy",
   },
   "resourceVersion": "1.0",
   "name": "oUIInventory",

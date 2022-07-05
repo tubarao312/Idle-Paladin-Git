@@ -25,7 +25,7 @@ draw_sprite_ext(sprite_index, image_index, x + ballShakeX - 6, y + ballShakeY + 
 // Text
 draw_set_font(font);
 draw_set_halign(fa_right);
-if floor(playerStats.currentMana) > 0 then draw_text(x - 38 + textShakeX, y + textShakeY + 9, floor(playerStats.currentMana));
+if floor(playerStats.currentMana) > 0 then draw_text(x - 38 + textShakeX, y + textShakeY + 4, floor(playerStats.currentMana));
 draw_set_halign(fa_left);
 
 draw_sprite(textSprite, 0, x - 34 + textShakeX, y + textShakeY + 9)

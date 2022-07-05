@@ -442,25 +442,25 @@ function step_button(button) {
 #region Setup
 
 // Exit Button
-butExit = button_create(sUIInventoryExitButton, sUIInventoryExitButtonGlowing, noone, noone, noone, 0, 0);
+butExit = button_create(sUIInventoryExitButton, sUIInventoryExitButtonGlowing, noone, noone, noone, 0, -5);
 
 // Equip Button
 butEquip = button_create(sUIInventoryEquipButton, sUIInventoryEquipButtonGlowing, 
 				global.fontHopeEquipBut, global.fontHopeEquipButGlow, 
-				"Equip", 0, -4);
+				"Equip", 0, -9);
 
 // Upgrade Button
 butUpgrade = button_create(sUIInventoryUpgradeButton, sUIInventoryUpgradeButtonGlowing,
 				global.fontHopeUpgradeBut, global.fontHopeUpgradeButGlow, 
-				"Upgrade", -1, -4);
+				"Upgrade", -1, -9);
 				
 // Salvage Button (Inspect)
 butSalvage = button_create(sUIInventorySalvageButton, sUIInventorySalvageButtonGlowing,
 				global.fontHopeSalvageBut, global.fontHopeSalvageButGlow, 
-				"Salvage", -1, -4);
+				"Salvage", -1, -9);
 
-butLock = button_create(sUIInventoryLockButtonUnlocked, sUIInventoryLockButtonUnlockedGlowing, noone, noone, noone, 0, 0);
-butBack = button_create(sUIInventoryBackButton, sUIInventoryBackButtonGlowing, noone, noone, noone, 0, 0);
+butLock = button_create(sUIInventoryLockButtonUnlocked, sUIInventoryLockButtonUnlockedGlowing, noone, noone, noone, 0, -5);
+butBack = button_create(sUIInventoryBackButton, sUIInventoryBackButtonGlowing, noone, noone, noone, 0, -5);
 
 inspectLowerButtons = [butEquip, butUpgrade, butSalvage, butLock, butBack];
 
@@ -575,7 +575,7 @@ sort_buttons_generate_new_list();
 
 butSalvageBrowse = button_create(sUIInventorySalvageButton, sUIInventorySalvageButtonGlowing,
 				global.fontHopeSalvageBut, global.fontHopeSalvageButGlow, 
-				"Salvage", -1, -4);
+				"Salvage", -1, -9);
 
 butBackBrowse = button_create(sUIInventoryBackButton, sUIInventoryBackButtonGlowing, noone, noone, noone, 0, 0);
 
@@ -675,7 +675,7 @@ function step_perk_icon(icon) {
 			draw_set_font(fonts[icon.hovered]);
 		
 			draw_set_halign(fa_right);
-			draw_text(icon.x + (icon.width/2 - 1 + icon.hovered)*icon.image_xscale, icon.y + (icon.height/2 - 7)*icon.image_yscale, icon.rank);
+			draw_text(icon.x + (icon.width/2 - 1 + icon.hovered)*icon.image_xscale, icon.y + (icon.height/2 - 12)*icon.image_yscale, icon.rank);
 			draw_set_halign(fa_left);
 		}
 	}
@@ -803,7 +803,7 @@ function draw_lower_frame_standard(item) {
 		// Set Title
 		draw_set_font(global.rarityArray[set.baseRarity].hopeFont);
 		draw_set_halign(fa_middle);
-		draw_text(137, 83, set.name);
+		draw_text(137, 78, set.name);
 	
 	
 		draw_sprite(progressionCircleSprites[set.baseRarity], item_set_get_character_tier(set), 106, 105);
@@ -818,7 +818,7 @@ function draw_lower_frame_standard(item) {
 				var str = string(tier.piecesRequired) + " piece";
 				if tier.piecesRequired > 1 then str += "s";
 			
-				draw_text(120, 106 + i * 20, str);
+				draw_text(120, 101 + i * 20, str);
 			}
 		}
 	
@@ -829,7 +829,7 @@ function draw_lower_frame_standard(item) {
 		
 			stat_draw_name(statNameX , 77, item.statList[|0]); // First Stat
 			draw_set_halign(fa_right);
-			stat_draw_quantity(statQuantX , 83, item.statList[|0]);
+			stat_draw_quantity(statQuantX , 78, item.statList[|0]);
 	
 			var i;
 			for (i = 1; i < ds_list_size(item.statList); i++) { // Rest of the stats
@@ -838,7 +838,7 @@ function draw_lower_frame_standard(item) {
 				stat_draw_name(statNameX, (i*14) + 85, item.statList[|i]);
 	
 				draw_set_halign(fa_right);
-				stat_draw_quantity(statQuantX, (i*14) + 91, item.statList[|i]);
+				stat_draw_quantity(statQuantX, (i*14) + 86, item.statList[|i]);
 			}
 		}
 	
@@ -869,7 +869,7 @@ function draw_lower_frame_standard(item) {
 				var str = string(tier.piecesRequired) + " piece";
 				if tier.piecesRequired > 1 then str += "s";
 			
-				draw_text(120, 106 + i * 20, str);
+				draw_text(120, 101 + i * 20, str);
 			}
 		}
 	
@@ -920,13 +920,13 @@ function draw_lower_frame_set_inspect(item) {
 		// Set Title
 		draw_set_font(global.rarityArray[set.baseRarity].hopeFont);
 		draw_set_halign(fa_middle);
-		draw_text(137, 83, set.name);
+		draw_text(137, 78, set.name);
 	
 		// Set Rank
 		draw_set_halign(fa_right);
 		
 		var romanNums = ["N/A", "Rank I","Rank II","Rank III"];
-		draw_text(332, 83, romanNums[setRank]);
+		draw_text(332, 78, romanNums[setRank]);
 		
 		// Set Description
 		draw_set_halign(fa_left);
@@ -980,7 +980,7 @@ function draw_lower_frame_perk_inspect(item, perk) {
 	
 		// Title
 		draw_set_font(global.rarityArray[item.bp.rarity].hopeFont);
-		draw_text(98, 83, "+" + string(perk.rank) + " to " + perk.bp.name);
+		draw_text(98, 78, "+" + string(perk.rank) + " to " + perk.bp.name);
 	
 		// Perk Description
 		draw_set_halign(fa_left);
@@ -1155,7 +1155,7 @@ function draw_inspect_page(item) {
 		var str = (rarity.name + " " + global.itemTypeNames[item.bp.type]);
 		if (item.equippedCharacter != noone) then str = (global.itemTypeNames[item.bp.type] + " - Equipped");
 
-		draw_text(x + 268, y + 11, str);
+		draw_text(x + 268, y + 6, str);
 		draw_set_halign(fa_left);
 	
 	surface_reset_target(); }
@@ -1282,7 +1282,7 @@ function draw_inspect_page(item) {
 		draw_set_font(rarity.hopeFont);
 		draw_set_halign(fa_middle);
 	
-		draw_text(x + 137, y + 50, "Lv. " + string(item.level));
+		draw_text(x + 137, y + 45, "Lv. " + string(item.level));
 	
 		// Item Name
 		draw_set_font(rarity.sinsFont);
@@ -1383,7 +1383,7 @@ function draw_item_card(item, glowing, X, Y, scale) {
 		// Level
 		draw_set_font(rarity.hopeFont);
 		draw_set_halign(fa_right);
-		draw_text_transformed(X + (17 + glowing)*scale, Y + 16*scale, item.level, scale, scale, 0);
+		draw_text_transformed(X + (17 + glowing)*scale, Y + 11*scale, item.level, scale, scale, 0);
 		draw_set_halign(fa_left);
 	}
 }
@@ -1509,7 +1509,7 @@ function draw_browsing_page() {
 				draw_text(133 + x, 10 + y, inspectedItem.bp.name);
 				
 				draw_set_font(rarity.hopeFont);
-				draw_text(133 + x, 28 + y, "Lv." + string(inspectedItem.level));
+				draw_text(133 + x, 23 + y, "Lv." + string(inspectedItem.level));
 				
 				draw_set_halign(fa_left);
 			} else { // Total Item Count
@@ -1518,7 +1518,7 @@ function draw_browsing_page() {
 				draw_text(133 + x, 10 + y, "Total Items");
 				
 				draw_set_font(global.fontHopeCommon);
-				draw_text(133 + x, 28 + y, ds_list_size(global.uniqueStorage.items));
+				draw_text(133 + x, 23 + y, ds_list_size(global.uniqueStorage.items));
 				
 				draw_set_halign(fa_left);
 			}
