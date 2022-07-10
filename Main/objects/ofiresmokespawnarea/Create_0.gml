@@ -27,13 +27,13 @@ part_type_shape(particle2, pt_shape_square);
 
 // Fire Spark
 particle3 = part_type_create();
-part_type_speed(particle3, 0.15, 0.25, 0, 0.025);
+part_type_speed(particle3, 0.25, 0.40, -0.001, 0.025);
 part_type_direction(particle3, 0, 180, 0, 7);
-part_type_gravity(particle3, 0.003, 90);
+part_type_gravity(particle3, 0.002, -90);
 part_type_orientation(particle3, 0, 360, 0, 5, true);
-part_type_size(particle3, 1, 1.5, -0.01, 0.1);
+part_type_size(particle3, 1, 1.50, -0.02, 0.2);
 part_type_scale(particle3, 0.04, 0.07);
-part_type_life(particle3, 75, 125);
+part_type_life(particle3, 45, 90);
 part_type_blend(particle3, true);
 part_type_color_mix(particle3, $50abed, $2b1e89);
 part_type_alpha3(particle3, 0.7, 1, 0.3);
