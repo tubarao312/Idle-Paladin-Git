@@ -5,7 +5,7 @@ function part_draw_hud_add(){
 	surface_set_target(global.surfParticlesHUDAdd);
 		draw_clear_alpha(c_white, 0);
 	
-		part_system_drawit(global.part_system_HUDAdd);
+		if global.enableHUD then part_system_drawit(global.part_system_HUDAdd);
 		
 	surface_reset_target();
 

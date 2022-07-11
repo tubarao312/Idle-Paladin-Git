@@ -63,6 +63,20 @@ particle3 = part_type_create(); {
 	part_type_shape(particle3, pt_shape_square);
 }
 
+particleSpark = part_type_create(); {
+	part_type_speed(particleSpark, 0.45, 0.60, -0.001, 0.025);
+	part_type_direction(particleSpark, 0, 180, 0, 7);
+	part_type_gravity(particleSpark, 0.002, -90);
+	part_type_orientation(particleSpark, 0, 360, 0, 5, true);
+	part_type_size(particleSpark, 1, 1.50, -0.02, 0.2);
+	part_type_scale(particleSpark, 0.04, 0.07);
+	part_type_life(particleSpark, 45, 90);
+	part_type_blend(particleSpark, true);
+	part_type_color_mix(particleSpark, $50abed, $2b1e89);
+	part_type_alpha3(particleSpark, 0.7, 1, 0.3);
+	part_type_shape(particleSpark, pt_shape_square);
+}
+
 particleSmoke1 = part_type_create(); {
 	part_type_speed(particleSmoke1, 0.15, 0.25, 0, 0.03);
 	part_type_direction(particleSmoke1, 0, 130, 0, 5);
@@ -104,6 +118,7 @@ fireballHit.vars = {
 	particle1: particle1,
 	particle2: particle2,
 	particle3: particle3,
+	particleSpark: particleSpark,
 	particleSmoke1: particleSmoke1,
 	particleSmoke2: particleSmoke2,
 };
@@ -165,6 +180,11 @@ fireballHit.apply_effects = function(vars, entityHit) { // The function that run
 		o.image_xscale = 0.45 * hitImpact * get_effects_size();
 		o.image_yscale = 0.50 * hitImpact * get_effects_size();
 		
+		var o = instance_create_depth(x+random_range(-1,1), y+random_range(-1,1), depth-1 ,oHitEffect2)
+		o.sprite_index = sHitLineFire;
+		o.image_xscale = 0.30 * hitImpact * get_effects_size();
+		o.image_yscale = 0.65 * hitImpact * get_effects_size();
+		
 		// Particles
 		part_emitter_region(global.part_system_normal, vars.emitter, x-5, x+5, y-5, y+5, ps_shape_ellipse, ps_distr_linear);
 		part_emitter_burst(global.part_system_normal, vars.emitter, vars.particle1, 1.5 * min(80,80*(vars.damage / get_max_hp())) * get_effects_size());
@@ -172,6 +192,7 @@ fireballHit.apply_effects = function(vars, entityHit) { // The function that run
 
 		part_emitter_region(global.part_system_normal, vars.emitter, x+12, x-12, y+12, y-12, ps_shape_ellipse, ps_distr_linear);
 		part_emitter_burst(global.part_system_normal, vars.emitter, vars.particle2, 30);
+		part_emitter_burst(global.part_system_normal, vars.emitter, vars.particleSpark, 20);
 		
 		part_emitter_region(global.part_system_normal_b, vars.emitter_b, x-5, x+5, y-5, y+5, ps_shape_ellipse, ps_distr_linear);
 		part_emitter_burst(global.part_system_normal_b, vars.emitter_b, vars.particleSmoke1, 0.15 * min(80,80*(vars.damage / get_max_hp())) * get_effects_size());

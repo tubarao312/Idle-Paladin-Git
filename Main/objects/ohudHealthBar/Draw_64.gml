@@ -9,20 +9,20 @@ var i;
 for (i = 0; i < HPPartitions * percentageHP; i++) {
 	var waveEffectY = sin(partitionsPosition + 3.14 * i / 5) * partitionsHeight;
 	
-	draw_sprite_ext(HPPartitionSprite, 0, 8 + x + (i * 5) + barShakeX, y - 1 + barShakeY + waveEffectY,
+	if global.enableHUD then draw_sprite_ext(HPPartitionSprite, 0, 8 + x + (i * 5) + barShakeX, y - 1 + barShakeY + waveEffectY,
 		1 + 0.15 * abs(waveEffectY),  1 + 0.15 * abs(waveEffectY), 0, c_white, 1);
 }
 
 // Last Partition has a different sprite
 waveEffectY = sin(partitionsPosition + 3.14 * i / 5) * partitionsHeight;
-draw_sprite_ext(HPPartitionSprite, 1, 8 + x + (i * 5) + barShakeX, y - 1 + barShakeY + waveEffectY,
+if global.enableHUD then draw_sprite_ext(HPPartitionSprite, 1, 8 + x + (i * 5) + barShakeX, y - 1 + barShakeY + waveEffectY,
 		image_xscale + 0.15 * abs(waveEffectY),  image_yscale + 0.15 * abs(waveEffectY), 0, c_white, 1);
 
-draw_sprite_ext(sprite_index, image_index, x + heartShakeX, y + heartShakeY, image_xscale, image_yscale, 0, c_white, 1);
+if global.enableHUD then draw_sprite_ext(sprite_index, image_index, x + heartShakeX, y + heartShakeY, image_xscale, image_yscale, 0, c_white, 1);
 
 // Text
 draw_set_font(font);
-draw_text(x + 1 + textShakeX, y + textShakeY - 4, string(floor(playerStats.currentHP)) + " HP");
+if global.enableHUD then draw_text(x + 1 + textShakeX, y + textShakeY - 4, string(floor(playerStats.currentHP)) + " HP");
 
 // Shaking Position
 xRel = lerp(-xRel, 0, 0.3);

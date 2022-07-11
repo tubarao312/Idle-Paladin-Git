@@ -9,7 +9,7 @@ for (currentSlot = 0; currentSlot <= 2; currentSlot++) {
 }
 surface_reset_target();
 
-draw_surface(surface, 0, 0);
+if global.enableHUD then draw_surface(surface, 0, 0);
 
 var q = keyboard_check_pressed(ord("Q"));
 var w = keyboard_check_pressed(ord("E"));

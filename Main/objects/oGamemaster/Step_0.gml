@@ -19,3 +19,13 @@ for (i = ds_list_size(global.delayedFunctions) - 1; i >= 0; i--) {
 		ds_list_delete(global.delayedFunctions, i);
 	}
 }
+
+// Screenfreeze
+//while (global.screenfreezeTime > current_time) {
+//	global.screenfreezeTime = lerp(global.screenfreezeTime, current_time, 0.05);
+//}
+
+// Enable and Disable HUD [TESTING]
+if keyboard_check_pressed(vk_f12) {
+	global.enableHUD = !global.enableHUD;
+}

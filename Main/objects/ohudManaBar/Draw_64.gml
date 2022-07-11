@@ -8,7 +8,7 @@ var i;
 for (i = 0; i < floor(playerStats.currentMana); i++) {
 	var waveEffectY = sin(partitionsPosition + 3.14 * i / 5) * min(partitionsHeight, 10);
 	
-	draw_sprite_ext(manaPartitionSprite, 0, x - 12 - (i * 11) + barShakeX, y + 9 + barShakeY + waveEffectY,
+	if global.enableHUD then  draw_sprite_ext(manaPartitionSprite, 0, x - 12 - (i * 11) + barShakeX, y + 9 + barShakeY + waveEffectY,
 		1 + 0.1 * abs(waveEffectY),  1 + 0.1 * abs(waveEffectY), 0, c_white, 1);
 }
 
@@ -16,19 +16,21 @@ for (i = 0; i < floor(playerStats.currentMana); i++) {
 var waveEffectY = sin(partitionsPosition + 3.14 * i / 5) * partitionsHeight;
 var subimg = (playerStats.currentMana - floor(playerStats.currentMana)) * 9;
 
-draw_sprite_ext(sHUDManaBarPart, subimg, x - 12 - (i * 11) + barShakeX, y + 9 + barShakeY + waveEffectY,
+if global.enableHUD then draw_sprite_ext(sHUDManaBarPart, subimg, x - 12 - (i * 11) + barShakeX, y + 9 + barShakeY + waveEffectY,
 	1 + 0.1 * abs(waveEffectY),  1 + 0.1 * abs(waveEffectY), 0, c_white, 1);
 
 // Drawing Sprite Itself
-draw_sprite_ext(sprite_index, image_index, x + ballShakeX - 6, y + ballShakeY + 8, image_xscale, image_yscale, 0, c_white, 1);
+if global.enableHUD then draw_sprite_ext(sprite_index, image_index, x + ballShakeX - 6, y + ballShakeY + 8, image_xscale, image_yscale, 0, c_white, 1);
 
 // Text
 draw_set_font(font);
 draw_set_halign(fa_right);
-if floor(playerStats.currentMana) > 0 then draw_text(x - 38 + textShakeX, y + textShakeY + 4, floor(playerStats.currentMana));
+if floor(playerStats.currentMana) > 0 {
+	if global.enableHUD then draw_text(x - 38 + textShakeX, y + textShakeY + 4, floor(playerStats.currentMana));
+}
 draw_set_halign(fa_left);
 
-draw_sprite(textSprite, 0, x - 34 + textShakeX, y + textShakeY + 9)
+if global.enableHUD then draw_sprite(textSprite, 0, x - 34 + textShakeX, y + textShakeY + 9)
 
 // Shaking Position
 xRel = lerp(-xRel, 0, 0.3);

@@ -143,9 +143,19 @@ playerStats.currentMana = playerStats.maxMana/2;
 
 global.statBlueprintMap = ds_map_create();
 
-stat_bp_create("Base Damage", STAT_COLORS.white, sStatIconDamage,	"", "");
-stat_bp_create("Base Health", STAT_COLORS.white, sStatIconHealth,	"", "");
-stat_bp_create("Base Defense", STAT_COLORS.white, sStatIconDefense,	"", "");
+// NEW STATS
+stat_bp_create("Vitality",	STAT_COLORS.yellow, sStatIconHealth,	"", "");
+stat_bp_create("Mind",		STAT_COLORS.yellow, sStatIconMana,	"", "");
+stat_bp_create("Endurance", STAT_COLORS.yellow, sStatIconThorns,	"", "");
+
+stat_bp_create("Strength",		STAT_COLORS.orange, sStatIconCrit,	"", "");
+stat_bp_create("Intelligence",	STAT_COLORS.orange, sStatIconSpell,	"", "");
+stat_bp_create("Dexterity",		STAT_COLORS.orange, sStatIconLuck,	"", "");
+
+stat_bp_create("Base Damage",	STAT_COLORS.white, sStatIconDamage,	"", "");
+stat_bp_create("Base Defense",	STAT_COLORS.white, sStatIconDefense,	"", "");
+
+// OLD STATS (TO BE REMOVED)
 
 stat_bp_create("Crit. Chance", STAT_COLORS.yellow, sStatIconCrit,	"+", "%");
 stat_bp_create("Crit. Damage", STAT_COLORS.yellow, sStatIconCrit,	"+", "%");
@@ -227,33 +237,38 @@ item_set_tier_create(set, 2, "Gain a small amount of mana from taking damage.");
 item_set_tier_create(set, 3, "Gain a medium amount of mana from taking damage.");
 item_set_tier_create(set, 4, "Gain a massive amount of mana from taking damage.");
 
-global.testSword = item_instance_create("The 'Bacalhau'", 70);
-global.testBelt = item_instance_create("Dante's Binding", 85);
-global.testBelt2 = item_instance_create("Berserker's Belt", 30);
+global.testSword =	item_instance_create("The 'Bacalhau'", 70);
+global.testBelt =	item_instance_create("Dante's Binding", 85);
+global.testBelt2 =	item_instance_create("Berserker's Belt", 30);
 
-var healthStat =		stat_get_id("Base Damage");
-var critChanceStat =	stat_get_id("Crit. Chance");
-var spellDamageStat =	stat_get_id("Spell Damage");
-var maxManaStat =		stat_get_id("Maximum Mana");
-var thornsStat =		stat_get_id("Thorns");
+// Fecthing the IDs of each stat
+var defenseStat =	stat_get_id("Base Defense");
+var damageStat =	stat_get_id("Base Damage");
 
-stat_add(global.testBelt, healthStat, 103);
-stat_add(global.testBelt, critChanceStat, 12);
-stat_add(global.testBelt, spellDamageStat, 23);
-stat_add(global.testBelt, maxManaStat, 1);
-stat_add(global.testBelt, thornsStat, 54);
+var intStat =		stat_get_id("Intelligence");
+var dexStat =		stat_get_id("Dexterity");
+var strStat =		stat_get_id("Strength");
 
-stat_add(global.testBelt2, healthStat, 103);
-stat_add(global.testBelt2, critChanceStat, 12);
-stat_add(global.testBelt2, spellDamageStat, 23);
-stat_add(global.testBelt2, maxManaStat, 1);
-stat_add(global.testBelt2, thornsStat, 54);
+var mindStat =		stat_get_id("Mind");
+var enduranceStat = stat_get_id("Endurance");
+var vitalityStat =	stat_get_id("Vitality");
 
-stat_add(global.testSword, healthStat, 103);
-stat_add(global.testSword, critChanceStat, 12);
-stat_add(global.testSword, spellDamageStat, 23);
-stat_add(global.testSword, maxManaStat, 1);
-stat_add(global.testSword, thornsStat, 54);
+stat_add(global.testBelt, defenseStat, 103);
+stat_add(global.testBelt, intStat, 12);
+stat_add(global.testBelt, mindStat, 23);
+stat_add(global.testBelt, enduranceStat, 4);
+stat_add(global.testBelt, vitalityStat, 54);
+
+stat_add(global.testBelt2, defenseStat, 103);
+stat_add(global.testBelt2, dexStat, 12);
+stat_add(global.testBelt2, enduranceStat, 23);
+stat_add(global.testBelt2, strStat, 10);
+
+stat_add(global.testSword, damageStat, 103);
+stat_add(global.testSword, dexStat, 12);
+stat_add(global.testSword, strStat, 23);
+stat_add(global.testSword, intStat, 1);
+stat_add(global.testSword, mindStat, 54);
 
 var rampagePerk = perk_bp_create("Rampage", sPerkRampage);
 perk_rank_create(rampagePerk, "Killing an enemy grants +5% bonus damage for 3 seconds");
@@ -353,3 +368,9 @@ rarity_create("Mythical",	RARITY.mythical,	$3024c4,	$2b1e89,	global.fontSinsMyth
 
 	
 #endregion
+
+// Screenfreeze
+global.screenfreezeTime = 0;
+
+// Enable HUD
+global.enableHUD = true;
