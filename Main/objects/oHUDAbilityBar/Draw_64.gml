@@ -1,4 +1,6 @@
 
+box_set_layer(CURSOR_LAYERS.HUD); // Sets all boxes to the HUD layer
+
 if !surface_exists(surface) then surface = surface_create(global.windowW, global.windowH);
 
 surface_set_target(surface);

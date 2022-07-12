@@ -281,6 +281,7 @@ scrollBar.step = function() { // Step Function
 	var Y2 = scrollBar.baseY + scrollBar.scrollY - spriteH/2 - 1 + y;
 	
 	// Possible Inputs
+	box_set_layer(CURSOR_LAYERS.UI); // Sets all boxes to the UI layer
 	var hovered = cursor_in_box(X1, Y1, X2, Y2);
 	var pressed = hovered and oPlayer.inputs.mbLeft[PRESSED];
 	var released = oPlayer.inputs.mbLeft[RELEASED];
@@ -398,6 +399,7 @@ function step_button(button) {
 	var y1 = button.y - button.height / 2 - 1;
 	var y2 = button.y + button.height / 2 + 1;
 	
+	box_set_layer(CURSOR_LAYERS.UI); // Sets all boxes to the UI layer
 	button.hovered = cursor_in_box(x1, y1, x2, y2);
 	
 	// Checking if it's being pressed
@@ -642,6 +644,7 @@ function step_perk_icon(icon) {
 	var y2 = icon.y + icon.height / 2 + 1.95;
 	
 	icon.hoveredPrev = icon.hovered;
+	box_set_layer(CURSOR_LAYERS.UI); // Sets all boxes to the UI layer
 	icon.hovered = cursor_in_box(x1, y1, x2, y2);
 	
 	// If it's being hovered, glow
@@ -1131,6 +1134,7 @@ function lower_frame_draw_final() { // Processes queue and draws surfaces with t
 #endregion
 
 function draw_inspect_page(item) {
+	box_set_layer(CURSOR_LAYERS.UI); // Sets all boxes to the UI layer
 	var surfaceToReturnTo = surface_get_target();
 	surface_reset_target();
 	
@@ -1153,7 +1157,7 @@ function draw_inspect_page(item) {
 		draw_set_halign(fa_middle);
 
 		var str = (rarity.name + " " + global.itemTypeNames[item.bp.type]);
-		if (item.equippedCharacter != noone) then str = (global.itemTypeNames[item.bp.type] + " - Equipped");
+		if item_check_equipped(item) then str = (global.itemTypeNames[item.bp.type] + " - Equipped");
 
 		draw_text(x + 268, y + 6, str);
 		draw_set_halign(fa_left);
@@ -1220,13 +1224,13 @@ function draw_inspect_page(item) {
 		butBack.x	 =	336 + x;
 		
 		if alarm[1] <= 0 { // If button animation has finished
-			butEquip.shouldDisappear	= (inspectedItem.equippedCharacter != noone);
-			butSalvage.shouldDisappear	= (inspectedItem.equippedCharacter != noone or inspectedItem.locked);
+			butEquip.shouldDisappear	= (item_check_equipped(inspectedItem));
+			butSalvage.shouldDisappear	= (item_check_equipped(inspectedItem) or inspectedItem.locked);
 		} else switch alarm[1] { // Button Animation (Numbers are frames)
 			case 29: butBack.shouldDisappear = false; break;
 			case 24: butLock.shouldDisappear = false;
-			case 19: butSalvage.shouldDisappear	= (inspectedItem.equippedCharacter != noone or inspectedItem.locked); break;
-			case 14:  butEquip.shouldDisappear = (inspectedItem.equippedCharacter != noone); break;
+			case 19: butSalvage.shouldDisappear	= (item_check_equipped(inspectedItem) or inspectedItem.locked); break;
+			case 14:  butEquip.shouldDisappear = item_check_equipped(inspectedItem); break;
 			case 9:  butUpgrade.shouldDisappear = false; break;
 		}
 		
@@ -1247,7 +1251,7 @@ function draw_inspect_page(item) {
 			inspectedItem = noone;
 		}
 	
-		if butEquip.pressed then inspectedItem.equippedCharacter = 0; // Equipping Item
+		if butEquip.pressed then item_equip(inspectedItem); // Equipping Item
 	
 		if butLock.pressed then item_lock(inspectedItem);
 		
@@ -1389,6 +1393,7 @@ function draw_item_card(item, glowing, X, Y, scale) {
 }
 
 function step_item_card(item, X, Y) { // Returns true if hovered
+	box_set_layer(CURSOR_LAYERS.UI); // Sets all boxes to the UI layer
 	var hovered = cursor_in_box(X - 19, Y - 24, X + 19, Y + 24);
 	if hovered then cursor_skin(1);
 	

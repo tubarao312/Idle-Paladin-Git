@@ -1,4 +1,3 @@
-function stat_get_id(statName) {
-	
-	return global.statBlueprintMap[?statName];
+function stat_get_id(bp){
+	return bp.ID;
 }

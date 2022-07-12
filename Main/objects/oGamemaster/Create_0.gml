@@ -142,6 +142,9 @@ playerStats.currentMana = playerStats.maxMana/2;
 #region Item Stats -------------------------------------------------------------#
 
 global.statBlueprintMap = ds_map_create();
+global.statBlueprintList = ds_list_create();
+
+alarm[2] = 60;
 
 // NEW STATS
 stat_bp_create("Vitality",	STAT_COLORS.yellow, sStatIconHealth,	"", "");
@@ -182,7 +185,6 @@ global.perkBlueprintMap = ds_map_create();
 global.itemBlueprintMap = ds_map_create();
 global.itemSetMap = ds_map_create();
 
-
 global.itemAlphabeticList = ds_list_create(); // A list with the names of all items
 
 enum ITEM_TYPES {
@@ -194,9 +196,12 @@ enum ITEM_TYPES {
 	belt,
 	legwear,
 	cape,
+	
+	size,
 }
 
 global.itemTypeNames = ["Sword", "Shield", "Helmet", "Chestplate", "Gaunlets", "Belt", "Legwear", "Cape"];
+
 
 
 function items_update_all_alphabetic_orders() { // Run after setting up all blueprints
@@ -207,6 +212,8 @@ function items_update_all_alphabetic_orders() { // Run after setting up all blue
 	}
 }
 items_update_all_alphabetic_orders();
+
+global.equippedItems = array_create(ITEM_TYPES.size, noone);
 
 
 #region Test Item --------------------------------------------------------------------------------------------------
@@ -242,16 +249,16 @@ global.testBelt =	item_instance_create("Dante's Binding", 85);
 global.testBelt2 =	item_instance_create("Berserker's Belt", 30);
 
 // Fecthing the IDs of each stat
-var defenseStat =	stat_get_id("Base Defense");
-var damageStat =	stat_get_id("Base Damage");
+var defenseStat =	stat_get_bp("Base Defense");
+var damageStat =	stat_get_bp("Base Damage");
 
-var intStat =		stat_get_id("Intelligence");
-var dexStat =		stat_get_id("Dexterity");
-var strStat =		stat_get_id("Strength");
+var intStat =		stat_get_bp("Intelligence");
+var dexStat =		stat_get_bp("Dexterity");
+var strStat =		stat_get_bp("Strength");
 
-var mindStat =		stat_get_id("Mind");
-var enduranceStat = stat_get_id("Endurance");
-var vitalityStat =	stat_get_id("Vitality");
+var mindStat =		stat_get_bp("Mind");
+var enduranceStat = stat_get_bp("Endurance");
+var vitalityStat =	stat_get_bp("Vitality");
 
 stat_add(global.testBelt, defenseStat, 103);
 stat_add(global.testBelt, intStat, 12);
@@ -374,3 +381,24 @@ global.screenfreezeTime = 0;
 
 // Enable HUD
 global.enableHUD = true;
+
+// Cursor Layers
+
+/*
+Explanation:
+	There are multiple layers to UI that the cursor can interact with.
+The idea is that the cursor should only be able to interact with the highest tier one that
+is currently active.
+*/
+
+enum CURSOR_LAYERS { // Just add more enums to create new layers
+	HUD,
+	UI,
+	size,
+}
+
+// Create array with all of the layers
+global.cursorActiveLayers = array_create(CURSOR_LAYERS.size, 0);
+global.cursorActiveLayers[CURSOR_LAYERS.HUD] = true;
+
+global.cursorPriorityLayer = CURSOR_LAYERS.HUD;

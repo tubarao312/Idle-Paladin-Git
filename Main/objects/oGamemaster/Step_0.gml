@@ -29,3 +29,12 @@ for (i = ds_list_size(global.delayedFunctions) - 1; i >= 0; i--) {
 if keyboard_check_pressed(vk_f12) {
 	global.enableHUD = !global.enableHUD;
 }
+
+// Cursor Layers System
+// Looks for the first layer that is found and sets it as the active layer
+for (i = CURSOR_LAYERS.size-1; i >= 0; i--) {
+	if global.cursorActiveLayers[i] {
+		global.cursorPriorityLayer = i;
+		break;
+	}
+}

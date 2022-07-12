@@ -52,6 +52,7 @@ if keyboard_check_pressed(ord("I")) then showing = true;
 
 // Making Mana and HP Bars Disappear
 global.showHUD = !showing;
+global.cursorActiveLayers[CURSOR_LAYERS.UI] = showing;
 
 if showing then xTarget = -42;
 else {
