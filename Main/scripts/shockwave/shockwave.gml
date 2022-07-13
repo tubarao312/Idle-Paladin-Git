@@ -5,7 +5,7 @@
 ///@arg sprite
 ///@arg scale
 function shockwave(argument0, argument1, argument2, argument3, argument4, argument5) {
-
+	/*
 	var waveX = argument0;
 	var waveY = argument1;
 	var waveLife = argument2;
@@ -27,4 +27,5 @@ function shockwave(argument0, argument1, argument2, argument3, argument4, argume
 
 			ds_list_add(list_of_waves, new_wave);
 	}
+	*/
 }

@@ -188,10 +188,10 @@ stateFunc[STATES.step] = function() { // Step Walking
 		physics.minvsp = -20;
 		
 		if physics.vsp < 0 { // Having higher speeds while jumping
-			physics.maxhsp = (2 + sqrt(abs(physics.vsp))/2);
+			physics.maxhsp = (playerStats.get_current_speed() + sqrt(abs(physics.vsp))/2);
 			physics.minhsp = -physics.maxhsp;
 		} else {	
-			physics.maxhsp = 2;
+			physics.maxhsp = playerStats.get_current_speed();
 			physics.minhsp = -physics.maxhsp;
 		}
 		
@@ -204,7 +204,7 @@ stateFunc[STATES.step] = function() { // Step Walking
 		if physics.onGround and !physics.onGroundPrevious then instance_create_layer(x+3,bbox_bottom+3,"Particles",oJumpSmokeParticle);
 		
 		// Animations
-		image_speed = 1;
+		image_speed = playerStats.get_current_speed() / playerStats.spd;
 		
 		if physics.onGround { // While on the ground
 			if round(physics.hsp) != 0 {
@@ -238,12 +238,11 @@ stateFunc[STATES.step] = function() { // Step Walking
 		}
 		
 		// State Transitions
-		
-		if inputs.spell[0][PRESSED] and playerStats.currentMana >= 1.5 { // Fireball
+		if inputs.spell[0][PRESSED] and playerStats.currentMana >= 1.5 and !oHUDStaminaBar.resting { // Fireball
 			state_machine_start_state(superstateMachine, "movement", "fireball");
 		}
 		
-		else if inputs.spell[1][PRESSED] and playerStats.currentMana >= 1 { // Dashing
+		else if inputs.spell[1][PRESSED] and playerStats.currentMana >= 1 and !oHUDStaminaBar.resting { // Dashing
 			state_machine_start_state(superstateMachine, "movement", "dashing");
 		}
 		
@@ -271,6 +270,7 @@ stateFunc[STATES.step] = function() { // Step Walking
 		}
 		#endregion
 		if  (alarm[1] <= 0 // Melee Cooldown
+		and !oHUDStaminaBar.resting // Stamina Check
 		and enemy != noone // Checking if any enemy was found
 		and instance_exists(enemy) // Enemy got found
 		and enemy.enemyStats.canBeAttacked // Enemy should be hit
@@ -315,6 +315,8 @@ stateFunc[STATES.start] = function() { // Start Attacking
 	// Creating Hitbox
 	meleeHitbox = create_hitbox(x-14, y-23, 45, 60, oEnemyParent, 60, meleeHit);
 	
+	// TESTING STAMINA
+	oHUDStaminaBar.shake(0.5, 3.5);
 	
 	// Physics Setup
 	physics.maxhsp = 3;
@@ -395,6 +397,9 @@ state_machine_add_state(movementStateMachine, state);
 #region Dashing
 
 stateFunc[STATES.start] = function() { // Start Dashing
+
+	// TESTING STAMINA
+	oHUDStaminaBar.shake(1, 10);
 	
 	// Reset Melee
 	reset_melee_for_all_enemies();
@@ -535,6 +540,7 @@ stateFunc[STATES.step] = function() { // Step Dashing
 	#endregion
 	
 	if  (alarmDash <= 8 // Cancel to melee
+	and !oHUDStaminaBar.resting // Stamina Check
 	and alarm[1] <= 0 // Melee Cooldown
 	and enemy != noone
 	and instance_exists(enemy) // Enemy got found
@@ -559,6 +565,10 @@ state_machine_add_state(movementStateMachine, state);
 #region Fireball
 
 stateFunc[STATES.start] = function() { // Start fireball
+	
+	// TESTING STAMINA
+	oHUDStaminaBar.shake(0.8, 15);
+	
 	// Reset Melee
 	reset_melee_for_all_enemies();
 	
@@ -635,7 +645,6 @@ state_machine_add_state(shieldStateMachine, state);
 
 #region Components
 
-
 inputs = { // Input Related Attributes
 	jump: false,
 	left: false,
@@ -645,7 +654,6 @@ inputs = { // Input Related Attributes
 	attack: false,
 	interact: false,
 } 
-
 
 function inputs_component(inputs) { // Processing the inputs
 	inputs.jump = input(vk_space);

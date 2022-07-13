@@ -200,7 +200,7 @@ function visual_component(visuals) { // Processing the visuals (done in the draw
 	#endregion
 	
 	// Enemy Sprite
-	draw_self();
+	draw_sprite_ext(sprite_index, image_index, floor(x), floor(y), image_xscale, image_yscale, image_angle, c_white, image_alpha);
 	
 	// White Alpha Effect
 	col_sprite_add_alpha(visuals.colConfig, -0.05);

@@ -65,11 +65,19 @@ abilitySlots = [
 	ability_slot_create(abilityShield), 
 	ability_slot_create(abilityDash),
 	ability_slot_create(abilityFireball)];
-	
+
+/* DualShock 4
 abilitySlotPrompts = [
 	sPromptDS4Triangle,
 	sPromptDS4Circle,
 	sPromptDS4Square];
+*/
+
+abilitySlotPrompts = [ // Keyboard
+	sPromptKeyE,
+	sPromptKeyShiftRight,
+	sPromptKeyQ
+]
 
 function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	var ability = abilitySlot.ability;

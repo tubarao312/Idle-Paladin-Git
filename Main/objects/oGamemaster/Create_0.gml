@@ -135,6 +135,13 @@ playerStats.currentHP = playerStats.maxHP;
 playerStats.damage = 10;
 playerStats.maxMana = 8;
 playerStats.currentMana = playerStats.maxMana/2;
+playerStats.spd = 2;
+playerStats.restingSpdPenalty = 0.2;
+
+playerStats.get_current_speed = function() {
+	return playerStats.spd 
+	- (oHUDStaminaBar.resting * playerStats.restingSpdPenalty * playerStats.spd);
+}
 
 
 #endregion
