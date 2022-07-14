@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Juice Effects Scripts",
-    "path": "folders/Scripts/Juice Effects Scripts.yy",
+    "name": "Juice VFX",
+    "path": "folders/Scripts/Juice VFX.yy",
   },
   "resourceVersion": "1.0",
   "name": "shockwave",

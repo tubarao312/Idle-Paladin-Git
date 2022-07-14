@@ -19,18 +19,3 @@ staminaPercentage = 1;
 
 // Outer Circle
 outerCircleImageIndex = 0;
-
-// State
-resting = false;
-
-function shake(intensity, staminaCost) {
-	xShakeOffset = intensity * random_sign() * random_range(11, 15);
-	yShakeOffset = intensity * random_sign() * random_range(11, 15);
-	currentStamina -= staminaCost;
-	outerCircleImageIndex += intensity * 2.5;
-	
-	if currentStamina <= 0 {
-		resting = true;
-		currentStamina = 0;
-	}
-}

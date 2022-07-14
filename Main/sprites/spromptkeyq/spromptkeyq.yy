@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Keyboard",
-    "path": "folders/Sprites/Button Prompts/Keyboard.yy",
+    "path": "folders/Sprites/Input Prompts/Keyboard.yy",
   },
   "resourceVersion": "1.0",
   "name": "sPromptKeyQ",

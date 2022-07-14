@@ -4128,8 +4128,8 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "Tile Sets",
-    "path": "folders/Tile Sets.yy",
+    "name": "Utility",
+    "path": "folders/Tile Sets/Utility.yy",
   },
   "resourceVersion": "1.0",
   "name": "tsCollisionSmall",

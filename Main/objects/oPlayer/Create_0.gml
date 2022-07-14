@@ -188,10 +188,10 @@ stateFunc[STATES.step] = function() { // Step Walking
 		physics.minvsp = -20;
 		
 		if physics.vsp < 0 { // Having higher speeds while jumping
-			physics.maxhsp = (playerStats.get_current_speed() + sqrt(abs(physics.vsp))/2);
+			physics.maxhsp = (currentPlayerStats.spd + sqrt(abs(physics.vsp))/2);
 			physics.minhsp = -physics.maxhsp;
 		} else {	
-			physics.maxhsp = playerStats.get_current_speed();
+			physics.maxhsp = currentPlayerStats.spd;
 			physics.minhsp = -physics.maxhsp;
 		}
 		
@@ -204,7 +204,7 @@ stateFunc[STATES.step] = function() { // Step Walking
 		if physics.onGround and !physics.onGroundPrevious then instance_create_layer(x+3,bbox_bottom+3,"Particles",oJumpSmokeParticle);
 		
 		// Animations
-		image_speed = playerStats.get_current_speed() / playerStats.spd;
+		image_speed = currentPlayerStats.spd / playerStats.spd; // Image Speed scales with walking speed
 		
 		if physics.onGround { // While on the ground
 			if round(physics.hsp) != 0 {
@@ -238,16 +238,16 @@ stateFunc[STATES.step] = function() { // Step Walking
 		}
 		
 		// State Transitions
-		if inputs.spell[0][PRESSED] and playerStats.currentMana >= 1.5 and !oHUDStaminaBar.resting { // Fireball
+		if inputs.spell[0][PRESSED] and currentPlayerStats.mana >= 1.5 and !currentPlayerStats.resting { // Fireball
 			state_machine_start_state(superstateMachine, "movement", "fireball");
 		}
 		
-		else if inputs.spell[1][PRESSED] and playerStats.currentMana >= 1 and !oHUDStaminaBar.resting { // Dashing
+		else if inputs.spell[1][PRESSED] and currentPlayerStats.mana >= 1 and !currentPlayerStats.resting { // Dashing
 			state_machine_start_state(superstateMachine, "movement", "dashing");
 		}
 		
 		else if inputs.spell[2][PRESSED] and
-		playerStats.currentMana >= 3 and
+		currentPlayerStats.mana >= 3 and
 		state_machine_get_current_state(shieldStateMachine) == undefined { // Shield Spell
 			state_machine_start_state(superstateMachine, "shield", "shielding");
 		}
@@ -270,7 +270,7 @@ stateFunc[STATES.step] = function() { // Step Walking
 		}
 		#endregion
 		if  (alarm[1] <= 0 // Melee Cooldown
-		and !oHUDStaminaBar.resting // Stamina Check
+		and !currentPlayerStats.resting // Stamina Check
 		and enemy != noone // Checking if any enemy was found
 		and instance_exists(enemy) // Enemy got found
 		and enemy.enemyStats.canBeAttacked // Enemy should be hit
@@ -313,10 +313,11 @@ state_machine_add_state(movementStateMachine, state);
 
 stateFunc[STATES.start] = function() { // Start Attacking
 	// Creating Hitbox
+	meleeHit.vars.update();
 	meleeHitbox = create_hitbox(x-14, y-23, 45, 60, oEnemyParent, 60, meleeHit);
 	
-	// TESTING STAMINA
-	oHUDStaminaBar.shake(0.5, 3.5);
+	// Reduce Stamina
+	add_player_stamina(-3.5);
 	
 	// Physics Setup
 	physics.maxhsp = 3;
@@ -361,16 +362,16 @@ stateFunc[STATES.step] = function() { // Step Attacking
 	if triggerFinishAttacking { // Finish Attacking Normally
 		state_machine_end_state(superstateMachine, "movement");
 	
-	} else if inputs.spell[1][PRESSED] and playerStats.currentMana >= 1  { // Cancel to dash
+	} else if inputs.spell[1][PRESSED] and currentPlayerStats.mana >= 1  { // Cancel to dash
 		state_machine_queue_state(superstateMachine, "movement", "dashing");
 		state_machine_end_state(superstateMachine, "movement");
 	
-	} else if inputs.spell[0][PRESSED] and playerStats.currentMana >= 1.5 { // Cancel to fireball	
+	} else if inputs.spell[0][PRESSED] and currentPlayerStats.mana >= 1.5 { // Cancel to fireball	
 		state_machine_queue_state(superstateMachine, "movement", "fireball");
 		state_machine_end_state(superstateMachine, "movement");
 	
 	} else if inputs.spell[2][PRESSED] and
-	playerStats.currentMana >= 3 and 
+	currentPlayerStats.mana >= 3 and 
 	state_machine_get_current_state(shieldStateMachine) == undefined { // Cancel to shield	
 		state_machine_start_state(superstateMachine, "shield", "shielding");
 
@@ -398,8 +399,8 @@ state_machine_add_state(movementStateMachine, state);
 
 stateFunc[STATES.start] = function() { // Start Dashing
 
-	// TESTING STAMINA
-	oHUDStaminaBar.shake(1, 10);
+	// Reduce Stamina
+	add_player_stamina(-10);
 	
 	// Reset Melee
 	reset_melee_for_all_enemies();
@@ -540,7 +541,7 @@ stateFunc[STATES.step] = function() { // Step Dashing
 	#endregion
 	
 	if  (alarmDash <= 8 // Cancel to melee
-	and !oHUDStaminaBar.resting // Stamina Check
+	and !currentPlayerStats.resting // Stamina Check
 	and alarm[1] <= 0 // Melee Cooldown
 	and enemy != noone
 	and instance_exists(enemy) // Enemy got found
@@ -566,8 +567,8 @@ state_machine_add_state(movementStateMachine, state);
 
 stateFunc[STATES.start] = function() { // Start fireball
 	
-	// TESTING STAMINA
-	oHUDStaminaBar.shake(0.8, 15);
+	// Reduce Stamina
+	add_player_stamina(-15);
 	
 	// Reset Melee
 	reset_melee_for_all_enemies();
@@ -1085,17 +1086,24 @@ part_emitter_stream(global.part_system_normal, emitter1, particlesMana1, 0);
 
 #region Melee Hit Effects
 
-// Generating the melee hit
-meleeHit = {};
-meleeHit.vars = {
-	damage: 10,
-	emitter1: emitter1,
-	particlesMeleeHit1: particlesMeleeHit1,
-	particlesMeleeHit2: particlesMeleeHit2,
-	particlesMeleeHit3: particlesMeleeHit3,
-};
-
-meleeHit.vars.attacker = self;
+meleeHit = {vars: {}};
+meleeHit.vars.update = function() {
+	// Shortening the variable
+	var s = meleeHit.vars;
+	
+	// Update Damage
+	s.damage = playerStats.meleeDamage;
+	
+	// Set who's doing the attack
+	s.attacker = oPlayer;
+	
+	// Particles
+	s.emitter1 = emitter1;
+	s.particlesMeleeHit1 = particlesMeleeHit1;
+	s.particlesMeleeHit2 = particlesMeleeHit2;
+	s.particlesMeleeHit3 = particlesMeleeHit3;
+}
+meleeHit.vars.update();
 
 meleeHit.apply_effects = function(vars, entityHit) { // The function that runs when the enemy is hit
 	vars.entityHit = entityHit;
@@ -1108,7 +1116,7 @@ meleeHit.apply_effects = function(vars, entityHit) { // The function that runs w
 		get_damaged(vars.damage * random_range(0.9,1.1));
 		
 		// Creating Floating Text
-		floating_text(x, y, vars.damage + round(random_range(0,10)), global.fontHopeWhite);
+		floating_text(x, y, floor(vars.damage) + round(random_range(0,10)), global.fontHopeWhite);
 	
 		// HP Bar Stuff
 		alarm[3] = 3; // Resetting Speed for Yellow Part of HP Bar
@@ -1136,7 +1144,7 @@ meleeHit.apply_effects = function(vars, entityHit) { // The function that runs w
 		physics.hsp += hitImpact;
 		
 		// Giving the Player Mana
-		add_player_mana(min(vars.damage/get_max_hp(), 1) * 1.25);
+		add_player_mana(min(vars.damage/get_max_hp(), 1) * playerStats.manaHitRecoveryRate);
 		
 		// Visual Effects
 		var o = instance_create_depth(x+random_range(-1,1), y+random_range(-1,1), depth-1, oHitEffect1)
@@ -1446,7 +1454,6 @@ part_type_shape(global._part_type_19, pt_shape_square);
 
 
 #endregion
-
 
 function change_player_superstate(state) {
 	switch (state) {

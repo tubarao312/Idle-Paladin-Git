@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -28,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Particles & Related",
+    "path": "folders/Objects/Decoration/Particles & Related.yy",
   },
   "resourceVersion": "1.0",
   "name": "oFallingLeaf",

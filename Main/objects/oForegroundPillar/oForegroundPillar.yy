@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -29,8 +30,8 @@
     {"propertyId":{"name":"movementMultiplier","path":"objects/oForegroundParent/oForegroundParent.yy",},"objectId":{"name":"oForegroundParent","path":"objects/oForegroundParent/oForegroundParent.yy",},"value":"-0.125","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
-    "name": "Camera",
-    "path": "folders/Objects/Camera.yy",
+    "name": "Foreground Objects",
+    "path": "folders/Objects/Camera/Foreground Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "oForegroundPillar",

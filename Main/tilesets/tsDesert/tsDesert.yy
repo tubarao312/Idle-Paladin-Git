@@ -157,8 +157,8 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "Tile Sets",
-    "path": "folders/Tile Sets.yy",
+    "name": "Decoration",
+    "path": "folders/Tile Sets/Decoration.yy",
   },
   "resourceVersion": "1.0",
   "name": "tsDesert",

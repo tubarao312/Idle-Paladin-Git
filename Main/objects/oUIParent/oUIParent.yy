@@ -29,8 +29,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "UI Elements",
-    "path": "folders/Objects/UI Elements.yy",
+    "name": "UI",
+    "path": "folders/Objects/UI & HUD/UI.yy",
   },
   "resourceVersion": "1.0",
   "name": "oUIParent",

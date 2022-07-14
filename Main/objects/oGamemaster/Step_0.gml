@@ -5,9 +5,6 @@ if global.windowW = 1 or global.windowH = 1 then reset_display();
 
 if keyboard_check(ord(vk_alt)) and keyboard_check(ord(vk_f4)) then game_end();
 
-// Must run every frame
-notification_clear_all();
-
 // Delayed Functions - Execute and delete once they reach 0
 var i;
 for (i = ds_list_size(global.delayedFunctions) - 1; i >= 0; i--) {
@@ -21,9 +18,15 @@ for (i = ds_list_size(global.delayedFunctions) - 1; i >= 0; i--) {
 }
 
 // Screenfreeze
-//while (global.screenfreezeTime > current_time) {
-//	global.screenfreezeTime = lerp(global.screenfreezeTime, current_time, 0.05);
-//}
+while (global.screenfreezeTime > current_time) {
+	global.screenfreezeTime = lerp(global.screenfreezeTime, current_time, 0.05);
+}
+
+// Updating Current Player Stats
+playerStats.recalculate();
+currentPlayerStats.update();
+
+print(playerStats);
 
 // Enable and Disable HUD [TESTING]
 if keyboard_check_pressed(vk_f12) {

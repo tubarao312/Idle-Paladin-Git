@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Stat Icons",
-    "path": "folders/Sprites/REWORK/UI/Inventory/Stat Icons.yy",
+    "path": "folders/Sprites/HUD & UI/UI/Inventory/Stat Icons.yy",
   },
   "resourceVersion": "1.0",
   "name": "sStatIconHealth",

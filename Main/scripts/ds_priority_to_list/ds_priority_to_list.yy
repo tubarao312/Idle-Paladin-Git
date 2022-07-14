@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Item System",
-    "path": "folders/Scripts/RPG REWORK/Item System.yy",
+    "path": "folders/Scripts/Item System.yy",
   },
   "resourceVersion": "1.0",
   "name": "ds_priority_to_list",

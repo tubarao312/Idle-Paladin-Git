@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Stamina Bar",
-    "path": "folders/Sprites/HUD & UI/Stamina Bar.yy",
+    "path": "folders/Sprites/HUD & UI/HUD/Stamina Bar.yy",
   },
   "resourceVersion": "1.0",
   "name": "sStaminaBarOuterCircle",

@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "UI Elements",
-    "path": "folders/Objects/UI Elements.yy",
+    "name": "HUD",
+    "path": "folders/Objects/UI & HUD/HUD.yy",
   },
   "resourceVersion": "1.0",
   "name": "oHUDAbilityBar",

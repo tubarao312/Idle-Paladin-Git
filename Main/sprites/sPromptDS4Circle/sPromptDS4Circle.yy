@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "DualShock 4 - No Outline",
-    "path": "folders/Sprites/Button Prompts/DualShock 4 - No Outline.yy",
+    "path": "folders/Sprites/Input Prompts/DualShock 4 - No Outline.yy",
   },
   "resourceVersion": "1.0",
   "name": "sPromptDS4Circle",

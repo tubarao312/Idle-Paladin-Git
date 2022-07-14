@@ -82,7 +82,7 @@ abilitySlotPrompts = [ // Keyboard
 function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	var ability = abilitySlot.ability;
 	
-	// Handling Position Shake (Ability Icon)
+	// Position Shake (Ability Icon)
 	abilitySlot.shakeX += random_range(-abilitySlot.shakePosition, abilitySlot.shakePosition);
 	abilitySlot.shakeY += random_range(-abilitySlot.shakePosition, abilitySlot.shakePosition);
 	
@@ -91,7 +91,7 @@ function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	
 	abilitySlot.shakePosition = lerp(abilitySlot.shakePosition, 0, 0.15);
 	
-	// Handling Position Shake (Mana Cost)
+	// Position Shake (Mana Cost)
 	abilitySlot.manaCostShakeX += random_range(-abilitySlot.manaCostShakePosition, abilitySlot.manaCostShakePosition);
 	abilitySlot.manaCostShakeY += random_range(-abilitySlot.manaCostShakePosition, abilitySlot.manaCostShakePosition);
 	
@@ -100,7 +100,7 @@ function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	
 	abilitySlot.manaCostShakePosition = lerp(abilitySlot.manaCostShakePosition, 0, 0.15);
 	
-	// Handling Position Shake (Prompt)
+	// Position Shake (Prompt)
 	abilitySlot.promptShakeX += random_range(-abilitySlot.promptShakePosition, abilitySlot.promptShakePosition);
 	abilitySlot.promptShakeY += random_range(-abilitySlot.promptShakePosition, abilitySlot.promptShakePosition);
 				
@@ -109,12 +109,12 @@ function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 				
 	abilitySlot.promptShakePosition = lerp(abilitySlot.promptShakePosition, 0, 0.15);
 	
-	// Handling Rotation Shake
+	// Rotation Shake
 	abilitySlot.image_angle += random_range(-abilitySlot.shakeAngle, abilitySlot.shakeAngle);
 	abilitySlot.image_angle = lerp(abilitySlot.image_angle, 0, 0.15);
 	abilitySlot.shakeAngle = lerp(abilitySlot.shakeAngle, 0, 0.15);
 	
-	// Handling Size Shake
+	// Size Shake
 	abilitySlot.size += random_range(-abilitySlot.shakeSize, abilitySlot.shakeSize);
 	abilitySlot.size = lerp(abilitySlot.size, 1, 0.15);
 	abilitySlot.shakeSize = lerp(abilitySlot.shakeSize, 0, 0.15);
@@ -125,8 +125,8 @@ function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	
 	// Check if cursor is hovering button
 	abilitySlot.hovered = cursor_in_box(X + 13, Y + 13, X - 13, Y - 13);
-	if ability.manaCost <= playerStats.currentMana and abilitySlot.hovered then cursor_skin(1);
-	if ability.manaCost <= playerStats.currentMana and abilitySlot.hovered and oPlayer.inputs.mbLeft[PRESSED] then press_ability_slot(abilitySlot);
+	if !currentPlayerStats.resting and ability.manaCost <= currentPlayerStats.mana and abilitySlot.hovered then cursor_skin(1);
+	if !currentPlayerStats.resting and ability.manaCost <= currentPlayerStats.mana and abilitySlot.hovered and oPlayer.inputs.mbLeft[PRESSED] then press_ability_slot(abilitySlot);
 	
 	// Draw Glowing Light
 	if abilitySlot.promptPressedTimer > 0 {
@@ -136,7 +136,7 @@ function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	// Draw Icon
 	var iconSubimg;
 	if abilitySlot.promptPressedTimer > 0 then iconSubimg = 1;
-	else if ability.manaCost > playerStats.currentMana then iconSubimg = 2;
+	else if currentPlayerStats.resting or ability.manaCost > currentPlayerStats.mana then iconSubimg = 2;
 	else if abilitySlot.hovered then iconSubimg = 1;
 	else iconSubimg = 0;
 	
@@ -152,7 +152,7 @@ function draw_ability_slot(abilitySlot, promptSprite, X, Y) {
 	// Draw Controller Prompt
 	var promptSubimg;
 	if abilitySlot.promptPressedTimer > 0 then promptSubimg = 1;
-	else if ability.manaCost > playerStats.currentMana then promptSubimg = 2;
+	else if currentPlayerStats.resting or ability.manaCost > currentPlayerStats.mana then promptSubimg = 2;
 	else promptSubimg = 0;
 	
 	draw_sprite(promptSprite, promptSubimg, X - width/2 + 5 + abilitySlot.promptShakeX, Y - height/2 + 4 + abilitySlot.promptShakeY);

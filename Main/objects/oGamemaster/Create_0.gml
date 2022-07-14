@@ -72,6 +72,12 @@ global.fontHopeYellowStats =	font_add_sprite_ext(sFontSpriteHopeYellowStats,		ma
 
 #region Misc -------------------------------------------------------------------#
 
+// Screenfreeze
+global.screenfreezeTime = 0;
+
+// Enable HUD
+global.enableHUD = true;
+
 //Cursor
 window_set_cursor(cr_none)
 cursorSkin = 0
@@ -79,9 +85,30 @@ cursorSkin = 0
 global.cursorX = round(window_mouse_get_x()/(window_get_width()/global.windowW))
 global.cursorY = round(window_mouse_get_y()/(window_get_height()/global.windowH))
 
+// Cursor Layers
+
+/*
+Explanation:
+	There are multiple layers to UI that the cursor can interact with.
+The idea is that the cursor should only be able to interact with the highest tier one that
+is currently active.
+*/
+
+enum CURSOR_LAYERS { // Just add more enums to create new layers
+	HUD,
+	UI,
+	size,
+}
+
+// Create array with all of the layers
+global.cursorActiveLayers = array_create(CURSOR_LAYERS.size, 0);
+global.cursorActiveLayers[CURSOR_LAYERS.HUD] = true;
+
+global.cursorPriorityLayer = CURSOR_LAYERS.HUD;
+
+// Room Transitions
 startRoomTransition = false;
 
-alarm[3] = 1;
 
 #endregion
 
@@ -113,36 +140,9 @@ part_system_automatic_draw(global.part_system_lava, false);
 
 #endregion
 
-#region Notifications and Observers System -------------------------------------#
-
-global.notificationList = ds_list_create();
-
-#endregion
-
 #region Delayed Functions ------------------------------------------------------#
 
 global.delayedFunctions = ds_list_create();
-
-#endregion
-
-#region Player Stats -----------------------------------------------------------#
-
-globalvar playerStats;
-playerStats = {};
-
-playerStats.maxHP = 1000;
-playerStats.currentHP = playerStats.maxHP;
-playerStats.damage = 10;
-playerStats.maxMana = 8;
-playerStats.currentMana = playerStats.maxMana/2;
-playerStats.spd = 2;
-playerStats.restingSpdPenalty = 0.2;
-
-playerStats.get_current_speed = function() {
-	return playerStats.spd 
-	- (oHUDStaminaBar.resting * playerStats.restingSpdPenalty * playerStats.spd);
-}
-
 
 #endregion
 
@@ -151,36 +151,28 @@ playerStats.get_current_speed = function() {
 global.statBlueprintMap = ds_map_create();
 global.statBlueprintList = ds_list_create();
 
-alarm[2] = 60;
+enum STATS {
+	Vit,
+	Mind,
+	End,
+	Str,
+	Int,
+	Dex,
+	BaseDamage,
+	BaseDefense,
+}
 
-// NEW STATS
-stat_bp_create("Vitality",	STAT_COLORS.yellow, sStatIconHealth,	"", "");
-stat_bp_create("Mind",		STAT_COLORS.yellow, sStatIconMana,	"", "");
-stat_bp_create("Endurance", STAT_COLORS.yellow, sStatIconThorns,	"", "");
+// Create all stats
+stat_bp_create("Vitality",	STAT_COLORS.yellow, sStatIconHealth,		"", "");
+stat_bp_create("Mind",		STAT_COLORS.yellow, sStatIconMana,			"", "");
+stat_bp_create("Endurance", STAT_COLORS.yellow, sStatIconThorns,		"", "");
 
-stat_bp_create("Strength",		STAT_COLORS.orange, sStatIconCrit,	"", "");
-stat_bp_create("Intelligence",	STAT_COLORS.orange, sStatIconSpell,	"", "");
-stat_bp_create("Dexterity",		STAT_COLORS.orange, sStatIconLuck,	"", "");
+stat_bp_create("Strength",		STAT_COLORS.orange, sStatIconCrit,		"", "");
+stat_bp_create("Intelligence",	STAT_COLORS.orange, sStatIconSpell,		"", "");
+stat_bp_create("Dexterity",		STAT_COLORS.orange, sStatIconLuck,		"", "");
 
-stat_bp_create("Base Damage",	STAT_COLORS.white, sStatIconDamage,	"", "");
+stat_bp_create("Base Damage",	STAT_COLORS.white, sStatIconDamage,		"", "");
 stat_bp_create("Base Defense",	STAT_COLORS.white, sStatIconDefense,	"", "");
-
-// OLD STATS (TO BE REMOVED)
-
-stat_bp_create("Crit. Chance", STAT_COLORS.yellow, sStatIconCrit,	"+", "%");
-stat_bp_create("Crit. Damage", STAT_COLORS.yellow, sStatIconCrit,	"+", "%");
-stat_bp_create("Dodge Chance", STAT_COLORS.yellow, sStatIconLuck,	"+", "%");
-stat_bp_create("Thorns", STAT_COLORS.yellow, sStatIconThorns,		"+", "%"); // Reflects thorns * base damage on to enemies who attack
-stat_bp_create("Health Regeneration", STAT_COLORS.yellow, sStatIconThorns, "+", "%"); // Regens hpRegen% of max health every second
-
-stat_bp_create("Spell Damage", STAT_COLORS.orange, sStatIconSpell,		"+", "%"); // Spells deal more damage
-stat_bp_create("Spell Range", STAT_COLORS.orange, sStatIconSpell,		"+", "%"); // Spells have higher range
-stat_bp_create("Spell Duration", STAT_COLORS.orange, sStatIconSpell,	"+", "%"); // Spell effects last longer
-stat_bp_create("Spell Efficiency", STAT_COLORS.orange, sStatIconSpell,  "+", "%"); // Spells cost less
-
-stat_bp_create("Maximum Mana", STAT_COLORS.orange, sStatIconMana,		"+", "");  // More max mana
-stat_bp_create("Mana Gain", STAT_COLORS.orange, sStatIconMana,			"+", "%"); // More mana per hit
-stat_bp_create("Mana Regeneration", STAT_COLORS.orange, sStatIconMana,	"+", "");  // Passive mana regen
 
 #endregion
 
@@ -208,7 +200,6 @@ enum ITEM_TYPES {
 }
 
 global.itemTypeNames = ["Sword", "Shield", "Helmet", "Chestplate", "Gaunlets", "Belt", "Legwear", "Cape"];
-
 
 
 function items_update_all_alphabetic_orders() { // Run after setting up all blueprints
@@ -336,16 +327,6 @@ for (i = 0; i < 60; i++) {
 
 #endregion
 
-#region Resource System --------------------------------------------------------#
-
-global.resources = {
-	gold: 0,	// Resource Sink
-	rubble: 0,	// Buildings & Town Upgrades
-	gems: 0,	// Equipment Upgrades
-}
-
-#endregion
-
 #region Rarity System ----------------------------------------------------------#
 
 global.rarityArray = [];
@@ -383,29 +364,151 @@ rarity_create("Mythical",	RARITY.mythical,	$3024c4,	$2b1e89,	global.fontSinsMyth
 	
 #endregion
 
-// Screenfreeze
-global.screenfreezeTime = 0;
+#region Player Stats -----------------------------------------------------------#
 
-// Enable HUD
-global.enableHUD = true;
+baseStats = { // Baseline stats. playerStats are then calculated using these as baseline
+	// Health
+	maxHP: 100,
+	hpRegen: 0,
+	
+	// Melee
+	meleeDamage: 3,
+	
+	// Spells
+	spellPower: 6,
+	
+	// Mana
+	maxMana: 1,
+	manaHitRecoveryRate: 0.5,
+	
+	// Movement Speed
+	spd: 2,
+	restingSpdPenalty: 0.2,
+	
+	// Stamina
+	maxStamina: 30,
+	restingStaminaRecov: 0.05,
+	passiveStaminaRecov: 0.01,
+};
 
-// Cursor Layers
-
-/*
-Explanation:
-	There are multiple layers to UI that the cursor can interact with.
-The idea is that the cursor should only be able to interact with the highest tier one that
-is currently active.
-*/
-
-enum CURSOR_LAYERS { // Just add more enums to create new layers
-	HUD,
-	UI,
-	size,
+globalvar playerStats; // Max HP instead of current HP (EXAMPLE)
+playerStats = {};
+playerStats.recalculate = function() { // Recalculates player stats based on attributes
+	var attributes = get_equipped_item_stats();
+	print(attributes)
+	// Health
+	playerStats.maxHP = baseStats.maxHP + attributes[STATS.Vit] * 5;
+	playerStats.hpRegen = baseStats.hpRegen + attributes[STATS.Vit] * 0.01;
+	
+	// Melee Damage
+	playerStats.meleeDamage = (baseStats.meleeDamage + attributes[STATS.BaseDamage]) 
+								* (1 + attributes[STATS.Str] * 0.06)
+	
+	// Spell Power
+	playerStats.spellPower = baseStats.spellPower 
+						   + attributes[STATS.Int] * 3;
+		
+		// Mind over 99 buffs spell power instead
+	if attributes[STATS.Mind] > 99 then playerStats.spellPower *= (1 + 0.01 * (attributes[STATS.Mind] - 99))
+	
+	// Mana
+	playerStats.maxMana = baseStats.maxMana + min(attributes[STATS.Mind] / 11, 9); // Max mana is 10
+	playerStats.manaHitRecoveryRate = baseStats.manaHitRecoveryRate 
+									+ attributes[STATS.Mind] * 0.025
+									+ attributes[STATS.Int]  * 0.015
+									
+	// Stamina
+	playerStats.maxStamina = baseStats.maxStamina +
+						   + attributes[STATS.End] * 1.5
+	
+	playerStats.restingStaminaRecov = baseStats.restingStaminaRecov
+									+ attributes[STATS.End] * 0.005
+									+ attributes[STATS.Str] * 0.001
+									
+	playerStats.passiveStaminaRecov = baseStats.passiveStaminaRecov
+									+ attributes[STATS.End] * 0.001
+									
+	// Movement Speed
+	playerStats.spd = baseStats.spd 
+					* (1 + min(attributes[STATS.Dex]/400, 0.25));
+					
+	playerStats.restingSpdPenalty = baseStats.restingSpdPenalty
+								  * (1 - min(attributes[STATS.Dex] / 200, 1));
 }
 
-// Create array with all of the layers
-global.cursorActiveLayers = array_create(CURSOR_LAYERS.size, 0);
-global.cursorActiveLayers[CURSOR_LAYERS.HUD] = true;
+playerStats.recalculate(); // Update once before rest of the game starts running
 
-global.cursorPriorityLayer = CURSOR_LAYERS.HUD;
+globalvar currentPlayerStats; // Current HP instead of Max HP (EXAMPLE)
+currentPlayerStats = {};
+currentPlayerStats.reset = function() { // Resets current player stats
+	// Health
+	currentPlayerStats.hp = playerStats.maxHP;
+	
+	// Mana
+	currentPlayerStats.mana = 0;
+	
+	// Stamina
+	currentPlayerStats.stamina = playerStats.maxStamina;
+	
+	// Speed
+	currentPlayerStats.spd = playerStats.spd;
+	
+	// If the player is resting or not
+	currentPlayerStats.resting = false;
+};
+currentPlayerStats.update = function() { // Updates current player stats (Add HP Regen, etc...)
+	// Regening Health
+	currentPlayerStats.hp += playerStats.hpRegen;
+	
+	// Stamina and resting
+	if currentPlayerStats.stamina < 0 {
+		currentPlayerStats.stamina = 0;
+		currentPlayerStats.resting = true;
+	} else if currentPlayerStats.resting and currentPlayerStats.stamina >= playerStats.maxStamina {
+		currentPlayerStats.stamina = playerStats.maxStamina;
+		currentPlayerStats.resting = false;
+	}
+	
+	if currentPlayerStats.resting then currentPlayerStats.stamina += playerStats.restingStaminaRecov;
+	else currentPlayerStats.stamina += playerStats.passiveStaminaRecov;
+	
+	// Speed
+	currentPlayerStats.spd = playerStats.spd
+						   - currentPlayerStats.resting * playerStats.restingSpdPenalty * playerStats.spd;
+
+	// Clamping Stats
+	currentPlayerStats.hp		= clamp(currentPlayerStats.hp, 0, playerStats.maxHP);
+	currentPlayerStats.mana		= clamp(currentPlayerStats.mana, 0, playerStats.maxMana);
+	currentPlayerStats.stamina	= clamp(currentPlayerStats.stamina, 0, playerStats.maxStamina);
+}
+
+currentPlayerStats.reset(); // Update once before rest of the game starts running
+
+#endregion
+
+#region Stat Tracking ----------------------------------------------------------#
+
+/* Explanation:
+	Each global list contains multiple arrays. Each array contains all of the
+	player's attributes.
+*/
+
+enum PLAYER_STAT_LIST_INDEX {
+	base_stats,
+	temporary_effects,
+}
+
+global.playerStatAdditiveList = ds_list_create(); // Gets all summed together
+global.playerStatMultiplicativeList = ds_list_create(); // Gets all multiplied together
+
+enum PLAYER_ATTRIBUTE_LIST_INDEX {
+	base_attributes,
+	armor_attributes,
+	temporary_effects,
+}
+
+global.playerAttributeAdditiveList = ds_list_create(); // Gets all summed together
+global.playerAttributeMultiplicativeList = ds_list_create(); // Gets all multiplied together
+
+#endregion ---------------------------------------------------------------------#
+

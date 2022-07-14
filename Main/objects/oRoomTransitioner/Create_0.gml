@@ -162,7 +162,7 @@ function room_draw_transition() {
 }
 
 
-function room_advance_transition() {
+function room_advance_transition() { // When the room actually transitions
 	var rt = global.roomTransitioning;
 	
 	rt.roomTransitionCurrentFrame++;
@@ -176,16 +176,18 @@ function room_advance_transition() {
 			oPlayer.y = rt.nextRoomStartingY;
 			oPlayer.visuals.skipNextGroundSmokeEffect = true;
 			
+			if room = rTownHub then currentPlayerStats.reset();
+			
 			with oPlayer change_player_superstate(global.roomTransitioning.roomTransitionNewSuperstate);
 		}
 	}
 }
 
 function draw_space_background(percentage) { // Percentage goes from 0 to 1
-	draw_sprite(sSpaceTransBG, 0, 		-percentage * 50 - 200, -100 - percentage * 10);
-	draw_sprite(sSpaceTransClouds, 0, 	-percentage * 75 - 200, -100 - percentage * 10);
-	draw_sprite(sSpaceTransStars, 0, 	-percentage * 100, -percentage * 10);
-	draw_sprite(sSpaceTransPlanets, 0, 	-percentage * 125, -percentage * 10);
+	draw_sprite(sSpaceTransBG, 0, 		- percentage * 50 - 200, -100 - percentage * 10);
+	draw_sprite(sSpaceTransClouds, 0, 	- percentage * 75 - 200, -100 - percentage * 10);
+	draw_sprite(sSpaceTransStars, 0, 	- percentage * 100, -percentage * 10);
+	draw_sprite(sSpaceTransPlanets, 0, 	- percentage * 125, -percentage * 10);
 }
 
 enum ROOM_TRANSITION_TYPES {

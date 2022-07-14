@@ -1,19 +1,8 @@
 // State
-if !resting {
-	currentStamina = min(currentStamina + 0.025, totalStamina);
-	
+if !currentPlayerStats.resting {
 	sprite_index = sStaminaBarInnerCircleBright;
-	
 } else {
 	sprite_index = sStaminaBarInnerCircleDark;
-	currentStamina = min(currentStamina + 0.5, totalStamina);
-
-	if currentStamina >= totalStamina {
-		resting = false;
-		xShakeOffset = 12;
-		yShakeOffset = 12;
-		outerCircleImageIndex = 4;
-	}
 }
 
 // Calculate offsets based on player coordinates, shaking, etc...
@@ -28,7 +17,7 @@ x = oPlayer.x - oCamera.x + xOffset;
 y = oPlayer.y - oCamera.y + yOffset;
 
 // Calculate stamina percentage
-staminaPercentage = lerp(staminaPercentage, currentStamina / totalStamina, 0.15);
+staminaPercentage = lerp(staminaPercentage, currentPlayerStats.stamina / playerStats.maxStamina, 0.15);
 
 // Outer Circle Animation
 outerCircleImageIndex = lerp(outerCircleImageIndex, 0, 0.05);

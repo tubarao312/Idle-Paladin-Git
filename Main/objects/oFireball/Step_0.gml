@@ -28,7 +28,7 @@ switch alarm[1] { // Dash Circle Particles
 	
 }
 
-
+// Particles
 part_emitter_region(global.part_system_normal, emitter, x, x, y-3, y+3, ps_shape_ellipse, ps_distr_linear);
 part_emitter_region(global.part_system_normal_b, emitter_b, x - 6, x - 2, y-6, y+6, ps_shape_ellipse, ps_distr_linear);
 part_emitter_burst(global.part_system_normal, emitter, particle3, particleCount);
@@ -41,9 +41,11 @@ if chance(particleCount/17) {
 
 particleCount = lerp(particleCount, 6 , 0.1);
 
+// Move Hitbox
 if instance_exists(hitbox) {
 	hitbox.x = x-14;
 	hitbox.y = y-23;
 }
 
-if (x > oPlayer.x+global.windowW+20) then instance_destroy();
+// Destroy when leaving player view
+if (x > oPlayer.x + global.windowW + 20) then instance_destroy();

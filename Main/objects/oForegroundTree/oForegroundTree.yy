@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -27,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Camera",
-    "path": "folders/Objects/Camera.yy",
+    "name": "Foreground Objects",
+    "path": "folders/Objects/Camera/Foreground Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "oForegroundTree",

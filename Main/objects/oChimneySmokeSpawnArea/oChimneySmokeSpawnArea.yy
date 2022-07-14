@@ -31,8 +31,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Town Chimneys",
-    "path": "folders/Objects/Town Chimneys.yy",
+    "name": "Particles & Related",
+    "path": "folders/Objects/Decoration/Particles & Related.yy",
   },
   "resourceVersion": "1.0",
   "name": "oChimneySmokeSpawnArea",

@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "State Machine",
-    "path": "folders/Scripts/RPG REWORK/State Machines/State Machine.yy",
+    "path": "folders/Scripts/State Machines/State Machine.yy",
   },
   "resourceVersion": "1.0",
   "name": "state_machine_update",

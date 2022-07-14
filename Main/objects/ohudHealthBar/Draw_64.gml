@@ -1,5 +1,4 @@
-playerStats.currentHP = clamp(playerStats.currentHP, 0, playerStats.maxHP);
-percentageHP = playerStats.currentHP / playerStats.maxHP;
+percentageHP = currentPlayerStats.hp / playerStats.maxHP;
 
 // Drawing all the partitions
 partitionsHeight = lerp(partitionsHeight, 0, 0.1);
@@ -22,7 +21,7 @@ if global.enableHUD then draw_sprite_ext(sprite_index, image_index, x + heartSha
 
 // Text
 draw_set_font(font);
-if global.enableHUD then draw_text(x + 1 + textShakeX, y + textShakeY - 4, string(floor(playerStats.currentHP)) + " HP");
+if global.enableHUD then draw_text(x + 1 + textShakeX, y + textShakeY - 4, string(floor(currentPlayerStats.hp)) + " HP");
 
 // Shaking Position
 xRel = lerp(-xRel, 0, 0.3);

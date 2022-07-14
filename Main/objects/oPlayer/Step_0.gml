@@ -54,7 +54,7 @@ if y > 475 then {
 	y = global.checkpointY;
 
 	physics.xSpd = 0;
-	//playerStats.hp -= playerStats.maxHP/45;
+	add_player_hp(-playerStats.maxHP/15)
 	whiteAlpha = 1.1;
 }
 

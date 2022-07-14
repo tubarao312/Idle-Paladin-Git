@@ -109,21 +109,29 @@ part_emitter_burst(global.part_system_normal, emitter, particle1, 100);
 part_emitter_burst(global.part_system_normal, emitter, particle2, 25);
 
 // Hit Effects
-
-fireballHit = {};
-fireballHit.vars = {
-	damage: 30,
-	emitter: part_emitter_create(global.part_system_normal),
-	emitter_b: part_emitter_create(global.part_system_normal_b),
-	particle1: particle1,
-	particle2: particle2,
-	particle3: particle3,
-	particleSpark: particleSpark,
-	particleSmoke1: particleSmoke1,
-	particleSmoke2: particleSmoke2,
+fireballHit = {vars: {}};
+fireballHit.vars.update = function() {
+	// Shorten variable
+	var s = fireballHit.vars;
+	
+	// Damage
+	s.damage = playerStats.spellPower;
+	
+	// Who cast the spell
+	s.attacker = oPlayer;
+	
+	// Particles
+	s.emitter = part_emitter_create(global.part_system_normal);
+	s.emitter_b = part_emitter_create(global.part_system_normal_b);
+	s.particle1 = particle1;
+	s.particle2 = particle2;
+	s.particle3 = particle3;
+	s.particleSpark	 = particleSpark;
+	s.particleSmoke1 = particleSmoke1;
+	s.particleSmoke2 = particleSmoke2;
 };
 
-fireballHit.vars.attacker = oPlayer;
+fireballHit.vars.update();
 
 fireballHit.apply_effects = function(vars, entityHit) { // The function that runs when the enemy is hit
 	vars.entityHit = entityHit;
