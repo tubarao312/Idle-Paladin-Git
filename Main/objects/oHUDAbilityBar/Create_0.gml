@@ -75,7 +75,7 @@ abilitySlotPrompts = [
 
 abilitySlotPrompts = [ // Keyboard
 	sPromptKeyE,
-	sPromptKeyShiftRight,
+	sPromptKeyShiftLeft,
 	sPromptKeyQ
 ]
 

@@ -24,5 +24,5 @@ if q or w or shift {
 	else if w then slot = abilitySlots[0];
 	else slot = abilitySlots[1];
 	
-	if slot.ability.manaCost <= currentPlayerStats.mana then press_ability_slot(slot);
+	if slot.ability.manaCost <= currentPlayerStats.mana and !currentPlayerStats.resting then press_ability_slot(slot);
 }
