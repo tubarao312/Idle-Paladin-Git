@@ -1,4 +1,4 @@
-function stat_get_bp(statName) {
+function stat_get_bp(stat) {	
 	
-	return global.statBlueprintMap[?statName];
+	return global.statBlueprintMap[?stat];
 }

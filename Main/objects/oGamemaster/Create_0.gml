@@ -109,7 +109,6 @@ global.cursorPriorityLayer = CURSOR_LAYERS.HUD;
 // Room Transitions
 startRoomTransition = false;
 
-
 #endregion
 
 #region Particle System Setup --------------------------------------------------#
@@ -146,10 +145,9 @@ global.delayedFunctions = ds_list_create();
 
 #endregion
 
-#region Item Stats -------------------------------------------------------------#
+#region Item Stats (Mind, Strength, etc...) ------------------------------------#
 
 global.statBlueprintMap = ds_map_create();
-global.statBlueprintList = ds_list_create();
 
 enum STATS {
 	Vit,
@@ -160,19 +158,25 @@ enum STATS {
 	Dex,
 	BaseDamage,
 	BaseDefense,
+	
+	size
 }
 
 // Create all stats
-stat_bp_create("Vitality",	STAT_COLORS.yellow, sStatIconHealth,		"", "");
-stat_bp_create("Mind",		STAT_COLORS.yellow, sStatIconMana,			"", "");
-stat_bp_create("Endurance", STAT_COLORS.yellow, sStatIconThorns,		"", "");
+stat_bp_create("Vitality",	STAT_COLORS.yellow, sStatIconHealth,	STATS.Vit,	"", "");
+stat_bp_create("Mind",		STAT_COLORS.yellow, sStatIconMana,		STATS.Mind,	"", "");
+stat_bp_create("Endurance", STAT_COLORS.yellow, sStatIconThorns,	STATS.End, 	"", "");
 
-stat_bp_create("Strength",		STAT_COLORS.orange, sStatIconCrit,		"", "");
-stat_bp_create("Intelligence",	STAT_COLORS.orange, sStatIconSpell,		"", "");
-stat_bp_create("Dexterity",		STAT_COLORS.orange, sStatIconLuck,		"", "");
+stat_bp_create("Strength",		STAT_COLORS.orange, sStatIconCrit,	STATS.Str,	"", "");
+stat_bp_create("Intelligence",	STAT_COLORS.orange, sStatIconSpell,	STATS.Int,	"", "");
+stat_bp_create("Dexterity",		STAT_COLORS.orange, sStatIconLuck,	STATS.Dex,	"", "");
 
-stat_bp_create("Base Damage",	STAT_COLORS.white, sStatIconDamage,		"", "");
-stat_bp_create("Base Defense",	STAT_COLORS.white, sStatIconDefense,	"", "");
+stat_bp_create("Base Damage",	STAT_COLORS.white, sStatIconDamage,		STATS.BaseDamage,	"", "");
+stat_bp_create("Base Defense",	STAT_COLORS.white, sStatIconDefense,	STATS.BaseDefense,	"", "");
+
+#endregion
+
+#region Player Attributes (Final Damage, Total Health, etc...) -----------------#
 
 #endregion
 
@@ -331,7 +335,7 @@ for (i = 0; i < 60; i++) {
 
 global.rarityArray = [];
 
-enum RARITY {
+enum RARITY { // ID of each rarity
 	common,
 	uncommon,
 	rare,
@@ -340,6 +344,7 @@ enum RARITY {
 	mythical,
 }
 
+// Function to automatically create rarities
 var rarity_create = function(name, ID, color, shadowColor, sinsFont, hopeFont) {
 	var rarity = {};
 	rarity.name = name;
@@ -364,7 +369,7 @@ rarity_create("Mythical",	RARITY.mythical,	$3024c4,	$2b1e89,	global.fontSinsMyth
 	
 #endregion
 
-#region Player Stats -----------------------------------------------------------#
+#region Player Stats & Attributes ----------------------------------------------#
 
 baseStats = { // Baseline stats. playerStats are then calculated using these as baseline
 	// Health
@@ -394,46 +399,46 @@ baseStats = { // Baseline stats. playerStats are then calculated using these as 
 globalvar playerStats; // Max HP instead of current HP (EXAMPLE)
 playerStats = {};
 playerStats.recalculate = function() { // Recalculates player stats based on attributes
-	var attributes = get_equipped_item_stats();
-	print(attributes)
+	var stats = get_equipped_item_stats();
+	print(stats)
 	// Health
-	playerStats.maxHP = baseStats.maxHP + attributes[STATS.Vit] * 5;
-	playerStats.hpRegen = baseStats.hpRegen + attributes[STATS.Vit] * 0.01;
+	playerStats.maxHP = baseStats.maxHP + stats[STATS.Vit] * 5;
+	playerStats.hpRegen = baseStats.hpRegen + stats[STATS.Vit] * 0.01;
 	
 	// Melee Damage
-	playerStats.meleeDamage = (baseStats.meleeDamage + attributes[STATS.BaseDamage]) 
-								* (1 + attributes[STATS.Str] * 0.06)
+	playerStats.meleeDamage = (baseStats.meleeDamage + stats[STATS.BaseDamage]) 
+								* (1 + stats[STATS.Str] * 0.06)
 	
 	// Spell Power
 	playerStats.spellPower = baseStats.spellPower 
-						   + attributes[STATS.Int] * 3;
+						   + stats[STATS.Int] * 3;
 		
 		// Mind over 99 buffs spell power instead
-	if attributes[STATS.Mind] > 99 then playerStats.spellPower *= (1 + 0.01 * (attributes[STATS.Mind] - 99))
+	if stats[STATS.Mind] > 99 then playerStats.spellPower *= (1 + 0.01 * (stats[STATS.Mind] - 99))
 	
 	// Mana
-	playerStats.maxMana = baseStats.maxMana + min(attributes[STATS.Mind] / 11, 9); // Max mana is 10
+	playerStats.maxMana = baseStats.maxMana + min(stats[STATS.Mind] / 11, 9); // Max mana is 10
 	playerStats.manaHitRecoveryRate = baseStats.manaHitRecoveryRate 
-									+ attributes[STATS.Mind] * 0.025
-									+ attributes[STATS.Int]  * 0.015
+									+ stats[STATS.Mind] * 0.025
+									+ stats[STATS.Int]  * 0.015
 									
 	// Stamina
 	playerStats.maxStamina = baseStats.maxStamina +
-						   + attributes[STATS.End] * 1.5
+						   + stats[STATS.End] * 1.5
 	
 	playerStats.restingStaminaRecov = baseStats.restingStaminaRecov
-									+ attributes[STATS.End] * 0.005
-									+ attributes[STATS.Str] * 0.001
+									+ stats[STATS.End] * 0.005
+									+ stats[STATS.Str] * 0.001
 									
 	playerStats.passiveStaminaRecov = baseStats.passiveStaminaRecov
-									+ attributes[STATS.End] * 0.001
+									+ stats[STATS.End] * 0.001
 									
 	// Movement Speed
 	playerStats.spd = baseStats.spd 
-					* (1 + min(attributes[STATS.Dex]/400, 0.25));
+					* (1 + min(stats[STATS.Dex]/400, 0.25));
 					
 	playerStats.restingSpdPenalty = baseStats.restingSpdPenalty
-								  * (1 - min(attributes[STATS.Dex] / 200, 1));
+								  * (1 - min(stats[STATS.Dex] / 200, 1));
 }
 
 playerStats.recalculate(); // Update once before rest of the game starts running
@@ -486,29 +491,36 @@ currentPlayerStats.reset(); // Update once before rest of the game starts runnin
 
 #endregion
 
-#region Stat Tracking ----------------------------------------------------------#
+#region Stat & Attribute Tracking ----------------------------------------------#
 
 /* Explanation:
 	Each global list contains multiple arrays. Each array contains all of the
 	player's attributes.
 */
 
+/* List of Stats:
+	> Vitality, Mind, Endurance, Strength, Intelligence, Dexterity, BaseDamage, BaseDefense */
 enum PLAYER_STAT_LIST_INDEX {
-	base_stats,
-	temporary_effects,
-}
-
-global.playerStatAdditiveList = ds_list_create(); // Gets all summed together
-global.playerStatMultiplicativeList = ds_list_create(); // Gets all multiplied together
-
-enum PLAYER_ATTRIBUTE_LIST_INDEX {
 	base_attributes,
 	armor_attributes,
 	temporary_effects,
+	
+	size
 }
+global.playerStatAddTracker  = tracker_list_create(PLAYER_STAT_LIST_INDEX.size, STATS.size);
+global.playerStatMultTracker = tracker_list_create(PLAYER_STAT_LIST_INDEX.size, STATS.size);
 
-global.playerAttributeAdditiveList = ds_list_create(); // Gets all summed together
-global.playerAttributeMultiplicativeList = ds_list_create(); // Gets all multiplied together
+enum PLAYER_ATTRIBUTE_LIST_INDEX {
+	base_stats,
+	temporary_effects,
+	
+	size
+}
+enum ATTRIBUTES {
+	
+	size
+}
+global.playerAttributeAddTracker  = tracker_list_create(PLAYER_ATTRIBUTE_LIST_INDEX.size, ATTRIBUTES.size);
+global.playerAttributeMultTracker = tracker_list_create(PLAYER_ATTRIBUTE_LIST_INDEX.size, ATTRIBUTES.size);
 
-#endregion ---------------------------------------------------------------------#
-
+#endregion ---------------------------------------------------------------------------------#

@@ -7,7 +7,7 @@ function tracker_list_create(arrayAmount, arraySize) {
 	tracker.arrayAmount = arrayAmount;
 	
 	var i; for (i = 0; i < arrayAmount; i++) { // Adding all the arrays to the list
-		ds_list_add(list, array_create(arraySize, 0));
+		ds_list_add(tracker.list, array_create(arraySize, 0));
 	}
 	
 	return tracker;

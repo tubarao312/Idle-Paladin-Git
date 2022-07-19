@@ -28,10 +28,56 @@ currentPlayerStats.update();
 
 print(playerStats);
 
+#region Developer Mode
+
 // Enable and Disable HUD [TESTING]
 if keyboard_check_pressed(vk_f12) {
 	global.enableHUD = !global.enableHUD;
 }
+
+// Town Room X and Y: (0, 450)
+// Normal Room X and Y: (1110, 430)
+
+// Change Player Superstate
+if keyboard_check_pressed(vk_f1) {
+	with oPlayer change_player_superstate(PLAYER_SUPERSTATES.inTown);
+} else if keyboard_check_pressed(vk_f2) {
+	with oPlayer change_player_superstate(PLAYER_SUPERSTATES.inCombat);
+}
+
+// Moving Rooms
+if keyboard_check_pressed(vk_f10) {
+	var possibleRooms = [rTownHub, rDesert, rGreenpath, rJungle, rMagmaCave, rTundra];
+	
+	var i; // Find Current Room
+	for (i = 0; i < array_length(possibleRooms); i++) {
+		if room == possibleRooms[i] then break;
+	}
+	
+	if i == array_length(possibleRooms)-1 then i = -1; // Loop over
+	i++; // Go to next room
+	
+	// Coordinates to land at
+	var coordX = 0;
+	var coordY = 450;
+	
+	if possibleRooms[i] == rTownHub { // If it's the town, go somewhere else
+		coordX = 1110;
+		coordY = 430;
+	}
+		
+	dev_move_room(possibleRooms[i], coordX, coordY);
+	
+}
+
+function dev_move_room(nextRoom, X, Y) {
+	room_set_next_room(nextRoom, X, Y);
+	room_set_transition_type_begin(2);
+	room_set_transition_type_end(3);
+	room_set_animation_times(0, 60*1.5, 60*0, 60*3);
+}
+
+#endregion
 
 // Cursor Layers System
 // Looks for the first layer that is found and sets it as the active layer
@@ -41,3 +87,5 @@ for (i = CURSOR_LAYERS.size-1; i >= 0; i--) {
 		break;
 	}
 }
+
+

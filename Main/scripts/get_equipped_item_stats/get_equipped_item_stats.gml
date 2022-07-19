@@ -1,7 +1,7 @@
 // Adds together all the stats of the currently equipped items, each
 // stat on the returned array is in the position of its ID (creation order)
 function get_equipped_item_stats() {
-	var stats = array_create(ds_list_size(global.statBlueprintList), 0);
+	var stats = array_create(STATS.size, 0);
 	
 	var i, j;
 	for (i = 0; i < ITEM_TYPES.size; i++) {
