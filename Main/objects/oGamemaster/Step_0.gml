@@ -47,7 +47,7 @@ if keyboard_check_pressed(vk_f1) {
 
 // Moving Rooms
 if keyboard_check_pressed(vk_f10) {
-	var possibleRooms = [rTownHub, rDesert, rGreenpath, rJungle, rMagmaCave, rTundra];
+	var possibleRooms = [rTownHub, rDesert, rGreenpath, rJungle, rMagmaCave, rTundra, rGreenscreen, rGreenscreen];
 	
 	var i; // Find Current Room
 	for (i = 0; i < array_length(possibleRooms); i++) {
