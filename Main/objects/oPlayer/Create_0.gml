@@ -68,16 +68,16 @@ stateFunc[STATES.step] = function() { // Step Walking
 		
 		#region Jumping ---------------------------------------------------------------------------------------------------------
 		if inputs.jump[HELD]then alarm[3] = 3;
-		var jump = physics.onGround and (alarm[3] > 0 or tilemap_get_at_pixel(jumppoint, bbox_right, bbox_bottom - 5));
+		var jump = physics.onGround and (alarm[3] > 0);
 		
 		if jump then state_machine_start_state(superstateMachine, "movement", "jumping");
 			
 		// Controlling how high the jump can go based on holding the jump key
-		if physics.vsp < -9 and !(inputs.jump[HELD] or tilemap_get_at_pixel(jumppoint, bbox_right, bbox_bottom)) then physics.vsp = -9;
+		if physics.vsp < -9 and !(inputs.jump[HELD]) then physics.vsp = -9;
 		
 		// Smoke Particles when landing
 		if physics.onGround and !physics.onGroundPrevious {
-			if !visuals.skipNextGroundSmokeEffect instance_create_layer(x-5, bbox_bottom, "Particles", oJumpSmokeParticle);
+			if !visuals.skipNextGroundSmokeEffect then instance_create_layer(x-5, bbox_bottom, "Particles", oJumpSmokeParticle);
 			visuals.skipNextGroundSmokeEffect = false;
 		}
 		
