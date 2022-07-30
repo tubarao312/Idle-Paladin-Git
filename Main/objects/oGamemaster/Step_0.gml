@@ -26,8 +26,6 @@ while (global.screenfreezeTime > current_time) {
 global.currentFrameEffects.step();
 currentPlayerStats.update();
 
-print(playerStats);
-
 #region Developer Mode
 
 // Enable and Disable HUD [TESTING]

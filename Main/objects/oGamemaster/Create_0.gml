@@ -400,7 +400,7 @@ global.currentFrameEffects.step = function() { // Run each effect's function
 	var i; // Run through the list of effects
 	for (i = 0; i < ds_list_size(global.currentFrameEffects.list); i++) {
 		var effect = global.currentFrameEffects.list[|i];
-		print(effect.name);
+		
 		// Make each effect run its step function
 		effect.step(effect.attributes, global.currentFrameEffects.statSponge);
 	}
@@ -426,6 +426,10 @@ global.currentFrameEffects.step = function() { // Run each effect's function
 		
 		// Melee
 		statSponge.meleeDamage += 3;
+		
+		// Crit
+		statSponge.critChance += 0.15;
+		statSponge.critDamage += 0.5;
 		
 		// Spells
 		statSponge.spellPower += 6;
@@ -457,11 +461,15 @@ global.currentFrameEffects.step = function() { // Run each effect's function
 	attributesToStatsAdd.step = function(attributes, statSponge) {
 		// Health
 		statSponge.maxHP += statSponge.vitality * 5;
-		statSponge.hpRegen += statSponge.vitality * 0.01;
+		statSponge.hpRegen += statSponge.vitality * 0.0033;
 	
 		// Melee Damage
 		statSponge.meleeDamage += statSponge.baseDamage * (1 + statSponge.str * 0.06);
-	
+		
+		// Crit Damage
+		statSponge.critChance += statSponge.dex * 0.0025;
+		statSponge.critDamage += statSponge.dex * 0.0025;
+		
 		// Spell Power
 		statSponge.spellPower += statSponge.int * 3;
 	

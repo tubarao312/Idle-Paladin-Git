@@ -16,6 +16,8 @@ function stat_sponge_create() {
 	
 		// Melee
 		meleeDamage: 0,
+		critChance: 0,
+		critDamage: 0,
 	
 		// Spells
 		spellPower: 0,

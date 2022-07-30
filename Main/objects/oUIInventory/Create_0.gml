@@ -169,7 +169,7 @@ itemGrid.step = function() { // Logic + Drawing
 				var hovered = step_item_card(item, X, Y);
 				if floor(itemGrid.selectedItemArray[i]/2) then draw_sprite_ext(cardSelectedArrowSprites[item.bp.rarity], round(sin(current_time/150) + 1), X, Y, 1, 1, 0, c_white, 1);
 				
-				if hovered and oPlayer.inputs.mbRight[HELD] and !item.locked { // Selecting the item
+				if hovered and oPlayer.inputs.mbRight[HELD] and !item.locked and !item_check_equipped(item) { // Selecting the item
 					if itemGrid.selectedItemArray[i] == SELECTED_CARD_STATE.selectedUnlocked then itemGrid.selectedItemArray[i] = SELECTED_CARD_STATE.unselectedLocked;
 					if itemGrid.selectedItemArray[i] == SELECTED_CARD_STATE.unselectedUnlocked then itemGrid.selectedItemArray[i] = SELECTED_CARD_STATE.selectedLocked;
 				}
@@ -1367,7 +1367,14 @@ function draw_item_card(item, glowing, X, Y, scale) {
 		draw_sprite_ext(itemCardBackgroundSprites[glowing], item.bp.rarity*3 + item.cardBgSkin, X, Y - glowing, scale, scale, 0, c_white, 1);
 	
 		// Favourite Icon
-		if item.locked then draw_sprite(sItemCardFavouriteIcon, item.bp.rarity, X - (14 + glowing)*scale, Y - (19 + glowing*2)*scale);
+		
+		if item_check_equipped(item) {
+			draw_set_font(rarity.sinsFont);
+			draw_set_halign(fa_middle);
+			draw_text_ext_color(X, Y - (28 + glowing*2)*scale, "Equipped", 0, 200, c_white, c_white, c_white, c_white, scale);
+			draw_set_halign(fa_left);
+		
+		} else if item.locked then draw_sprite(sItemCardFavouriteIcon, item.bp.rarity, X - (14 + glowing)*scale, Y - (19 + glowing*2)*scale);
 	
 		// New Icon
 		if item.newlyAcquired then draw_sprite_ext(sItemCardNewIcon, 0, X + 14*scale, Y - (20 + sin(current_time/150))*scale, scale, scale, 0, c_white, 1);

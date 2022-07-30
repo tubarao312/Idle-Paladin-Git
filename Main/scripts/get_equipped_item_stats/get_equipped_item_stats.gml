@@ -8,7 +8,7 @@ function get_equipped_item_stats() {
 		var item = global.equippedItems[i];
 		
 		if item != noone { // Item must be equipped
-			print(item);
+
 			var itemStats = item_instance_get_stats(item);
 			for (j = 0; j < ds_list_size(itemStats); j++) {
 				var stat = itemStats[|j];

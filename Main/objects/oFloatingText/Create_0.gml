@@ -5,3 +5,5 @@ hsp = 0
 vsp = 0
 hacc = 0
 vacc = 0
+
+shake = 0;

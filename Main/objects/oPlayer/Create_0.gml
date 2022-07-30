@@ -984,8 +984,6 @@ itemsPickedUpList = ds_list_create(); // Picking Up Items
 
 var _fps = game_get_speed(gamespeed_fps);
 
-
-
 // Reset Melee
 function reset_melee_for_all_enemies() {
 	with oEnemyParent {
@@ -1091,8 +1089,16 @@ meleeHit.vars.update = function() {
 	// Shortening the variable
 	var s = meleeHit.vars;
 	
+	// Calculating Critical Damage
+	var critStacks = floor(playerStats.critChance);
+	if chance(playerStats.critChance - critStacks) == true {
+		critStacks += 1;
+	}
+	
+	s.critStacks = critStacks;
+	
 	// Update Damage
-	s.damage = playerStats.meleeDamage;
+	s.damage = playerStats.meleeDamage + (playerStats.meleeDamage * critStacks * playerStats.critDamage);
 	
 	// Set who's doing the attack
 	s.attacker = oPlayer;
@@ -1116,7 +1122,16 @@ meleeHit.apply_effects = function(vars, entityHit) { // The function that runs w
 		get_damaged(vars.damage * random_range(0.9,1.1));
 		
 		// Creating Floating Text
-		floating_text(x, y, floor(vars.damage) + round(random_range(0,10)), global.fontHopeWhite);
+		var font = global.fontHopeWhite;
+		var text = string(floor(vars.damage));
+		
+		if vars.critStacks >= 1 {
+			font = global.fontHopeOrangeStats; // Color is orange for 1 crit stack
+			text += "!";
+		}
+		
+		var text = floating_text(x, y, text, font);
+		text.shake = 2.5;
 	
 		// HP Bar Stuff
 		alarm[3] = 3; // Resetting Speed for Yellow Part of HP Bar
