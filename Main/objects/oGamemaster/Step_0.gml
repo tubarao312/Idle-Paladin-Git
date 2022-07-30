@@ -23,7 +23,7 @@ while (global.screenfreezeTime > current_time) {
 }
 
 // Updating Current Player Stats
-playerStats.recalculate();
+global.currentFrameEffects.step();
 currentPlayerStats.update();
 
 print(playerStats);

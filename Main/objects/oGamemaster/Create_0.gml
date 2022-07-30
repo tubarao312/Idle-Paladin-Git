@@ -369,79 +369,134 @@ rarity_create("Mythical",	RARITY.mythical,	$3024c4,	$2b1e89,	global.fontSinsMyth
 	
 #endregion
 
-#region Player Stats & Attributes ----------------------------------------------#
+#region Stat & Attribute Tracking ----------------------------------------------#
 
-baseStats = { // Baseline stats. playerStats are then calculated using these as baseline
-	// Health
-	maxHP: 100,
-	hpRegen: 0,
-	
-	// Melee
-	meleeDamage: 3,
-	
-	// Spells
-	spellPower: 6,
-	
-	// Mana
-	maxMana: 1,
-	manaHitRecoveryRate: 0.5,
-	
-	// Movement Speed
-	spd: 2,
-	restingSpdPenalty: 0.2,
-	
-	// Stamina
-	maxStamina: 30,
-	restingStaminaRecov: 0.05,
-	passiveStaminaRecov: 0.01,
-};
+/* List of Stats:
+	> Vitality, Mind, Endurance, Strength, Intelligence, Dexterity, BaseDamage, BaseDefense */
 
-globalvar playerStats; // Max HP instead of current HP (EXAMPLE)
-playerStats = {};
-playerStats.recalculate = function() { // Recalculates player stats based on attributes
-	var stats = get_equipped_item_stats();
-	print(stats)
-	// Health
-	playerStats.maxHP = baseStats.maxHP + stats[STATS.Vit] * 5;
-	playerStats.hpRegen = baseStats.hpRegen + stats[STATS.Vit] * 0.01;
-	
-	// Melee Damage
-	playerStats.meleeDamage = (baseStats.meleeDamage + stats[STATS.BaseDamage]) 
-								* (1 + stats[STATS.Str] * 0.06)
-	
-	// Spell Power
-	playerStats.spellPower = baseStats.spellPower 
-						   + stats[STATS.Int] * 3;
-		
-		// Mind over 99 buffs spell power instead
-	if stats[STATS.Mind] > 99 then playerStats.spellPower *= (1 + 0.01 * (stats[STATS.Mind] - 99))
-	
-	// Mana
-	playerStats.maxMana = baseStats.maxMana + min(stats[STATS.Mind] / 11, 9); // Max mana is 10
-	playerStats.manaHitRecoveryRate = baseStats.manaHitRecoveryRate 
-									+ stats[STATS.Mind] * 0.025
-									+ stats[STATS.Int]  * 0.015
-									
-	// Stamina
-	playerStats.maxStamina = baseStats.maxStamina +
-						   + stats[STATS.End] * 1.5
-	
-	playerStats.restingStaminaRecov = baseStats.restingStaminaRecov
-									+ stats[STATS.End] * 0.005
-									+ stats[STATS.Str] * 0.001
-									
-	playerStats.passiveStaminaRecov = baseStats.passiveStaminaRecov
-									+ stats[STATS.End] * 0.001
-									
-	// Movement Speed
-	playerStats.spd = baseStats.spd 
-					* (1 + min(stats[STATS.Dex]/400, 0.25));
-					
-	playerStats.restingSpdPenalty = baseStats.restingSpdPenalty
-								  * (1 - min(stats[STATS.Dex] / 200, 1));
+enum EFFECT_DEPTHS {
+	statsAdd,
+	statsMulti,
+	attributesAdd,
+	attributesMulti,
 }
 
-playerStats.recalculate(); // Update once before rest of the game starts running
+/* Each effect inserted into this priority queue through 'add_player_effect' must have the following attributes:
+	> step() --------> a function that runs every frame
+	> attributes{} --> a struct that stores all of the effect's variables
+*/
+
+global.currentFrameEffects = {}; // Object that holds the current effect calculator
+
+global.currentFrameEffects.queue = ds_priority_create(); // Priority Queue with all effects
+global.currentFrameEffects.list = ds_list_create(); // List with all effects
+global.currentFrameEffects.map = ds_map_create(); // Maps currently existing effects to their name
+global.currentFrameEffects.statSponge = stat_sponge_create(); // A struct with all possible stats
+
+global.currentFrameEffects.step = function() { // Run each effect's function
+	global.currentFrameEffects.statSponge = stat_sponge_create();
+	global.currentFrameEffects.list = ds_priority_to_list(global.currentFrameEffects.queue);
+	
+	var i; // Run through the list of effects
+	for (i = 0; i < ds_list_size(global.currentFrameEffects.list); i++) {
+		var effect = global.currentFrameEffects.list[|i];
+		print(effect.name);
+		// Make each effect run its step function
+		effect.step(effect.attributes, global.currentFrameEffects.statSponge);
+	}
+	
+	// Copy stat sponge to player stats
+	playerStats = global.currentFrameEffects.statSponge; 
+}
+
+
+#endregion
+
+#region Player Stats & Attributes ----------------------------------------------#
+
+/* Base Attributes Effect */ {
+	// These are the base attributes of the player character. They are permanently added as an effect
+	var baseAttributes = {};
+	baseAttributes.attributes = {};
+	baseAttributes.name = "Base Attributes";
+	baseAttributes.step = function(attributes, statSponge) {
+		// Health
+		statSponge.maxHP	+= 100;
+		statSponge.hpRegen	+= 0;
+		
+		// Melee
+		statSponge.meleeDamage += 3;
+		
+		// Spells
+		statSponge.spellPower += 6;
+		
+		// Mana
+		statSponge.maxMana += 1;
+		statSponge.manaHitRecoveryRate += 0.5;
+		
+		// Movement Speed
+		statSponge.spd += 2;
+		statSponge.restingSpdPenalty += 0.2;
+		
+		// Stamina
+		statSponge.maxStamina += 30;
+		statSponge.restingStaminaRecov += 0.05;
+		statSponge.passiveStaminaRecov += 0.01;
+		
+	}
+	
+	baseAttributesEffect = effect_create(baseAttributes.step, baseAttributes.name, baseAttributes.attributes);
+	effect_replace(baseAttributesEffect, EFFECT_DEPTHS.attributesAdd);
+}
+
+/* Attributes To Stat Conversion Effect (ADD) */ {
+	// These are the base attributes of the player character. They are permanently added as an effect
+	var attributesToStatsAdd = {};
+	attributesToStatsAdd.attributes = {};
+	attributesToStatsAdd.name = "Attributes To Stats Add";
+	attributesToStatsAdd.step = function(attributes, statSponge) {
+		// Health
+		statSponge.maxHP += statSponge.vitality * 5;
+		statSponge.hpRegen += statSponge.vitality * 0.01;
+	
+		// Melee Damage
+		statSponge.meleeDamage += statSponge.baseDamage * (1 + statSponge.str * 0.06);
+	
+		// Spell Power
+		statSponge.spellPower += statSponge.int * 3;
+	
+		// Mana
+		statSponge.maxMana += min(statSponge.mind / 11, 9); // Max mana is 10
+		statSponge.manaHitRecoveryRate += statSponge.mind * 0.025 + statSponge.int  * 0.015;
+
+		// Stamina
+		statSponge.maxStamina += statSponge.endurance * 1.5;
+		statSponge.restingStaminaRecov += statSponge.endurance * 0.005 + statSponge.str * 0.001;
+		statSponge.passiveStaminaRecov += statSponge.endurance * 0.001;
+	}
+	
+	attributesToStatsAddEffect = effect_create(attributesToStatsAdd.step, attributesToStatsAdd.name, attributesToStatsAdd.attributes);
+	effect_replace(attributesToStatsAddEffect, EFFECT_DEPTHS.statsAdd);
+}
+
+/* Attributes To Stat Conversion Effect (MULTI) */ {
+	// These are the base attributes of the player character. They are permanently added as an effect
+	var attributesToStatsMulti = {};
+	attributesToStatsMulti.attributes = {};
+	attributesToStatsMulti.name = "Attributes To Stats Multi";
+	attributesToStatsMulti.step = function(attributes, statSponge) {
+									
+		// Movement Speed MULTI
+		statSponge.spd *= (1 + min(statSponge.dex/400, 0.25));
+		statSponge.restingSpdPenalty *= (1 - min(statSponge.dex / 200, 1));
+	}
+	
+	attributesToStatsMultiEffect = effect_create(attributesToStatsMulti.step, attributesToStatsMulti.name, attributesToStatsMulti.attributes);
+	effect_replace(attributesToStatsMultiEffect, EFFECT_DEPTHS.statsMulti);
+}
+
+globalvar playerStats; // Max HP instead of current HP (EXAMPLE)
+playerStats = stat_sponge_create();
 
 globalvar currentPlayerStats; // Current HP instead of Max HP (EXAMPLE)
 currentPlayerStats = {};
@@ -490,37 +545,3 @@ currentPlayerStats.update = function() { // Updates current player stats (Add HP
 currentPlayerStats.reset(); // Update once before rest of the game starts running
 
 #endregion
-
-#region Stat & Attribute Tracking ----------------------------------------------#
-
-/* Explanation:
-	Each global list contains multiple arrays. Each array contains all of the
-	player's attributes.
-*/
-
-/* List of Stats:
-	> Vitality, Mind, Endurance, Strength, Intelligence, Dexterity, BaseDamage, BaseDefense */
-enum PLAYER_STAT_LIST_INDEX {
-	base_attributes,
-	armor_attributes,
-	temporary_effects,
-	
-	size
-}
-global.playerStatAddTracker  = tracker_list_create(PLAYER_STAT_LIST_INDEX.size, STATS.size);
-global.playerStatMultTracker = tracker_list_create(PLAYER_STAT_LIST_INDEX.size, STATS.size);
-
-enum PLAYER_ATTRIBUTE_LIST_INDEX {
-	base_stats,
-	temporary_effects,
-	
-	size
-}
-enum ATTRIBUTES {
-	
-	size
-}
-global.playerAttributeAddTracker  = tracker_list_create(PLAYER_ATTRIBUTE_LIST_INDEX.size, ATTRIBUTES.size);
-global.playerAttributeMultTracker = tracker_list_create(PLAYER_ATTRIBUTE_LIST_INDEX.size, ATTRIBUTES.size);
-
-#endregion ---------------------------------------------------------------------------------#

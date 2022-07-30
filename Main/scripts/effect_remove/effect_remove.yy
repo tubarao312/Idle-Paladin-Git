@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Attribute and Stat Tracking",
-    "path": "folders/Scripts/Attribute and Stat Tracking.yy",
+    "name": "Player Effects",
+    "path": "folders/Scripts/Player Effects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tracker_list_create",
+  "name": "effect_remove",
   "tags": [],
   "resourceType": "GMScript",
 }
